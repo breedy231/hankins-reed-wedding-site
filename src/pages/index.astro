@@ -1,0 +1,48 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Navigation from '../components/Navigation.astro';
+import Footer from '../components/Footer.astro';
+import weddingData from '../data/wedding.json';
+
+// Format the wedding date
+const weddingDate = new Date(weddingData.date + 'T00:00:00');
+const formattedDate = weddingDate.toLocaleDateString('en-US', {
+  weekday: 'long',
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric',
+});
+---
+
+<BaseLayout title="Home" description="Join us to celebrate our wedding">
+  <Navigation slot="header" />
+
+  <!-- Hero Section -->
+  <section class="flex min-h-[60vh] flex-col items-center justify-center px-4 py-12 text-center">
+    <p class="mb-4 text-lg text-neutral-600">Together with their families</p>
+
+    <h1 class="font-display text-4xl text-neutral-900 md:text-5xl lg:text-6xl">
+      {weddingData.couple.person1}
+      <span class="block text-primary-500">&</span>
+      {weddingData.couple.person2}
+    </h1>
+
+    <p class="mt-6 text-lg text-neutral-600">invite you to celebrate their wedding</p>
+
+    <div class="mt-8 rounded-lg bg-primary-50 px-6 py-4">
+      <p class="font-semibold text-primary-700">{formattedDate}</p>
+      <p class="mt-1 text-primary-600">{weddingData.location}</p>
+    </div>
+  </section>
+
+  <!-- Welcome Message -->
+  <section class="mx-auto max-w-2xl px-4 py-12 text-center">
+    <h2 class="font-display text-2xl text-neutral-900 md:text-3xl">We can't wait to celebrate with you!</h2>
+    <p class="mt-4 text-neutral-700">
+      Please explore this site for all the details about our wedding day, travel information, and more. We're so
+      excited to have you join us.
+    </p>
+  </section>
+
+  <Footer slot="footer" />
+</BaseLayout>

@@ -1,0 +1,74 @@
+---
+interface NavItem {
+  href: string;
+  label: string;
+  icon: string;
+}
+
+const navItems: NavItem[] = [
+  { href: '/', label: 'Home', icon: '🏠' },
+  { href: '/details', label: 'Details', icon: '📋' },
+  { href: '/travel', label: 'Travel', icon: '✈️' },
+  { href: '/faq', label: 'FAQ', icon: '❓' },
+  { href: '/our-story', label: 'Our Story', icon: '💕' },
+];
+
+const currentPath = Astro.url.pathname;
+---
+
+<!-- Mobile bottom navigation -->
+<nav
+  class="fixed bottom-0 left-0 right-0 z-40 border-t border-neutral-200 bg-white/95 backdrop-blur-sm md:hidden"
+  aria-label="Main navigation"
+>
+  <ul class="flex items-center justify-around">
+    {navItems.map((item) => {
+      const isActive = currentPath === item.href || (item.href !== '/' && currentPath.startsWith(item.href));
+      return (
+        <li>
+          <a
+            href={item.href}
+            class:list={[
+              'touch-target flex flex-col items-center justify-center gap-1 px-2 py-2 text-xs transition-colors',
+              isActive
+                ? 'text-primary-600'
+                : 'text-neutral-600 hover:text-primary-500',
+            ]}
+            aria-current={isActive ? 'page' : undefined}
+          >
+            <span class="text-lg" aria-hidden="true">{item.icon}</span>
+            <span>{item.label}</span>
+          </a>
+        </li>
+      );
+    })}
+  </ul>
+</nav>
+
+<!-- Desktop top navigation -->
+<header class="sticky top-0 z-40 hidden border-b border-neutral-200 bg-white/95 backdrop-blur-sm md:block">
+  <nav class="mx-auto max-w-5xl px-4" aria-label="Main navigation">
+    <ul class="flex items-center justify-center gap-1">
+      {navItems.map((item) => {
+        const isActive = currentPath === item.href || (item.href !== '/' && currentPath.startsWith(item.href));
+        return (
+          <li>
+            <a
+              href={item.href}
+              class:list={[
+                'touch-target flex items-center gap-2 rounded-md px-4 py-3 font-medium transition-colors',
+                isActive
+                  ? 'bg-primary-50 text-primary-600'
+                  : 'text-neutral-700 hover:bg-neutral-100 hover:text-primary-500',
+              ]}
+              aria-current={isActive ? 'page' : undefined}
+            >
+              <span aria-hidden="true">{item.icon}</span>
+              <span>{item.label}</span>
+            </a>
+          </li>
+        );
+      })}
+    </ul>
+  </nav>
+</header>
