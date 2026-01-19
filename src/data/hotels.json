@@ -1,0 +1,31 @@
+{
+  "hotels": [
+    {
+      "name": "The Langham Chicago",
+      "address": "330 N Wabash Ave, Chicago, IL 60611",
+      "priceRange": "$$$$",
+      "distance": "0.5 miles",
+      "bookingUrl": null,
+      "blockCode": null,
+      "blockDeadline": null
+    },
+    {
+      "name": "Hotel Chicago Downtown",
+      "address": "333 N Dearborn St, Chicago, IL 60654",
+      "priceRange": "$$$",
+      "distance": "0.8 miles",
+      "bookingUrl": null,
+      "blockCode": null,
+      "blockDeadline": null
+    },
+    {
+      "name": "Hampton Inn Chicago Downtown",
+      "address": "33 W Illinois St, Chicago, IL 60654",
+      "priceRange": "$$",
+      "distance": "1.2 miles",
+      "bookingUrl": null,
+      "blockCode": null,
+      "blockDeadline": null
+    }
+  ]
+}

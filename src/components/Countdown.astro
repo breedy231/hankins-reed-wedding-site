@@ -1,0 +1,104 @@
+---
+import weddingData from '../data/wedding.json';
+
+// Wedding date with time in Chicago timezone
+const weddingDateString = `${weddingData.date}T${weddingData.time}:00`;
+---
+
+<section id="countdown" class="bg-white px-4 py-16 text-center">
+  <h2 class="font-display text-3xl text-neutral-900 md:text-4xl">Counting Down</h2>
+
+  <div
+    id="countdown-display"
+    class="mx-auto mt-8 max-w-2xl"
+    data-wedding-date={weddingDateString}
+    aria-live="polite"
+    aria-atomic="true"
+  >
+    <!-- Server-rendered initial state (no JS) -->
+    <div class="countdown-grid grid grid-cols-2 gap-4 sm:grid-cols-4">
+      <div class="countdown-item rounded-lg bg-primary-50 p-4">
+        <span class="countdown-value block font-display text-4xl text-primary-600 md:text-5xl" data-unit="days">---</span>
+        <span class="mt-1 block text-sm text-neutral-600">Days</span>
+      </div>
+      <div class="countdown-item rounded-lg bg-primary-50 p-4">
+        <span class="countdown-value block font-display text-4xl text-primary-600 md:text-5xl" data-unit="hours">--</span>
+        <span class="mt-1 block text-sm text-neutral-600">Hours</span>
+      </div>
+      <div class="countdown-item rounded-lg bg-primary-50 p-4">
+        <span class="countdown-value block font-display text-4xl text-primary-600 md:text-5xl" data-unit="minutes">--</span>
+        <span class="mt-1 block text-sm text-neutral-600">Minutes</span>
+      </div>
+      <div class="countdown-item rounded-lg bg-primary-50 p-4">
+        <span class="countdown-value block font-display text-4xl text-primary-600 md:text-5xl" data-unit="seconds">--</span>
+        <span class="mt-1 block text-sm text-neutral-600">Seconds</span>
+      </div>
+    </div>
+
+    <!-- Shows when wedding date has passed -->
+    <div class="married-message hidden">
+      <p class="font-display text-4xl text-primary-600 md:text-5xl">We're Married!</p>
+      <p class="mt-4 text-neutral-600">Thank you for celebrating with us</p>
+    </div>
+  </div>
+</section>
+
+<script>
+  function initCountdown() {
+    const display = document.getElementById('countdown-display');
+    if (!display) return;
+
+    const weddingDateStr = display.dataset.weddingDate;
+    if (!weddingDateStr) return;
+
+    const weddingDate = new Date(weddingDateStr);
+    const grid = display.querySelector('.countdown-grid') as HTMLElement | null;
+    const marriedMessage = display.querySelector('.married-message') as HTMLElement | null;
+
+    const daysEl = display.querySelector('[data-unit="days"]');
+    const hoursEl = display.querySelector('[data-unit="hours"]');
+    const minutesEl = display.querySelector('[data-unit="minutes"]');
+    const secondsEl = display.querySelector('[data-unit="seconds"]');
+
+    function updateCountdown() {
+      const now = new Date();
+      const diff = weddingDate.getTime() - now.getTime();
+
+      if (diff <= 0) {
+        // Wedding has passed
+        if (grid) grid.classList.add('hidden');
+        if (marriedMessage) marriedMessage.classList.remove('hidden');
+        return false; // Stop updating
+      }
+
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+      if (daysEl) daysEl.textContent = days.toString();
+      if (hoursEl) hoursEl.textContent = hours.toString().padStart(2, '0');
+      if (minutesEl) minutesEl.textContent = minutes.toString().padStart(2, '0');
+      if (secondsEl) secondsEl.textContent = seconds.toString().padStart(2, '0');
+
+      return true; // Continue updating
+    }
+
+    // Initial update
+    if (updateCountdown()) {
+      // Update every second
+      const interval = setInterval(() => {
+        if (!updateCountdown()) {
+          clearInterval(interval);
+        }
+      }, 1000);
+    }
+  }
+
+  // Initialize when DOM is ready
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initCountdown);
+  } else {
+    initCountdown();
+  }
+</script>

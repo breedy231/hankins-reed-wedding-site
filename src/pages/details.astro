@@ -2,14 +2,105 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Navigation from '../components/Navigation.astro';
 import Footer from '../components/Footer.astro';
+import Timeline from '../components/Timeline.astro';
+import VenueCard from '../components/VenueCard.astro';
+import venuesData from '../data/venues.json';
+
+// Format times for display
+function formatTime(time24: string): string {
+  const [hours, minutes] = time24.split(':').map(Number);
+  const period = hours >= 12 ? 'PM' : 'AM';
+  const hours12 = hours % 12 || 12;
+  return `${hours12}:${minutes.toString().padStart(2, '0')} ${period}`;
+}
+
+const timelineEvents = [
+  {
+    time: formatTime(venuesData.ceremony.time),
+    title: 'Ceremony',
+    description: 'Please be seated 15 minutes prior',
+  },
+  {
+    time: formatTime(venuesData.reception.time),
+    title: 'Cocktail Hour',
+    description: 'Drinks and appetizers',
+  },
+  {
+    time: '7:00 PM',
+    title: 'Reception',
+    description: 'Dinner, dancing, and celebration',
+  },
+  {
+    time: '11:00 PM',
+    title: 'Last Dance',
+    description: 'End of the evening',
+  },
+];
 ---
 
-<BaseLayout title="Details" description="Wedding day details and schedule">
+<BaseLayout title="Details" description="Wedding day schedule, venue information, and what to expect">
   <Navigation slot="header" />
 
-  <section class="mx-auto max-w-2xl px-4 py-12 text-center">
-    <h1 class="font-display text-3xl text-neutral-900 md:text-4xl">Wedding Details</h1>
-    <p class="mt-6 text-neutral-600">Coming soon...</p>
+  <!-- Page Header -->
+  <section class="bg-gradient-to-b from-primary-50 to-white px-4 py-12 text-center">
+    <h1 class="font-display text-4xl text-neutral-900 md:text-5xl">Wedding Details</h1>
+    <p class="mt-4 text-neutral-600">Everything you need to know about our big day</p>
+  </section>
+
+  <!-- Schedule/Timeline -->
+  <section class="px-4 py-12" aria-labelledby="schedule-heading">
+    <div class="mx-auto max-w-4xl">
+      <h2 id="schedule-heading" class="mb-8 text-center font-display text-3xl text-neutral-900">Schedule</h2>
+      <Timeline events={timelineEvents} />
+    </div>
+  </section>
+
+  <!-- Venues -->
+  <section class="bg-neutral-100 px-4 py-12" aria-labelledby="venues-heading">
+    <div class="mx-auto max-w-4xl">
+      <h2 id="venues-heading" class="mb-8 text-center font-display text-3xl text-neutral-900">Venues</h2>
+      <div class="grid gap-6 md:grid-cols-2">
+        <VenueCard
+          name={venuesData.ceremony.name}
+          type="ceremony"
+          address={venuesData.ceremony.address}
+          time={formatTime(venuesData.ceremony.time)}
+        />
+        <VenueCard
+          name={venuesData.reception.name}
+          type="reception"
+          address={venuesData.reception.address}
+          time={formatTime(venuesData.reception.time)}
+        />
+      </div>
+    </div>
+  </section>
+
+  <!-- Dress Code -->
+  <section class="px-4 py-12" aria-labelledby="dresscode-heading">
+    <div class="mx-auto max-w-2xl text-center">
+      <h2 id="dresscode-heading" class="mb-4 font-display text-3xl text-neutral-900">Dress Code</h2>
+      <p class="text-xl font-medium text-primary-600">Cocktail Attire</p>
+      <p class="mt-4 text-neutral-600">
+        We kindly request cocktail attire for our celebration. Think elegant but comfortable &mdash; it's going to be a
+        party!
+      </p>
+    </div>
+  </section>
+
+  <!-- Weather Note -->
+  <section class="bg-primary-50 px-4 py-12" aria-labelledby="weather-heading">
+    <div class="mx-auto max-w-2xl text-center">
+      <h2 id="weather-heading" class="mb-4 font-display text-3xl text-neutral-900">Chicago in September</h2>
+      <p class="text-neutral-700">
+        September in Chicago typically offers pleasant weather with average temperatures between 55&deg;F and 75&deg;F
+        (13&deg;C - 24&deg;C). While we're hoping for a beautiful day, Chicago weather can be unpredictable!
+      </p>
+      <p class="mt-4 text-neutral-700">
+        We recommend bringing a light layer for the evening, and ladies may want to consider a wrap or jacket for
+        outdoor photos.
+      </p>
+    </div>
   </section>
 
   <Footer slot="footer" />
