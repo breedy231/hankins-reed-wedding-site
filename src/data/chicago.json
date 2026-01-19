@@ -1,0 +1,143 @@
+{
+  "restaurants": [
+    {
+      "name": "Girl & The Goat",
+      "cuisine": "New American",
+      "neighborhood": "West Loop",
+      "description": "James Beard Award winner Stephanie Izard's flagship restaurant with creative, bold flavors.",
+      "priceRange": "$$$",
+      "reservations": true
+    },
+    {
+      "name": "Au Cheval",
+      "cuisine": "American Diner",
+      "neighborhood": "West Loop",
+      "description": "Famous for their double cheeseburger - widely considered one of the best in America.",
+      "priceRange": "$$",
+      "reservations": false
+    },
+    {
+      "name": "Portillo's",
+      "cuisine": "Chicago Fast Food",
+      "neighborhood": "River North",
+      "description": "Iconic Chicago chain for Italian beef, Chicago-style hot dogs, and chocolate cake.",
+      "priceRange": "$",
+      "reservations": false
+    },
+    {
+      "name": "Lou Malnati's",
+      "cuisine": "Pizza",
+      "neighborhood": "Multiple Locations",
+      "description": "Deep dish pizza institution since 1971. The butter crust is legendary.",
+      "priceRange": "$$",
+      "reservations": true
+    },
+    {
+      "name": "Frontera Grill",
+      "cuisine": "Mexican",
+      "neighborhood": "River North",
+      "description": "Rick Bayless's celebrated Mexican restaurant featuring regional dishes and incredible moles.",
+      "priceRange": "$$$",
+      "reservations": true
+    },
+    {
+      "name": "Alinea",
+      "cuisine": "Molecular Gastronomy",
+      "neighborhood": "Lincoln Park",
+      "description": "Three-Michelin-star dining experience. Book months in advance for this culinary journey.",
+      "priceRange": "$$$$",
+      "reservations": true
+    },
+    {
+      "name": "Pequod's Pizza",
+      "cuisine": "Pizza",
+      "neighborhood": "Lincoln Park",
+      "description": "Caramelized cheese crust deep dish that rivals any in the city. Local favorite.",
+      "priceRange": "$$",
+      "reservations": false
+    }
+  ],
+  "activities": [
+    {
+      "name": "Chicago Architecture Boat Tour",
+      "type": "Tour",
+      "description": "Cruise the Chicago River while learning about the city's world-famous architecture. Book with Chicago Architecture Center.",
+      "duration": "90 minutes",
+      "bestFor": "First-time visitors, architecture lovers"
+    },
+    {
+      "name": "Art Institute of Chicago",
+      "type": "Museum",
+      "description": "World-class art museum featuring iconic works including American Gothic and A Sunday Afternoon on the Island of La Grande Jatte.",
+      "duration": "2-4 hours",
+      "bestFor": "Art enthusiasts, rainy days"
+    },
+    {
+      "name": "Millennium Park & Cloud Gate",
+      "type": "Park",
+      "description": "See 'The Bean,' stroll through Lurie Garden, and enjoy free summer concerts at the Pritzker Pavilion.",
+      "duration": "1-2 hours",
+      "bestFor": "Everyone, photo opportunities"
+    },
+    {
+      "name": "Navy Pier",
+      "type": "Entertainment",
+      "description": "Iconic pier with a Ferris wheel, restaurants, shops, and lake views. Great for families.",
+      "duration": "2-3 hours",
+      "bestFor": "Families, casual visitors"
+    },
+    {
+      "name": "Skydeck Chicago (Willis Tower)",
+      "type": "Observation",
+      "description": "Step onto The Ledge, a glass floor 1,353 feet above the ground with views of four states.",
+      "duration": "1-2 hours",
+      "bestFor": "Thrill seekers, views"
+    },
+    {
+      "name": "Chicago Riverwalk",
+      "type": "Walk",
+      "description": "1.25-mile pedestrian path along the river with bars, restaurants, and kayak rentals.",
+      "duration": "1-2 hours",
+      "bestFor": "Evening strolls, drinks"
+    },
+    {
+      "name": "Second City Comedy Show",
+      "type": "Entertainment",
+      "description": "Legendary improv comedy theater that launched careers of Tina Fey, Steve Carell, and more.",
+      "duration": "2 hours",
+      "bestFor": "Comedy fans, date nights"
+    }
+  ],
+  "neighborhoods": [
+    {
+      "name": "River North",
+      "vibe": "Upscale & Lively",
+      "highlights": ["Art galleries", "Trendy restaurants", "Nightlife"],
+      "description": "High-energy neighborhood with great dining, galleries, and nightlife."
+    },
+    {
+      "name": "West Loop",
+      "vibe": "Foodie Paradise",
+      "highlights": ["Restaurant Row", "Fulton Market", "Boutique hotels"],
+      "description": "Former meatpacking district turned culinary destination. Home to many celebrity chef restaurants."
+    },
+    {
+      "name": "Lincoln Park",
+      "vibe": "Charming & Green",
+      "highlights": ["Free zoo", "Nature museum", "Beautiful brownstones"],
+      "description": "Family-friendly neighborhood with the free Lincoln Park Zoo and gorgeous tree-lined streets."
+    },
+    {
+      "name": "Wicker Park/Bucktown",
+      "vibe": "Hip & Artsy",
+      "highlights": ["Vintage shopping", "Live music", "Coffee shops"],
+      "description": "Trendy neighborhood with independent boutiques, great bars, and artistic vibe."
+    },
+    {
+      "name": "The Loop",
+      "vibe": "Urban Core",
+      "highlights": ["Architecture", "Theater district", "Millennium Park"],
+      "description": "Downtown Chicago with iconic architecture, world-class theater, and major attractions."
+    }
+  ]
+}

@@ -26,6 +26,10 @@ const siteTitle = `${title} | Reed Wedding`;
     <meta name="theme-color" content="#d946ef" />
 
     <title>{siteTitle}</title>
+
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="/manifest.json" />
+    <link rel="apple-touch-icon" href="/icons/icon-192.png" />
   </head>
   <body class="flex min-h-dvh flex-col">
     <!-- Skip link for accessibility -->
@@ -43,6 +47,17 @@ const siteTitle = `${title} | Reed Wedding`;
     </main>
 
     <slot name="footer" />
+
+    <!-- Service Worker Registration -->
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('/sw.js').catch((error) => {
+            console.log('ServiceWorker registration failed:', error);
+          });
+        });
+      }
+    </script>
   </body>
 </html>
 
