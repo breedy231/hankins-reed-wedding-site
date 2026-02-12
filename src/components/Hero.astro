@@ -12,30 +12,30 @@ const formattedDate = weddingDate.toLocaleDateString('en-US', {
 ---
 
 <section
-  class="relative flex min-h-svh flex-col items-center justify-center bg-gradient-to-b from-primary-50 via-white to-primary-100 px-4 py-12 text-center"
+  class="relative flex min-h-svh flex-col items-center justify-center bg-gradient-to-b from-cream via-white to-light-cream px-4 py-12 text-center"
   aria-label="Wedding announcement"
 >
   <!-- Decorative elements -->
   <div class="absolute inset-0 overflow-hidden" aria-hidden="true">
-    <div class="absolute -left-20 -top-20 h-72 w-72 rounded-full bg-primary-200 opacity-30 blur-3xl"></div>
-    <div class="absolute -bottom-20 -right-20 h-72 w-72 rounded-full bg-primary-200 opacity-30 blur-3xl"></div>
+    <div class="absolute -left-20 -top-20 h-72 w-72 rounded-full bg-dusty-rose opacity-30 blur-3xl"></div>
+    <div class="absolute -bottom-20 -right-20 h-72 w-72 rounded-full bg-dusty-rose opacity-30 blur-3xl"></div>
   </div>
 
   <!-- Content -->
   <div class="relative z-10">
-    <p class="mb-4 text-lg text-neutral-600">Together with their families</p>
+    <p class="mb-4 text-lg text-text-muted">Together with their families</p>
 
-    <h1 class="font-display text-5xl text-neutral-900 md:text-6xl lg:text-7xl">
+    <h1 class="font-display text-5xl text-navy md:text-6xl lg:text-7xl">
       {weddingData.couple.person1}
-      <span class="my-2 block text-primary-500">&</span>
+      <span class="my-2 block text-coral">&</span>
       {weddingData.couple.person2}
     </h1>
 
-    <p class="mt-6 text-lg text-neutral-600">invite you to celebrate their wedding</p>
+    <p class="mt-6 text-lg text-text-muted">invite you to celebrate their wedding</p>
 
-    <div class="mt-8 rounded-lg border border-primary-200 bg-white/80 px-8 py-6 shadow-sm backdrop-blur-sm">
-      <p class="text-xl font-semibold text-primary-700">{formattedDate}</p>
-      <p class="mt-2 text-primary-600">{weddingData.location}</p>
+    <div class="mt-8 rounded-lg border border-dusty-rose bg-white/80 px-8 py-6 shadow-sm backdrop-blur-sm">
+      <p class="text-xl font-semibold text-coral-dark">{formattedDate}</p>
+      <p class="mt-2 text-coral">{weddingData.location}</p>
     </div>
   </div>
 
@@ -43,7 +43,7 @@ const formattedDate = weddingDate.toLocaleDateString('en-US', {
   <div class="absolute bottom-8 left-1/2 -translate-x-1/2" aria-hidden="true">
     <a
       href="#countdown"
-      class="touch-target flex flex-col items-center justify-center text-neutral-500 transition-colors hover:text-primary-500"
+      class="touch-target flex flex-col items-center justify-center text-text-muted transition-colors hover:text-coral"
       aria-label="Scroll to see more"
     >
       <span class="mb-2 text-sm">Scroll</span>

@@ -2,7 +2,7 @@
 
 ## Project Overview
 
-You are building a wedding website for Brendan's wedding (~150-175 guests, Chicago, Summer 2026).
+You are building a wedding website for Brendan & Scott's wedding (~150-175 guests, Allium in Fulton Market, Chicago, September 12, 2026).
 
 **Primary Goal**: Create a fast, accessible, mobile-first static website that helps guests find wedding information easily.
 
@@ -59,7 +59,7 @@ const { title, description = 'Default description' } = Astro.props;
 
 <section class="py-8 md:py-12">
   <h2 class="text-2xl font-display">{title}</h2>
-  {description && <p class="text-neutral-700">{description}</p>}
+  {description && <p class="text-text-muted">{description}</p>}
   <slot />
 </section>
 ```
@@ -80,17 +80,50 @@ npm run lint          # Must pass
 
 ## Design System Quick Reference
 
-**Colors**:
-- Primary: `#d946ef` (fuchsia-500)
-- Text: `#171717` (neutral-900)
-- Background: `#fafafa` (neutral-50)
+### Color Palette — Warm Sunset
 
-**Fonts**:
-- Display: `font-display` (Dancing Script)
-- Body: `font-body` (Quicksand)
+| Token | Hex | Usage |
+|-------|-----|-------|
+| `coral` | `#F96854` | **Primary** — CTA buttons, links, accents |
+| `coral-dark` | `#e0573f` | Hover states for primary |
+| `navy` | `#0D1240` | Dark text, footer backgrounds |
+| `navy-light` | `#1a2050` | Footer gradient end |
+| `cream` | `#fdf8f2` | Page background |
+| `light-cream` | `#faf6f1` | Card sections, alternating backgrounds |
+| `butter` | `#FDEC82` | Light accent, highlights, tags |
+| `dusty-rose` | `#E58B8B` | Soft accent, borders, hover tints |
+| `salmon` | `#F4845F` | Secondary accent, gradients |
+| `warm-orange` | `#E8891B` | Warm highlight, icons |
+| `text-muted` | `#686e77` | Secondary text, captions |
+| `light-gray` | `#dde1e4` | Card borders, dividers |
 
-**Touch Targets**:
-- Minimum: `min-h-[48px] min-w-[48px]`
+### Fonts
+
+| Token | Family | Usage |
+|-------|--------|-------|
+| `font-display` | Cormorant Garamond (serif) | Headings, couple names, page titles |
+| `font-body` | Nunito (sans-serif) | Body text, paragraphs |
+| `font-ui` | Space Grotesk (sans-serif) | Nav links, buttons, labels, eyebrow text |
+
+### Typography Scale
+
+| Element | Font | Size | Weight | Extras |
+|---------|------|------|--------|--------|
+| Names (hero) | display | clamp(3.5rem, 12vw, 5.5rem) | 400 | — |
+| Page titles | display | 2.5rem | 400 | — |
+| Section titles | display | 2.2rem | 400 | — |
+| Card titles | display | 1.3rem | 600 | — |
+| Body text | body | 18px (1.125rem) | 400 | line-height: 1.7 |
+| Nav links | ui | 0.85rem | 600 | uppercase, ls: 1.5px |
+| Buttons | ui | 0.95rem | 600 | uppercase, ls: 1px |
+| Eyebrow/Labels | ui | 0.8-0.9rem | 500-600 | uppercase, ls: 3-4px |
+
+### Component Patterns
+
+- **Buttons**: `rounded-full` (pill), coral bg, white text, `font-ui`
+- **Cards**: `rounded-2xl`, white bg, 2px transparent border, hover → translateY(-4px) + shadow + coral border
+- **Sections**: `py-24` padding, alternating cream/white/light-cream backgrounds
+- **Touch targets**: `min-h-12 min-w-12` (48px minimum)
 
 ## When Things Go Wrong
 

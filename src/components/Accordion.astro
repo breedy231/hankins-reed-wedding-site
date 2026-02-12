@@ -14,18 +14,18 @@ const { items } = Astro.props;
 <div class="accordion space-y-4">
   {
     items.map((item, index) => (
-      <div class="accordion-item rounded-lg border border-neutral-200 bg-white">
+      <div class="accordion-item rounded-lg border border-light-gray bg-white">
         <h3>
           <button
             type="button"
-            class="touch-target flex w-full items-center justify-between gap-4 px-6 py-4 text-left font-semibold text-neutral-900 transition-colors hover:bg-neutral-50 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-primary-500"
+            class="touch-target flex w-full items-center justify-between gap-4 px-6 py-4 text-left font-semibold text-navy transition-colors hover:bg-cream focus:outline-none focus:ring-2 focus:ring-inset focus:ring-coral"
             aria-expanded="false"
             aria-controls={`accordion-panel-${index}`}
             id={`accordion-trigger-${index}`}
           >
             <span>{item.question}</span>
             <svg
-              class="accordion-icon h-5 w-5 flex-shrink-0 text-primary-500 transition-transform duration-200"
+              class="accordion-icon h-5 w-5 flex-shrink-0 text-coral transition-transform duration-200"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
@@ -43,7 +43,7 @@ const { items } = Astro.props;
           class="accordion-panel"
           hidden
         >
-          <div class="px-6 pb-4 text-neutral-700">
+          <div class="px-6 pb-4 text-navy">
             <p set:html={item.answer} />
           </div>
         </div>

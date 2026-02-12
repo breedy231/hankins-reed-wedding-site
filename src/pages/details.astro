@@ -42,23 +42,23 @@ const timelineEvents = [
   <Navigation slot="header" />
 
   <!-- Page Header -->
-  <section class="bg-gradient-to-b from-primary-50 to-white px-4 py-12 text-center">
-    <h1 class="font-display text-4xl text-neutral-900 md:text-5xl">Wedding Details</h1>
-    <p class="mt-4 text-neutral-600">Everything you need to know about our big day</p>
+  <section class="bg-gradient-to-b from-light-cream to-white px-4 py-12 text-center">
+    <h1 class="font-display text-4xl text-navy md:text-5xl">Wedding Details</h1>
+    <p class="mt-4 text-text-muted">Everything you need to know about our big day</p>
   </section>
 
   <!-- Schedule/Timeline -->
   <section class="px-4 py-12" aria-labelledby="schedule-heading">
     <div class="mx-auto max-w-4xl">
-      <h2 id="schedule-heading" class="mb-8 text-center font-display text-3xl text-neutral-900">Schedule</h2>
+      <h2 id="schedule-heading" class="mb-8 text-center font-display text-3xl text-navy">Schedule</h2>
       <Timeline events={timelineEvents} />
     </div>
   </section>
 
   <!-- Venues -->
-  <section class="bg-neutral-100 px-4 py-12" aria-labelledby="venues-heading">
+  <section class="bg-light-cream px-4 py-12" aria-labelledby="venues-heading">
     <div class="mx-auto max-w-4xl">
-      <h2 id="venues-heading" class="mb-8 text-center font-display text-3xl text-neutral-900">Venues</h2>
+      <h2 id="venues-heading" class="mb-8 text-center font-display text-3xl text-navy">Venues</h2>
       <div class="grid gap-6 md:grid-cols-2">
         <VenueCard
           name={venuesData.ceremony.name}
@@ -79,9 +79,9 @@ const timelineEvents = [
   <!-- Dress Code -->
   <section class="px-4 py-12" aria-labelledby="dresscode-heading">
     <div class="mx-auto max-w-2xl text-center">
-      <h2 id="dresscode-heading" class="mb-4 font-display text-3xl text-neutral-900">Dress Code</h2>
-      <p class="text-xl font-medium text-primary-600">Cocktail Attire</p>
-      <p class="mt-4 text-neutral-600">
+      <h2 id="dresscode-heading" class="mb-4 font-display text-3xl text-navy">Dress Code</h2>
+      <p class="text-xl font-medium text-coral">Cocktail Attire</p>
+      <p class="mt-4 text-text-muted">
         We kindly request cocktail attire for our celebration. Think elegant but comfortable &mdash; it's going to be a
         party!
       </p>
@@ -89,14 +89,14 @@ const timelineEvents = [
   </section>
 
   <!-- Weather Note -->
-  <section class="bg-primary-50 px-4 py-12" aria-labelledby="weather-heading">
+  <section class="bg-light-cream px-4 py-12" aria-labelledby="weather-heading">
     <div class="mx-auto max-w-2xl text-center">
-      <h2 id="weather-heading" class="mb-4 font-display text-3xl text-neutral-900">Chicago in September</h2>
-      <p class="text-neutral-700">
+      <h2 id="weather-heading" class="mb-4 font-display text-3xl text-navy">Chicago in September</h2>
+      <p class="text-navy">
         September in Chicago typically offers pleasant weather with average temperatures between 55&deg;F and 75&deg;F
         (13&deg;C - 24&deg;C). While we're hoping for a beautiful day, Chicago weather can be unpredictable!
       </p>
-      <p class="mt-4 text-neutral-700">
+      <p class="mt-4 text-navy">
         We recommend bringing a light layer for the evening, and ladies may want to consider a wrap or jacket for
         outdoor photos.
       </p>

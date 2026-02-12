@@ -51,9 +51,12 @@ npm run validate      # typecheck + lint + build
 
 ## Design System
 
-- **Display font**: Dancing Script (headings, couple names only)
-- **Body font**: Quicksand (everything else)
-- **Primary color**: #d946ef (customizable)
+- **Display font**: Cormorant Garamond (headings, couple names — serif)
+- **Body font**: Nunito (body text — sans-serif)
+- **UI font**: Space Grotesk (buttons, nav, labels — sans-serif)
+- **Primary color**: #F96854 (coral)
+- **Dark text**: #0D1240 (navy)
+- **Page background**: #fdf8f2 (cream)
 - **Min body text**: 18px
 - **Touch targets**: 48x48px minimum
 

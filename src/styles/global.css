@@ -5,21 +5,32 @@
 
 /* Design System - Tailwind 4 theme configuration */
 @theme {
-  /* Colors */
-  --color-primary-50: #fdf4ff;
-  --color-primary-100: #fae8ff;
-  --color-primary-200: #f5d0fe;
-  --color-primary-300: #f0abfc;
-  --color-primary-400: #e879f9;
-  --color-primary-500: #d946ef;
-  --color-primary-600: #c026d3;
-  --color-primary-700: #a21caf;
-  --color-primary-800: #86198f;
-  --color-primary-900: #701a75;
+  /* Warm Sunset Palette */
+  --color-butter: #FDEC82;
+  --color-dusty-rose: #E58B8B;
+  --color-coral: #F96854;
+  --color-coral-dark: #e0573f;
+  --color-salmon: #F4845F;
+  --color-warm-orange: #E8891B;
+  --color-navy: #0D1240;
+  --color-navy-light: #1a2050;
+  --color-cream: #fdf8f2;
+  --color-light-cream: #faf6f1;
+  --color-text-muted: #686e77;
+  --color-light-gray: #dde1e4;
+
+  /* Semantic aliases */
+  --color-primary: #F96854;
+  --color-primary-hover: #e0573f;
+  --color-text-dark: #0D1240;
+  --color-bg-page: #fdf8f2;
+  --color-bg-card: #ffffff;
+  --color-bg-section-alt: #faf6f1;
 
   /* Font families */
-  --font-display: "Dancing Script", cursive;
-  --font-body: "Quicksand", sans-serif;
+  --font-display: "Cormorant Garamond", Georgia, serif;
+  --font-body: "Nunito", system-ui, sans-serif;
+  --font-ui: "Space Grotesk", system-ui, sans-serif;
 
   /* Font sizes - minimum 18px for body */
   --font-size-base: 1.125rem;
@@ -40,7 +51,7 @@
   }
 
   body {
-    @apply bg-neutral-50 text-neutral-900 antialiased;
+    @apply bg-cream text-navy antialiased;
     min-height: 100dvh;
   }
 
@@ -61,7 +72,7 @@
 
   /* Focus styles for accessibility */
   :focus-visible {
-    @apply outline-2 outline-offset-2 outline-primary-500;
+    @apply outline-2 outline-offset-2 outline-coral;
   }
 }
 

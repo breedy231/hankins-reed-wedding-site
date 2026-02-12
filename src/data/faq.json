@@ -22,7 +22,7 @@
     },
     {
       "question": "Where should I stay?",
-      "answer": "Check out our <a href=\"/travel\" class=\"text-primary-600 underline hover:text-primary-700\">Travel page</a> for hotel recommendations near the venue. We'll be setting up room blocks with special rates &mdash; details coming soon!"
+      "answer": "Check out our <a href=\"/travel\" class=\"text-coral underline hover:text-coral-dark\">Travel page</a> for hotel recommendations near the venue. We'll be setting up room blocks with special rates &mdash; details coming soon!"
     },
     {
       "question": "Will there be food options for dietary restrictions?",
@@ -38,7 +38,7 @@
     },
     {
       "question": "Who do I contact with questions?",
-      "answer": "For any questions, please reach out to us directly. You can email us at <a href=\"mailto:wedding@example.com\" class=\"text-primary-600 underline hover:text-primary-700\">wedding@example.com</a> and we'll get back to you as soon as possible!"
+      "answer": "For any questions, please reach out to us directly. You can email us at <a href=\"mailto:wedding@example.com\" class=\"text-coral underline hover:text-coral-dark\">wedding@example.com</a> and we'll get back to you as soon as possible!"
     }
   ]
 }

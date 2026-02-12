@@ -6,7 +6,7 @@ const weddingDateString = `${weddingData.date}T${weddingData.time}:00`;
 ---
 
 <section id="countdown" class="bg-white px-4 py-16 text-center">
-  <h2 class="font-display text-3xl text-neutral-900 md:text-4xl">Counting Down</h2>
+  <h2 class="font-display text-3xl text-navy md:text-4xl">Counting Down</h2>
 
   <div
     id="countdown-display"
@@ -17,28 +17,28 @@ const weddingDateString = `${weddingData.date}T${weddingData.time}:00`;
   >
     <!-- Server-rendered initial state (no JS) -->
     <div class="countdown-grid grid grid-cols-2 gap-4 sm:grid-cols-4">
-      <div class="countdown-item rounded-lg bg-primary-50 p-4">
-        <span class="countdown-value block font-display text-4xl text-primary-600 md:text-5xl" data-unit="days">---</span>
-        <span class="mt-1 block text-sm text-neutral-600">Days</span>
+      <div class="countdown-item rounded-lg bg-light-cream p-4">
+        <span class="countdown-value block font-display text-4xl text-coral md:text-5xl" data-unit="days">---</span>
+        <span class="mt-1 block text-sm text-text-muted">Days</span>
       </div>
-      <div class="countdown-item rounded-lg bg-primary-50 p-4">
-        <span class="countdown-value block font-display text-4xl text-primary-600 md:text-5xl" data-unit="hours">--</span>
-        <span class="mt-1 block text-sm text-neutral-600">Hours</span>
+      <div class="countdown-item rounded-lg bg-light-cream p-4">
+        <span class="countdown-value block font-display text-4xl text-coral md:text-5xl" data-unit="hours">--</span>
+        <span class="mt-1 block text-sm text-text-muted">Hours</span>
       </div>
-      <div class="countdown-item rounded-lg bg-primary-50 p-4">
-        <span class="countdown-value block font-display text-4xl text-primary-600 md:text-5xl" data-unit="minutes">--</span>
-        <span class="mt-1 block text-sm text-neutral-600">Minutes</span>
+      <div class="countdown-item rounded-lg bg-light-cream p-4">
+        <span class="countdown-value block font-display text-4xl text-coral md:text-5xl" data-unit="minutes">--</span>
+        <span class="mt-1 block text-sm text-text-muted">Minutes</span>
       </div>
-      <div class="countdown-item rounded-lg bg-primary-50 p-4">
-        <span class="countdown-value block font-display text-4xl text-primary-600 md:text-5xl" data-unit="seconds">--</span>
-        <span class="mt-1 block text-sm text-neutral-600">Seconds</span>
+      <div class="countdown-item rounded-lg bg-light-cream p-4">
+        <span class="countdown-value block font-display text-4xl text-coral md:text-5xl" data-unit="seconds">--</span>
+        <span class="mt-1 block text-sm text-text-muted">Seconds</span>
       </div>
     </div>
 
     <!-- Shows when wedding date has passed -->
     <div class="married-message hidden">
-      <p class="font-display text-4xl text-primary-600 md:text-5xl">We're Married!</p>
-      <p class="mt-4 text-neutral-600">Thank you for celebrating with us</p>
+      <p class="font-display text-4xl text-coral md:text-5xl">We're Married!</p>
+      <p class="mt-4 text-text-muted">Thank you for celebrating with us</p>
     </div>
   </div>
 </section>

@@ -1,10 +1,10 @@
 {
   "couple": {
     "person1": "Brendan",
-    "person2": "[Partner]"
+    "person2": "Scott"
   },
   "date": "2026-09-12",
-  "time": "16:30",
+  "time": "16:00",
   "timezone": "America/Chicago",
   "location": "Chicago, IL"
 }

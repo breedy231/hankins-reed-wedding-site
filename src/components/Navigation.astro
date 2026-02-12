@@ -19,7 +19,7 @@ const currentPath = Astro.url.pathname;
 
 <!-- Mobile bottom navigation -->
 <nav
-  class="fixed bottom-0 left-0 right-0 z-40 border-t border-neutral-200 bg-white/95 backdrop-blur-sm md:hidden"
+  class="fixed bottom-0 left-0 right-0 z-40 border-t border-light-gray bg-white/95 backdrop-blur-sm md:hidden"
   aria-label="Main navigation"
 >
   <ul class="flex items-center justify-around">
@@ -32,8 +32,8 @@ const currentPath = Astro.url.pathname;
             class:list={[
               'touch-target flex flex-col items-center justify-center gap-1 px-2 py-2 text-xs transition-colors',
               isActive
-                ? 'text-primary-600'
-                : 'text-neutral-600 hover:text-primary-500',
+                ? 'text-coral'
+                : 'text-text-muted hover:text-coral',
             ]}
             aria-current={isActive ? 'page' : undefined}
           >
@@ -47,7 +47,7 @@ const currentPath = Astro.url.pathname;
 </nav>
 
 <!-- Desktop top navigation -->
-<header class="sticky top-0 z-40 hidden border-b border-neutral-200 bg-white/95 backdrop-blur-sm md:block">
+<header class="sticky top-0 z-40 hidden border-b border-light-gray bg-white/95 backdrop-blur-sm md:block">
   <nav class="mx-auto max-w-5xl px-4" aria-label="Main navigation">
     <ul class="flex items-center justify-center gap-1">
       {navItems.map((item) => {
@@ -59,8 +59,8 @@ const currentPath = Astro.url.pathname;
               class:list={[
                 'touch-target flex items-center gap-2 rounded-md px-4 py-3 font-medium transition-colors',
                 isActive
-                  ? 'bg-primary-50 text-primary-600'
-                  : 'text-neutral-700 hover:bg-neutral-100 hover:text-primary-500',
+                  ? 'bg-light-cream text-coral'
+                  : 'text-navy hover:bg-light-cream hover:text-coral',
               ]}
               aria-current={isActive ? 'page' : undefined}
             >

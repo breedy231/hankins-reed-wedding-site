@@ -14,7 +14,7 @@ const { events } = Astro.props;
 
 <div class="relative mx-auto max-w-2xl">
   <!-- Vertical line -->
-  <div class="absolute bottom-0 left-6 top-0 w-0.5 bg-primary-200 md:left-1/2 md:-translate-x-1/2" aria-hidden="true">
+  <div class="absolute bottom-0 left-6 top-0 w-0.5 bg-dusty-rose md:left-1/2 md:-translate-x-1/2" aria-hidden="true">
   </div>
 
   <ol class="relative space-y-8">
@@ -23,15 +23,15 @@ const { events } = Astro.props;
         <li class="relative pl-16 md:pl-0">
           {/* Timeline dot */}
           <div
-            class="absolute left-4 top-1 h-5 w-5 rounded-full border-4 border-primary-500 bg-white md:left-1/2 md:-translate-x-1/2"
+            class="absolute left-4 top-1 h-5 w-5 rounded-full border-4 border-coral bg-white md:left-1/2 md:-translate-x-1/2"
             aria-hidden="true"
           />
 
           {/* Content */}
           <div class={`md:w-[calc(50%-2rem)] ${index % 2 === 0 ? 'md:mr-auto md:text-right' : 'md:ml-auto md:text-left'}`}>
-            <time class="block text-sm font-semibold text-primary-600">{event.time}</time>
-            <h3 class="mt-1 text-lg font-semibold text-neutral-900">{event.title}</h3>
-            {event.description && <p class="mt-1 text-neutral-600">{event.description}</p>}
+            <time class="block text-sm font-semibold text-coral">{event.time}</time>
+            <h3 class="mt-1 text-lg font-semibold text-navy">{event.title}</h3>
+            {event.description && <p class="mt-1 text-text-muted">{event.description}</p>}
           </div>
         </li>
       ))

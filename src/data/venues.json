@@ -1,12 +1,18 @@
 {
   "ceremony": {
-    "name": "Venue TBD",
-    "address": "Chicago, IL",
-    "time": "16:30"
+    "name": "Allium",
+    "address": "333 N. Ogden Ave, Chicago, IL 60607",
+    "time": "16:00",
+    "neighborhood": "Fulton Market"
+  },
+  "cocktails": {
+    "name": "Allium",
+    "address": "333 N. Ogden Ave, Chicago, IL 60607",
+    "time": "17:00"
   },
   "reception": {
-    "name": "Venue TBD",
-    "address": "Chicago, IL",
+    "name": "Allium",
+    "address": "333 N. Ogden Ave, Chicago, IL 60607",
     "time": "18:00"
   }
 }
