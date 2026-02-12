@@ -12,46 +12,43 @@ interface Props {
 const { name, address, priceRange, distance, bookingUrl, blockCode, blockDeadline } = Astro.props;
 ---
 
-<article class="flex flex-col rounded-lg border border-light-gray bg-white p-6 shadow-sm">
-  <h3 class="text-xl font-semibold text-navy">{name}</h3>
+<article class="flex flex-col rounded-2xl border-2 border-transparent bg-white p-8 transition-all hover:-translate-y-1 hover:border-coral hover:shadow-[0_12px_35px_rgba(249,104,84,0.12)]">
+  <h3 class="font-display text-[1.3rem] font-semibold text-navy">{name}</h3>
 
   <address class="mt-2 not-italic text-text-muted">{address}</address>
 
   <div class="mt-4 flex flex-wrap gap-3">
-    <span class="inline-flex items-center rounded-full bg-light-cream px-3 py-1 text-sm text-coral-dark">
+    <span class="inline-flex items-center rounded-full bg-light-cream px-3 py-1 font-ui text-[0.8rem] font-semibold text-coral-dark">
       {priceRange}
     </span>
-    <span class="inline-flex items-center rounded-full bg-light-cream px-3 py-1 text-sm text-navy">
+    <span class="inline-flex items-center rounded-full bg-light-cream px-3 py-1 font-ui text-[0.8rem] text-navy">
       {distance} from venue
     </span>
   </div>
 
   {
     blockCode && (
-      <div class="mt-4 rounded-md bg-light-cream p-3">
-        <p class="text-sm font-medium text-coral-dark">Room Block Code: {blockCode}</p>
-        {blockDeadline && <p class="mt-1 text-sm text-coral">Book by {blockDeadline} for group rate</p>}
+      <div class="mt-4 rounded-xl bg-light-cream p-4">
+        <p class="font-ui text-[0.85rem] font-semibold text-coral-dark">Room Block Code: {blockCode}</p>
+        {blockDeadline && <p class="mt-1 text-[0.85rem] text-coral">Book by {blockDeadline} for group rate</p>}
       </div>
     )
   }
 
-  <div class="mt-auto pt-4">
+  <div class="mt-auto pt-6">
     {
       bookingUrl ? (
         <a
           href={bookingUrl}
           target="_blank"
           rel="noopener noreferrer"
-          class="touch-target inline-flex items-center gap-2 rounded-full bg-coral px-4 py-2 font-ui text-white transition-colors hover:bg-coral-dark focus:outline-none focus:ring-2 focus:ring-coral focus:ring-offset-2"
+          class="touch-target inline-block rounded-full bg-coral px-6 py-3 font-ui text-[0.85rem] font-semibold uppercase tracking-[1px] text-white transition-all hover:-translate-y-0.5 hover:bg-coral-dark"
         >
           Book Now
-          <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-          </svg>
           <span class="sr-only">(opens in new tab)</span>
         </a>
       ) : (
-        <span class="text-sm text-text-muted">Booking link coming soon</span>
+        <span class="text-[0.9rem] text-text-muted">Booking link coming soon</span>
       )
     }
   </div>

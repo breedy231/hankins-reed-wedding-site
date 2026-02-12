@@ -13,134 +13,32 @@ const { items } = Astro.props;
 
 <div class="accordion space-y-4">
   {
-    items.map((item, index) => (
-      <div class="accordion-item rounded-lg border border-light-gray bg-white">
-        <h3>
-          <button
-            type="button"
-            class="touch-target flex w-full items-center justify-between gap-4 px-6 py-4 text-left font-semibold text-navy transition-colors hover:bg-cream focus:outline-none focus:ring-2 focus:ring-inset focus:ring-coral"
-            aria-expanded="false"
-            aria-controls={`accordion-panel-${index}`}
-            id={`accordion-trigger-${index}`}
-          >
-            <span>{item.question}</span>
-            <svg
-              class="accordion-icon h-5 w-5 flex-shrink-0 text-coral transition-transform duration-200"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              stroke-width="2"
-              aria-hidden="true"
-            >
-              <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
-            </svg>
-          </button>
-        </h3>
-        <div
-          id={`accordion-panel-${index}`}
-          role="region"
-          aria-labelledby={`accordion-trigger-${index}`}
-          class="accordion-panel"
-          hidden
-        >
-          <div class="px-6 pb-4 text-navy">
-            <p set:html={item.answer} />
-          </div>
+    items.map((item) => (
+      <details class="faq-item group rounded-2xl border-2 border-navy/10 bg-white transition-all hover:border-coral hover:shadow-[0_4px_15px_rgba(249,104,84,0.1)]">
+        <summary class="flex cursor-pointer list-none items-center justify-between gap-4 px-6 py-5 font-ui text-[1rem] font-semibold text-navy [&::-webkit-details-marker]:hidden">
+          <span>{item.question}</span>
+          <span class="faq-icon flex h-6 w-6 flex-shrink-0 items-center justify-center text-[1.25rem] text-coral transition-transform" aria-hidden="true">
+            <span class="group-open:hidden">+</span>
+            <span class="hidden group-open:inline">&minus;</span>
+          </span>
+        </summary>
+        <div class="px-6 pb-5">
+          <p class="font-body leading-[1.7] text-text-muted" set:html={item.answer} />
         </div>
-      </div>
+      </details>
     ))
   }
 </div>
 
 <style>
-  .accordion-item button[aria-expanded='true'] .accordion-icon {
-    transform: rotate(180deg);
-  }
-
-  .accordion-panel {
-    display: grid;
-    grid-template-rows: 0fr;
-    transition: grid-template-rows 200ms ease-out;
-  }
-
-  .accordion-panel[hidden] {
-    display: grid;
-  }
-
-  .accordion-panel:not([hidden]) {
-    grid-template-rows: 1fr;
-  }
-
-  .accordion-panel > div {
-    overflow: hidden;
+  details[open] {
+    border-color: var(--color-coral);
+    background: linear-gradient(to bottom, white, var(--color-light-cream));
   }
 
   @media (prefers-reduced-motion: reduce) {
-    .accordion-icon,
-    .accordion-panel {
+    .faq-icon {
       transition: none;
     }
   }
 </style>
-
-<script>
-  function initAccordion() {
-    const accordions = document.querySelectorAll('.accordion');
-
-    accordions.forEach((accordion) => {
-      const buttons = accordion.querySelectorAll('button[aria-expanded]');
-
-      buttons.forEach((button) => {
-        button.addEventListener('click', () => {
-          const expanded = button.getAttribute('aria-expanded') === 'true';
-          const panelId = button.getAttribute('aria-controls');
-          const panel = panelId ? document.getElementById(panelId) : null;
-
-          if (panel) {
-            button.setAttribute('aria-expanded', (!expanded).toString());
-            panel.hidden = expanded;
-          }
-        });
-
-        // Keyboard navigation
-        button.addEventListener('keydown', (event) => {
-          const items = Array.from(accordion.querySelectorAll('button[aria-expanded]'));
-          const currentIndex = items.indexOf(button as Element);
-          let targetIndex = -1;
-
-          if (event instanceof KeyboardEvent) {
-            switch (event.key) {
-              case 'ArrowDown':
-                event.preventDefault();
-                targetIndex = (currentIndex + 1) % items.length;
-                break;
-              case 'ArrowUp':
-                event.preventDefault();
-                targetIndex = (currentIndex - 1 + items.length) % items.length;
-                break;
-              case 'Home':
-                event.preventDefault();
-                targetIndex = 0;
-                break;
-              case 'End':
-                event.preventDefault();
-                targetIndex = items.length - 1;
-                break;
-            }
-          }
-
-          if (targetIndex >= 0 && items[targetIndex] instanceof HTMLElement) {
-            (items[targetIndex] as HTMLElement).focus();
-          }
-        });
-      });
-    });
-  }
-
-  // Initialize when DOM is ready
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initAccordion);
-  } else {
-    initAccordion();
-  }
-</script>

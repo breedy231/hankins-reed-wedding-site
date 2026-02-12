@@ -1,0 +1,45 @@
+---
+import venuesData from '../data/venues.json';
+
+function formatTime(time24: string): string {
+  const [hours, minutes] = time24.split(':').map(Number);
+  const period = hours >= 12 ? 'PM' : 'AM';
+  const hours12 = hours % 12 || 12;
+  return `${hours12}:${minutes.toString().padStart(2, '0')} ${period}`;
+}
+---
+
+<section class="bg-white px-6 py-24 text-center" aria-labelledby="venue-heading">
+  <p class="font-ui text-[0.8rem] font-semibold uppercase tracking-[3px] text-coral">The Venue</p>
+  <h2 id="venue-heading" class="mt-4 font-display text-[2.5rem] font-normal text-navy">
+    {venuesData.ceremony.name}
+  </h2>
+  <p class="mx-auto mt-3 max-w-[500px] text-[1.1rem] text-text-muted">
+    A modern celebration space in the heart of Fulton Market with skyline views.
+  </p>
+
+  <!-- Photo placeholder -->
+  <div class="mx-auto mt-8 flex h-[250px] w-full max-w-[900px] items-center justify-center rounded-2xl bg-gradient-to-br from-coral to-salmon text-white md:h-[400px]">
+    <p class="font-ui text-[0.9rem] font-medium">[Allium venue photography]</p>
+  </div>
+
+  <!-- Details grid -->
+  <div class="mx-auto mt-12 flex max-w-3xl flex-wrap items-start justify-center gap-8 md:gap-16">
+    <div class="text-center">
+      <p class="font-ui text-[0.75rem] font-medium uppercase tracking-[2px] text-text-muted">Ceremony</p>
+      <p class="mt-2 font-display text-[1.3rem] text-navy">{formatTime(venuesData.ceremony.time)}</p>
+    </div>
+    <div class="text-center">
+      <p class="font-ui text-[0.75rem] font-medium uppercase tracking-[2px] text-text-muted">Cocktails</p>
+      <p class="mt-2 font-display text-[1.3rem] text-navy">{formatTime(venuesData.cocktails.time)}</p>
+    </div>
+    <div class="text-center">
+      <p class="font-ui text-[0.75rem] font-medium uppercase tracking-[2px] text-text-muted">Reception</p>
+      <p class="mt-2 font-display text-[1.3rem] text-navy">{formatTime(venuesData.reception.time)}</p>
+    </div>
+    <div class="text-center">
+      <p class="font-ui text-[0.75rem] font-medium uppercase tracking-[2px] text-text-muted">Address</p>
+      <p class="mt-2 font-display text-[1.3rem] text-navy">333 N. Ogden Ave</p>
+    </div>
+  </div>
+</section>

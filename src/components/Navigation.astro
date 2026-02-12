@@ -2,54 +2,31 @@
 interface NavItem {
   href: string;
   label: string;
-  icon: string;
 }
 
 const navItems: NavItem[] = [
-  { href: '/', label: 'Home', icon: '🏠' },
-  { href: '/details', label: 'Details', icon: '📋' },
-  { href: '/travel', label: 'Travel', icon: '✈️' },
-  { href: '/chicago', label: 'Chicago', icon: '🌆' },
-  { href: '/faq', label: 'FAQ', icon: '❓' },
-  { href: '/our-story', label: 'Our Story', icon: '💕' },
+  { href: '/details', label: 'Details' },
+  { href: '/travel', label: 'Travel' },
+  { href: '/chicago', label: 'Chicago' },
+  { href: '/faq', label: 'FAQ' },
+  { href: '/our-story', label: 'Our Story' },
 ];
 
 const currentPath = Astro.url.pathname;
 ---
 
-<!-- Mobile bottom navigation -->
 <nav
-  class="fixed bottom-0 left-0 right-0 z-40 border-t border-light-gray bg-white/95 backdrop-blur-sm md:hidden"
+  class="fixed top-0 left-0 right-0 z-40 border-b border-navy/8 bg-cream/97 backdrop-blur-[12px]"
   aria-label="Main navigation"
 >
-  <ul class="flex items-center justify-around">
-    {navItems.map((item) => {
-      const isActive = currentPath === item.href || (item.href !== '/' && currentPath.startsWith(item.href));
-      return (
-        <li>
-          <a
-            href={item.href}
-            class:list={[
-              'touch-target flex flex-col items-center justify-center gap-1 px-2 py-2 text-xs transition-colors',
-              isActive
-                ? 'text-coral'
-                : 'text-text-muted hover:text-coral',
-            ]}
-            aria-current={isActive ? 'page' : undefined}
-          >
-            <span class="text-lg" aria-hidden="true">{item.icon}</span>
-            <span>{item.label}</span>
-          </a>
-        </li>
-      );
-    })}
-  </ul>
-</nav>
+  <div class="mx-auto flex max-w-6xl items-center justify-between px-6 py-4 md:px-10">
+    <!-- Logo -->
+    <a href="/" class="font-display text-[1.4rem] font-semibold tracking-[2px] text-navy">
+      B & S
+    </a>
 
-<!-- Desktop top navigation -->
-<header class="sticky top-0 z-40 hidden border-b border-light-gray bg-white/95 backdrop-blur-sm md:block">
-  <nav class="mx-auto max-w-5xl px-4" aria-label="Main navigation">
-    <ul class="flex items-center justify-center gap-1">
+    <!-- Desktop links -->
+    <ul class="hidden items-center gap-8 md:flex">
       {navItems.map((item) => {
         const isActive = currentPath === item.href || (item.href !== '/' && currentPath.startsWith(item.href));
         return (
@@ -57,19 +34,169 @@ const currentPath = Astro.url.pathname;
             <a
               href={item.href}
               class:list={[
-                'touch-target flex items-center gap-2 rounded-md px-4 py-3 font-medium transition-colors',
-                isActive
-                  ? 'bg-light-cream text-coral'
-                  : 'text-navy hover:bg-light-cream hover:text-coral',
+                'font-ui text-[0.85rem] font-semibold uppercase tracking-[1.5px] transition-colors',
+                isActive ? 'text-coral' : 'text-navy hover:text-coral',
               ]}
               aria-current={isActive ? 'page' : undefined}
             >
-              <span aria-hidden="true">{item.icon}</span>
-              <span>{item.label}</span>
+              {item.label}
             </a>
           </li>
         );
       })}
+      <li>
+        <a
+          href="/rsvp"
+          class="inline-block rounded-full bg-coral px-5 py-2 font-ui text-[0.85rem] font-semibold uppercase tracking-[1.5px] text-white transition-all hover:-translate-y-px hover:bg-coral-dark"
+        >
+          RSVP
+        </a>
+      </li>
     </ul>
-  </nav>
-</header>
+
+    <!-- Mobile hamburger button -->
+    <button
+      type="button"
+      id="mobile-menu-toggle"
+      class="touch-target flex items-center justify-center md:hidden"
+      aria-expanded="false"
+      aria-controls="mobile-menu"
+      aria-label="Open navigation menu"
+    >
+      <svg class="h-6 w-6 text-navy" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+      </svg>
+    </button>
+  </div>
+</nav>
+
+<!-- Mobile menu overlay -->
+<div
+  id="mobile-menu"
+  class="fixed inset-0 z-50 hidden flex-col bg-cream md:hidden"
+  role="dialog"
+  aria-modal="true"
+  aria-label="Navigation menu"
+>
+  <div class="flex items-center justify-between px-6 py-4">
+    <a href="/" class="font-display text-[1.4rem] font-semibold tracking-[2px] text-navy">
+      B & S
+    </a>
+    <button
+      type="button"
+      id="mobile-menu-close"
+      class="touch-target flex items-center justify-center"
+      aria-label="Close navigation menu"
+    >
+      <svg class="h-6 w-6 text-navy" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+      </svg>
+    </button>
+  </div>
+
+  <ul class="flex flex-1 flex-col items-center justify-center gap-8">
+    {navItems.map((item) => {
+      const isActive = currentPath === item.href || (item.href !== '/' && currentPath.startsWith(item.href));
+      return (
+        <li>
+          <a
+            href={item.href}
+            class:list={[
+              'font-ui text-lg font-semibold uppercase tracking-[2px] transition-colors',
+              isActive ? 'text-coral' : 'text-navy hover:text-coral',
+            ]}
+            aria-current={isActive ? 'page' : undefined}
+          >
+            {item.label}
+          </a>
+        </li>
+      );
+    })}
+    <li class="mt-4">
+      <a
+        href="/rsvp"
+        class="inline-block rounded-full bg-coral px-8 py-3 font-ui text-base font-semibold uppercase tracking-[1.5px] text-white transition-all hover:-translate-y-px hover:bg-coral-dark"
+      >
+        RSVP
+      </a>
+    </li>
+  </ul>
+</div>
+
+<!-- Spacer to prevent content from hiding behind fixed nav -->
+<div class="h-[68px]" aria-hidden="true"></div>
+
+<script>
+  function initMobileMenu() {
+    const toggleEl = document.getElementById('mobile-menu-toggle');
+    const menuEl = document.getElementById('mobile-menu');
+    const closeEl = document.getElementById('mobile-menu-close');
+
+    if (!toggleEl || !menuEl || !closeEl) return;
+
+    const toggle: HTMLElement = toggleEl;
+    const menu: HTMLElement = menuEl;
+    const closeBtn: HTMLElement = closeEl;
+
+    let firstFocusable: HTMLElement | null = null;
+    let lastFocusable: HTMLElement | null = null;
+
+    function openMenu() {
+      menu.classList.remove('hidden');
+      menu.classList.add('flex');
+      toggle.setAttribute('aria-expanded', 'true');
+      document.body.style.overflow = 'hidden';
+
+      const focusableElements = Array.from(
+        menu.querySelectorAll<HTMLElement>('a[href], button, [tabindex]:not([tabindex="-1"])')
+      );
+      firstFocusable = focusableElements[0] ?? null;
+      lastFocusable = focusableElements[focusableElements.length - 1] ?? null;
+
+      closeBtn.focus();
+    }
+
+    function closeMenu() {
+      menu.classList.add('hidden');
+      menu.classList.remove('flex');
+      toggle.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
+      toggle.focus();
+    }
+
+    toggle.addEventListener('click', openMenu);
+    closeBtn.addEventListener('click', closeMenu);
+
+    menu.addEventListener('keydown', (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        closeMenu();
+        return;
+      }
+
+      if (e.key === 'Tab') {
+        if (e.shiftKey) {
+          if (document.activeElement === firstFocusable) {
+            e.preventDefault();
+            lastFocusable?.focus();
+          }
+        } else {
+          if (document.activeElement === lastFocusable) {
+            e.preventDefault();
+            firstFocusable?.focus();
+          }
+        }
+      }
+    });
+
+    const links = menu.querySelectorAll('a');
+    links.forEach((link) => {
+      link.addEventListener('click', closeMenu);
+    });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initMobileMenu);
+  } else {
+    initMobileMenu();
+  }
+</script>

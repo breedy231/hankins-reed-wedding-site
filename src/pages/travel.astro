@@ -2,6 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Navigation from '../components/Navigation.astro';
 import Footer from '../components/Footer.astro';
+import Hero from '../components/Hero.astro';
 import HotelCard from '../components/HotelCard.astro';
 import hotelsData from '../data/hotels.json';
 ---
@@ -9,67 +10,14 @@ import hotelsData from '../data/hotels.json';
 <BaseLayout title="Travel" description="Travel information, hotels, and getting to Chicago for the wedding">
   <Navigation slot="header" />
 
-  <!-- Page Header -->
-  <section class="bg-gradient-to-b from-light-cream to-white px-4 py-12 text-center">
-    <h1 class="font-display text-4xl text-navy md:text-5xl">Travel</h1>
-    <p class="mt-4 text-text-muted">Everything you need to plan your trip to Chicago</p>
-  </section>
-
-  <!-- Getting to Chicago -->
-  <section class="px-4 py-12" aria-labelledby="airports-heading">
-    <div class="mx-auto max-w-4xl">
-      <h2 id="airports-heading" class="mb-8 text-center font-display text-3xl text-navy">Getting to Chicago</h2>
-
-      <div class="grid gap-6 md:grid-cols-2">
-        <!-- O'Hare -->
-        <div class="rounded-lg border border-light-gray bg-white p-6 shadow-sm">
-          <h3 class="text-xl font-semibold text-navy">O'Hare International Airport (ORD)</h3>
-          <p class="mt-2 text-text-muted">Chicago's largest airport with the most flight options.</p>
-          <ul class="mt-4 space-y-2 text-text-muted">
-            <li class="flex items-start gap-2">
-              <svg class="mt-1 h-4 w-4 flex-shrink-0 text-coral" fill="currentColor" viewBox="0 0 20 20">
-                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
-              </svg>
-              <span>~45 min to downtown by CTA Blue Line</span>
-            </li>
-            <li class="flex items-start gap-2">
-              <svg class="mt-1 h-4 w-4 flex-shrink-0 text-coral" fill="currentColor" viewBox="0 0 20 20">
-                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
-              </svg>
-              <span>~30-45 min by rideshare/taxi</span>
-            </li>
-          </ul>
-        </div>
-
-        <!-- Midway -->
-        <div class="rounded-lg border border-light-gray bg-white p-6 shadow-sm">
-          <h3 class="text-xl font-semibold text-navy">Midway International Airport (MDW)</h3>
-          <p class="mt-2 text-text-muted">Closer to downtown, served primarily by Southwest.</p>
-          <ul class="mt-4 space-y-2 text-text-muted">
-            <li class="flex items-start gap-2">
-              <svg class="mt-1 h-4 w-4 flex-shrink-0 text-coral" fill="currentColor" viewBox="0 0 20 20">
-                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
-              </svg>
-              <span>~25 min to downtown by CTA Orange Line</span>
-            </li>
-            <li class="flex items-start gap-2">
-              <svg class="mt-1 h-4 w-4 flex-shrink-0 text-coral" fill="currentColor" viewBox="0 0 20 20">
-                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
-              </svg>
-              <span>~20-30 min by rideshare/taxi</span>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
+  <Hero title="Where to Stay" subtitle="Hotel blocks and getting around" />
 
   <!-- Hotels -->
-  <section class="bg-light-cream px-4 py-12" aria-labelledby="hotels-heading">
+  <section class="px-6 py-24" aria-labelledby="hotels-heading">
     <div class="mx-auto max-w-4xl">
-      <h2 id="hotels-heading" class="mb-4 text-center font-display text-3xl text-navy">Where to Stay</h2>
-      <p class="mb-8 text-center text-text-muted">
-        We've compiled some nearby hotel options. Room blocks coming soon!
+      <h2 id="hotels-heading" class="mb-4 text-center font-display text-[2.2rem] font-normal text-navy">Nearby Hotels</h2>
+      <p class="mb-12 text-center text-text-muted">
+        We've compiled some nearby options. Room blocks coming soon!
       </p>
 
       <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
@@ -90,46 +38,53 @@ import hotelsData from '../data/hotels.json';
     </div>
   </section>
 
-  <!-- Parking -->
-  <section class="px-4 py-12" aria-labelledby="parking-heading">
-    <div class="mx-auto max-w-2xl text-center">
-      <h2 id="parking-heading" class="mb-4 font-display text-3xl text-navy">Parking</h2>
-      <p class="text-navy">
-        Parking information will be updated closer to the wedding date. Many downtown Chicago hotels offer valet
-        parking, and there are several public parking garages near the venue.
-      </p>
-      <p class="mt-4 text-navy">
-        We recommend using rideshare services (Uber/Lyft) if you plan on enjoying the open bar!
-      </p>
+  <!-- Getting to Chicago -->
+  <section class="bg-light-cream px-6 py-24" aria-labelledby="airports-heading">
+    <div class="mx-auto max-w-4xl">
+      <h2 id="airports-heading" class="mb-12 text-center font-display text-[2.2rem] font-normal text-navy">Getting to Chicago</h2>
+
+      <div class="grid gap-6 md:grid-cols-2">
+        <div class="rounded-2xl bg-white p-8">
+          <h3 class="font-display text-[1.3rem] font-semibold text-navy">O'Hare International (ORD)</h3>
+          <p class="mt-2 text-text-muted">Chicago's largest airport with the most flight options.</p>
+          <ul class="mt-4 space-y-2 text-text-muted">
+            <li class="flex items-start gap-2">
+              <span class="mt-1 text-coral">&#10003;</span>
+              <span>~45 min to downtown by CTA Blue Line</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="mt-1 text-coral">&#10003;</span>
+              <span>~30-45 min by rideshare/taxi</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="rounded-2xl bg-white p-8">
+          <h3 class="font-display text-[1.3rem] font-semibold text-navy">Midway International (MDW)</h3>
+          <p class="mt-2 text-text-muted">Closer to downtown, served primarily by Southwest.</p>
+          <ul class="mt-4 space-y-2 text-text-muted">
+            <li class="flex items-start gap-2">
+              <span class="mt-1 text-coral">&#10003;</span>
+              <span>~25 min to downtown by CTA Orange Line</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="mt-1 text-coral">&#10003;</span>
+              <span>~20-30 min by rideshare/taxi</span>
+            </li>
+          </ul>
+        </div>
+      </div>
     </div>
   </section>
 
-  <!-- Chicago Tips -->
-  <section class="bg-light-cream px-4 py-12" aria-labelledby="tips-heading">
+  <!-- Transportation -->
+  <section class="px-6 py-24" aria-labelledby="transport-heading">
     <div class="mx-auto max-w-2xl text-center">
-      <h2 id="tips-heading" class="mb-4 font-display text-3xl text-navy">While You're in Town</h2>
-      <p class="text-navy">
-        Make a weekend of it! Chicago has world-class dining, architecture, museums, and entertainment. Some of our
-        favorites:
+      <h2 id="transport-heading" class="font-display text-[2.2rem] font-normal text-navy">Getting Around</h2>
+      <p class="mt-4 text-navy">
+        We recommend rideshare services (Uber/Lyft) if you plan on enjoying the open bar.
+        Chicago's CTA trains are also fast and affordable — grab a Ventra card at any station.
       </p>
-      <ul class="mt-4 text-left text-navy">
-        <li class="flex items-start gap-2 py-1">
-          <span class="text-coral">&bull;</span>
-          <span>Architecture boat tour on the Chicago River</span>
-        </li>
-        <li class="flex items-start gap-2 py-1">
-          <span class="text-coral">&bull;</span>
-          <span>Deep dish pizza at Lou Malnati's or Pequod's</span>
-        </li>
-        <li class="flex items-start gap-2 py-1">
-          <span class="text-coral">&bull;</span>
-          <span>Art Institute of Chicago</span>
-        </li>
-        <li class="flex items-start gap-2 py-1">
-          <span class="text-coral">&bull;</span>
-          <span>Walk along the Riverwalk or Lakefront Trail</span>
-        </li>
-      </ul>
     </div>
   </section>
 
