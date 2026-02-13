@@ -8,8 +8,9 @@
   /* Warm Sunset Palette */
   --color-butter: #FDEC82;
   --color-dusty-rose: #E58B8B;
-  --color-coral: #F96854;
-  --color-coral-dark: #e0573f;
+  --color-coral: #c4402d;
+  --color-coral-bright: #F96854;
+  --color-coral-dark: #a33520;
   --color-salmon: #F4845F;
   --color-warm-orange: #E8891B;
   --color-navy: #0D1240;
@@ -20,8 +21,8 @@
   --color-light-gray: #dde1e4;
 
   /* Semantic aliases */
-  --color-primary: #F96854;
-  --color-primary-hover: #e0573f;
+  --color-primary: #c4402d;
+  --color-primary-hover: #a33520;
   --color-text-dark: #0D1240;
   --color-bg-page: #fdf8f2;
   --color-bg-card: #ffffff;

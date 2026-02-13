@@ -1,11 +1,11 @@
 {
-  "name": "Reed Wedding",
-  "short_name": "Reed Wedding",
-  "description": "Wedding website for the Reed celebration",
+  "name": "Brendan & Scott's Wedding",
+  "short_name": "B & S Wedding",
+  "description": "Wedding website for Brendan & Scott's celebration",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#ffffff",
-  "theme_color": "#F96854",
+  "background_color": "#fdf8f2",
+  "theme_color": "#c4402d",
   "orientation": "portrait-primary",
   "icons": [
     {

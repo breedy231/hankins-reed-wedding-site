@@ -1,7 +1,7 @@
 // Service Worker for Reed Wedding Website
 // Provides offline support by caching critical assets
 
-const CACHE_NAME = 'reed-wedding-v1';
+const CACHE_NAME = 'reed-wedding-v2';
 const OFFLINE_URL = '/offline.html';
 
 // Assets to cache immediately on install
@@ -12,12 +12,18 @@ const PRECACHE_ASSETS = [
   '/travel/',
   '/chicago/',
   '/our-story/',
+  '/registry/',
+  '/rsvp/',
   '/offline.html',
-  '/fonts/dancing-script-latin-400-normal.woff2',
-  '/fonts/quicksand-latin-400-normal.woff2',
-  '/fonts/quicksand-latin-500-normal.woff2',
-  '/fonts/quicksand-latin-600-normal.woff2',
-  '/fonts/quicksand-latin-700-normal.woff2',
+  '/fonts/cormorant-garamond-latin-400-normal.woff2',
+  '/fonts/cormorant-garamond-latin-400-italic.woff2',
+  '/fonts/cormorant-garamond-latin-600-normal.woff2',
+  '/fonts/nunito-latin-400-normal.woff2',
+  '/fonts/nunito-latin-600-normal.woff2',
+  '/fonts/nunito-latin-700-normal.woff2',
+  '/fonts/space-grotesk-latin-500-normal.woff2',
+  '/fonts/space-grotesk-latin-600-normal.woff2',
+  '/fonts/space-grotesk-latin-700-normal.woff2',
   '/favicon.svg',
 ];
 
