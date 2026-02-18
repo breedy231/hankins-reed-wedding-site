@@ -80,20 +80,21 @@ npm run lint          # Must pass
 
 ## Design System Quick Reference
 
-### Color Palette — Warm Sunset
+### Color Palette — Cool Blue
 
 | Token | Hex | Usage |
 |-------|-----|-------|
-| `coral` | `#F96854` | **Primary** — CTA buttons, links, accents |
-| `coral-dark` | `#e0573f` | Hover states for primary |
+| `coral` | `#4A6FA5` | **Primary** — CTA buttons, links, accents |
+| `coral-bright` | `#6B8FC2` | Decorative gradients, placeholders |
+| `coral-dark` | `#3A5A8A` | Hover states for primary |
 | `navy` | `#0D1240` | Dark text, footer backgrounds |
 | `navy-light` | `#1a2050` | Footer gradient end |
 | `cream` | `#fdf8f2` | Page background |
 | `light-cream` | `#faf6f1` | Card sections, alternating backgrounds |
-| `butter` | `#FDEC82` | Light accent, highlights, tags |
-| `dusty-rose` | `#E58B8B` | Soft accent, borders, hover tints |
-| `salmon` | `#F4845F` | Secondary accent, gradients |
-| `warm-orange` | `#E8891B` | Warm highlight, icons |
+| `butter` | `#D6E5F3` | Light accent, highlights, tags |
+| `dusty-rose` | `#8BABC4` | Soft accent, borders, hover tints |
+| `salmon` | `#7BA7CC` | Secondary accent, gradients |
+| `warm-orange` | `#5C8AB5` | Blue highlight, icons |
 | `text-muted` | `#686e77` | Secondary text, captions |
 | `light-gray` | `#dde1e4` | Card borders, dividers |
 

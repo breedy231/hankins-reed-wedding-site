@@ -54,7 +54,7 @@ npm run validate      # typecheck + lint + build
 - **Display font**: Cormorant Garamond (headings, couple names — serif)
 - **Body font**: Nunito (body text — sans-serif)
 - **UI font**: Space Grotesk (buttons, nav, labels — sans-serif)
-- **Primary color**: #F96854 (coral)
+- **Primary color**: #4A6FA5 (slate blue)
 - **Dark text**: #0D1240 (navy)
 - **Page background**: #fdf8f2 (cream)
 - **Min body text**: 18px

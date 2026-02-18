@@ -1,31 +1,24 @@
 {
   "hotels": [
     {
-      "name": "The Langham Chicago",
-      "address": "330 N Wabash Ave, Chicago, IL 60611",
-      "priceRange": "$$$$",
-      "distance": "0.5 miles",
-      "bookingUrl": null,
-      "blockCode": null,
-      "blockDeadline": null
-    },
-    {
-      "name": "Hotel Chicago Downtown",
-      "address": "333 N Dearborn St, Chicago, IL 60654",
+      "name": "Westin River North Chicago",
+      "address": "320 N Dearborn St, Chicago, IL 60654",
       "priceRange": "$$$",
-      "distance": "0.8 miles",
+      "distance": "3 miles",
       "bookingUrl": null,
       "blockCode": null,
-      "blockDeadline": null
+      "blockDeadline": null,
+      "shuttleDestination": true
     },
     {
-      "name": "Hampton Inn Chicago Downtown",
-      "address": "33 W Illinois St, Chicago, IL 60654",
+      "name": "Courtyard by Marriott Chicago Downtown/River North",
+      "address": "30 E Hubbard St, Chicago, IL 60611",
       "priceRange": "$$",
-      "distance": "1.2 miles",
+      "distance": "3.5 miles",
       "bookingUrl": null,
       "blockCode": null,
-      "blockDeadline": null
+      "blockDeadline": null,
+      "shuttleDestination": true
     }
   ]
 }

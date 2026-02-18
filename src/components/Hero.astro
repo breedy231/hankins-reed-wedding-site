@@ -20,45 +20,55 @@ const formattedDate = weddingDate.toLocaleDateString('en-US', {
 
 {variant === 'homepage' ? (
   <section
-    class="hero-section relative flex min-h-[90vh] flex-col items-center justify-center overflow-hidden px-6 py-20 text-center"
+    class="hero-section relative flex min-h-[90vh] flex-col items-center justify-center overflow-hidden px-6 py-20 text-center md:text-left"
     aria-label="Wedding announcement"
   >
-    <div class="relative z-10 mx-auto max-w-[600px]">
-      <!-- Eyebrow -->
-      <p class="mb-8 font-ui text-[0.9rem] font-semibold uppercase tracking-[4px] text-coral">
-        &#10022; Together with their families &#10022;
-      </p>
+    <div class="relative z-10 mx-auto grid max-w-5xl items-center gap-10 md:grid-cols-2 md:gap-16">
+      <!-- Text column -->
+      <div>
+        <!-- Eyebrow -->
+        <p class="mb-8 font-ui text-[0.9rem] font-semibold uppercase tracking-[4px] text-coral">
+          &#10022; Together with their families &#10022;
+        </p>
 
-      <!-- Names -->
-      <h1 class="font-display text-[clamp(3.5rem,12vw,5.5rem)] font-normal leading-[1.15] text-navy">
-        {weddingData.couple.person1}
-        <span class="my-[0.3em] block text-[0.5em] italic text-coral">&amp;</span>
-        {weddingData.couple.person2}
-      </h1>
+        <!-- Names -->
+        <h1 class="font-display text-[clamp(3.5rem,12vw,5.5rem)] font-normal leading-[1.15] text-navy">
+          {weddingData.couple.person1}
+          <span class="my-[0.3em] block text-[0.5em] italic text-coral">&amp;</span>
+          {weddingData.couple.person2}
+        </h1>
 
-      <!-- Tagline -->
-      <p class="mt-4 font-ui text-[1rem] font-medium uppercase tracking-[4px] text-text-muted">
-        Request your presence
-      </p>
+        <!-- Tagline -->
+        <p class="mt-4 font-ui text-[1rem] font-medium uppercase tracking-[4px] text-text-muted">
+          Request your presence
+        </p>
 
-      <!-- Photo placeholder -->
-      <div class="mx-auto mt-10 flex h-[220px] w-[320px] items-center justify-center rounded-2xl bg-gradient-to-br from-coral-bright to-salmon text-white shadow-[0_20px_40px_rgba(249,104,84,0.2)]">
-        <p class="px-6 font-ui text-[0.9rem] font-medium">[Your engagement photo here]</p>
+        <!-- Date & Location -->
+        <div class="mt-8">
+          <p class="font-display text-[1.5rem] font-semibold text-navy">{formattedDate}</p>
+          <p class="mt-2 text-[0.9rem] uppercase tracking-[2px] text-text-muted">Fulton Market, Chicago</p>
+        </div>
+
+        <!-- CTA -->
+        <a
+          href="/details"
+          class="mt-10 inline-block rounded-full bg-coral px-8 py-4 font-ui text-[0.95rem] font-semibold uppercase tracking-[1px] text-white shadow-[0_4px_20px_rgba(107,143,194,0.25)] transition-all hover:-translate-y-0.5 hover:bg-coral-dark hover:shadow-[0_6px_25px_rgba(107,143,194,0.3)]"
+        >
+          View Details <span class="ml-2 inline-block">&#8594;</span>
+        </a>
       </div>
 
-      <!-- Date & Location -->
-      <div class="mt-8">
-        <p class="font-display text-[1.5rem] font-semibold text-navy">{formattedDate}</p>
-        <p class="mt-2 text-[0.9rem] uppercase tracking-[2px] text-text-muted">Fulton Market, Chicago</p>
+      <!-- Photo column -->
+      <div class="flex justify-center md:justify-end">
+        <img
+          src="/images/hero.jpg"
+          alt="Brendan and Scott on a boardwalk with wildflowers and the Chicago skyline"
+          width="1200"
+          height="1800"
+          class="w-[320px] rounded-2xl object-cover shadow-[0_20px_40px_rgba(107,143,194,0.2)] sm:w-[400px] md:w-[480px]"
+          loading="eager"
+        />
       </div>
-
-      <!-- CTA -->
-      <a
-        href="/details"
-        class="mt-10 inline-block rounded-full bg-coral px-8 py-4 font-ui text-[0.95rem] font-semibold uppercase tracking-[1px] text-white shadow-[0_4px_20px_rgba(249,104,84,0.25)] transition-all hover:-translate-y-0.5 hover:bg-coral-dark hover:shadow-[0_6px_25px_rgba(249,104,84,0.3)]"
-      >
-        View Details <span class="ml-2 inline-block">&#8594;</span>
-      </a>
     </div>
   </section>
 ) : (

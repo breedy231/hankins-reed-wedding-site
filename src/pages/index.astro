@@ -12,7 +12,7 @@ const previewFaqs = faqData.faqs.slice(0, 4);
 const infoCards = [
   { emoji: '📍', title: 'Getting There', subtitle: 'Directions, parking & rideshare tips', href: '/details' },
   { emoji: '🏨', title: 'Where to Stay', subtitle: 'Hotel blocks & neighborhood picks', href: '/travel' },
-  { emoji: '👔', title: 'Dress Code', subtitle: 'Cocktail attire', href: '/faq' },
+  { emoji: '👔', title: 'Dress Code', subtitle: 'Formal attire', href: '/faq' },
   { emoji: '🌆', title: 'Explore Chicago', subtitle: 'Our favorite spots', href: '/chicago' },
 ];
 ---
@@ -27,7 +27,7 @@ const infoCards = [
   <VenueFeature />
 
   <!-- Info Cards: The Details -->
-  <section class="bg-light-cream px-6 py-24" aria-labelledby="details-heading">
+  <section class="bg-light-cream px-6 py-16 md:py-20" aria-labelledby="details-heading">
     <h2 id="details-heading" class="text-center font-display text-[2.2rem] font-normal text-navy">The Details</h2>
     <p class="mt-2 text-center text-text-muted">Everything you need to know</p>
 
@@ -35,7 +35,7 @@ const infoCards = [
       {infoCards.map((card) => (
         <a
           href={card.href}
-          class="group rounded-2xl border-2 border-transparent bg-white p-7 text-center transition-all hover:-translate-y-1 hover:border-coral hover:shadow-[0_12px_35px_rgba(249,104,84,0.12)] md:p-10"
+          class="group rounded-2xl border-2 border-transparent bg-white p-7 text-center transition-all hover:-translate-y-1 hover:border-coral hover:shadow-[0_12px_35px_rgba(107,143,194,0.12)] md:p-10"
         >
           <div class="text-[2rem]" aria-hidden="true">{card.emoji}</div>
           <h3 class="mt-4 font-display text-[1.3rem] font-semibold text-navy">{card.title}</h3>
@@ -46,7 +46,7 @@ const infoCards = [
   </section>
 
   <!-- FAQ Preview -->
-  <section class="px-6 py-24" aria-labelledby="faq-heading">
+  <section class="px-6 py-16 md:py-20" aria-labelledby="faq-heading">
     <div class="mx-auto max-w-[700px]">
       <div class="mb-10 text-center">
         <h2 id="faq-heading" class="font-display text-[2.2rem] font-normal text-navy">Questions & Answers</h2>
@@ -62,6 +62,57 @@ const infoCards = [
         >
           See all questions <span class="inline-block">&#8594;</span>
         </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Engagement Gallery -->
+  <section class="bg-light-cream px-6 py-16 md:py-20" aria-labelledby="gallery-heading">
+    <div class="mx-auto max-w-[950px]">
+      <p class="text-center font-ui text-[0.85rem] font-semibold uppercase tracking-[3px] text-coral">Our Engagement</p>
+      <h2 id="gallery-heading" class="mt-2 text-center font-display text-[2.2rem] font-normal text-navy">A Few Favorites</h2>
+
+      <div class="mt-12 grid grid-cols-2 gap-3 md:grid-cols-3 md:gap-4">
+        <img
+          src="/images/gallery-proposal.jpg"
+          alt="The proposal"
+          width="800"
+          height="533"
+          loading="lazy"
+          class="col-span-2 aspect-[3/2] w-full rounded-xl object-cover shadow-sm md:col-span-2"
+        />
+        <img
+          src="/images/gallery-pavilion.jpg"
+          alt="Together at the pavilion"
+          width="800"
+          height="1200"
+          loading="lazy"
+          class="aspect-[2/3] w-full rounded-xl object-cover shadow-sm"
+        />
+        <img
+          src="/images/gallery-pavilion-2.jpg"
+          alt="Facing each other at the pavilion"
+          width="800"
+          height="1200"
+          loading="lazy"
+          class="aspect-[2/3] w-full rounded-xl object-cover shadow-sm"
+        />
+        <img
+          src="/images/gallery-stone.jpg"
+          alt="By the stone wall"
+          width="800"
+          height="1200"
+          loading="lazy"
+          class="aspect-[2/3] w-full rounded-xl object-cover shadow-sm"
+        />
+        <img
+          src="/images/gallery-bridge.jpg"
+          alt="On the bridge with the skyline"
+          width="800"
+          height="1200"
+          loading="lazy"
+          class="aspect-[2/3] w-full rounded-xl object-cover shadow-sm"
+        />
       </div>
     </div>
   </section>

@@ -14,7 +14,7 @@ const { items } = Astro.props;
 <div class="accordion space-y-4">
   {
     items.map((item) => (
-      <details class="faq-item group rounded-2xl border-2 border-navy/10 bg-white transition-all hover:border-coral hover:shadow-[0_4px_15px_rgba(249,104,84,0.1)]">
+      <details class="faq-item group rounded-2xl border-2 border-navy/10 bg-white transition-all hover:border-coral hover:shadow-[0_4px_15px_rgba(107,143,194,0.1)]">
         <summary class="flex cursor-pointer list-none items-center justify-between gap-4 px-6 py-5 font-ui text-[1rem] font-semibold text-navy [&::-webkit-details-marker]:hidden">
           <span>{item.question}</span>
           <span class="faq-icon flex h-6 w-6 flex-shrink-0 items-center justify-center text-[1.25rem] text-coral transition-transform" aria-hidden="true">

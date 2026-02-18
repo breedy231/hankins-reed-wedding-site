@@ -15,12 +15,12 @@ import hotelsData from '../data/hotels.json';
   <!-- Hotels -->
   <section class="px-6 py-24" aria-labelledby="hotels-heading">
     <div class="mx-auto max-w-4xl">
-      <h2 id="hotels-heading" class="mb-4 text-center font-display text-[2.2rem] font-normal text-navy">Nearby Hotels</h2>
+      <h2 id="hotels-heading" class="mb-4 text-center font-display text-[2.2rem] font-normal text-navy">Hotel Block</h2>
       <p class="mb-12 text-center text-text-muted">
-        We've compiled some nearby options. Room blocks coming soon!
+        We've reserved room blocks at these hotels. Booking links and group rates coming soon!
       </p>
 
-      <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+      <div class="grid gap-6 md:grid-cols-2">
         {
           hotelsData.hotels.map((hotel) => (
             <HotelCard
@@ -82,7 +82,8 @@ import hotelsData from '../data/hotels.json';
     <div class="mx-auto max-w-2xl text-center">
       <h2 id="transport-heading" class="font-display text-[2.2rem] font-normal text-navy">Getting Around</h2>
       <p class="mt-4 text-navy">
-        We recommend rideshare services (Uber/Lyft) if you plan on enjoying the open bar.
+        We recommend rideshare services (Uber/Lyft) or CTA to get to the venue.
+        Complimentary shuttles will run from the venue back to the hotel block throughout the evening and after the last dance.
         Chicago's CTA trains are also fast and affordable — grab a Ventra card at any station.
       </p>
     </div>

@@ -15,22 +15,12 @@ function formatTime(time24: string): string {
 
 const timelineEvents = [
   {
-    time: formatTime(venuesData.ceremony.time),
-    title: 'Ceremony',
-    description: 'Please be seated 15 minutes prior',
+    time: formatTime(venuesData.venue.startTime),
+    title: 'Celebration Begins',
+    description: 'Dinner, drinks, and dancing all night',
   },
   {
-    time: formatTime(venuesData.cocktails.time),
-    title: 'Cocktail Hour',
-    description: 'Drinks and appetizers',
-  },
-  {
-    time: '6:00 PM',
-    title: 'Reception',
-    description: 'Dinner, dancing, and celebration',
-  },
-  {
-    time: '11:00 PM',
+    time: 'Midnight',
     title: 'Last Dance',
     description: 'End of the evening',
   },
@@ -53,15 +43,15 @@ const timelineEvents = [
   <!-- Venue -->
   <section class="bg-light-cream px-6 py-24" aria-labelledby="venue-heading">
     <div class="mx-auto max-w-4xl text-center">
-      <h2 id="venue-heading" class="font-display text-[2.2rem] font-normal text-navy">{venuesData.ceremony.name}</h2>
-      <p class="mt-2 text-text-muted">{venuesData.ceremony.neighborhood}</p>
+      <h2 id="venue-heading" class="font-display text-[2.2rem] font-normal text-navy">{venuesData.venue.name}</h2>
+      <p class="mt-2 text-text-muted">{venuesData.venue.neighborhood}</p>
 
       <address class="mt-6 text-[1.1rem] not-italic text-navy">
-        {venuesData.ceremony.address}
+        {venuesData.venue.address}
       </address>
 
       <a
-        href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(venuesData.ceremony.address)}`}
+        href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(venuesData.venue.address)}`}
         target="_blank"
         rel="noopener noreferrer"
         class="mt-6 inline-block rounded-full bg-coral px-6 py-3 font-ui text-[0.95rem] font-semibold uppercase tracking-[1px] text-white transition-all hover:-translate-y-0.5 hover:bg-coral-dark"
@@ -76,9 +66,9 @@ const timelineEvents = [
   <section class="px-6 py-24" aria-labelledby="dresscode-heading">
     <div class="mx-auto max-w-2xl text-center">
       <h2 id="dresscode-heading" class="font-display text-[2.2rem] font-normal text-navy">Dress Code</h2>
-      <p class="mt-4 font-display text-[1.5rem] text-coral">Cocktail Attire</p>
+      <p class="mt-4 font-display text-[1.5rem] text-coral">Formal Attire</p>
       <p class="mt-4 text-text-muted">
-        Suits, dresses, or dressy separates all work well. Skip the jeans and flip-flops, but no need for a tuxedo or ballgown.
+        Suits, tuxedos, evening gowns, and formal dresses are all welcome. This is a night to celebrate &mdash; dress to impress!
       </p>
     </div>
   </section>
@@ -88,20 +78,16 @@ const timelineEvents = [
     <div class="mx-auto max-w-2xl text-center">
       <h2 id="getting-there-heading" class="font-display text-[2.2rem] font-normal text-navy">Getting There</h2>
       <p class="mt-4 text-navy">
-        Street parking in Fulton Market is limited. We recommend rideshare services for the easiest arrival and safest departure.
+        Street parking in Fulton Market is limited. Here's what we recommend:
       </p>
       <div class="mt-8 space-y-4 text-left">
         <div class="rounded-2xl bg-white p-6">
-          <h3 class="font-display text-[1.3rem] font-semibold text-navy">Rideshare</h3>
-          <p class="mt-2 text-text-muted">Uber and Lyft are the easiest way to get to and from the venue. Drop-off is right at the front entrance.</p>
+          <h3 class="font-display text-[1.3rem] font-semibold text-navy">Getting There</h3>
+          <p class="mt-2 text-text-muted">Rideshare (Uber/Lyft) or CTA are your best options for getting to the venue. Drop-off is right at the front entrance.</p>
         </div>
         <div class="rounded-2xl bg-white p-6">
-          <h3 class="font-display text-[1.3rem] font-semibold text-navy">Parking</h3>
-          <p class="mt-2 text-text-muted">There are several public parking garages nearby. Street parking is available but can fill up quickly on weekends.</p>
-        </div>
-        <div class="rounded-2xl bg-white p-6">
-          <h3 class="font-display text-[1.3rem] font-semibold text-navy">Public Transit</h3>
-          <p class="mt-2 text-text-muted">The venue is accessible via CTA Green and Pink lines (Ashland stop) or several bus routes along Ogden Avenue.</p>
+          <h3 class="font-display text-[1.3rem] font-semibold text-navy">Shuttle Service</h3>
+          <p class="mt-2 text-text-muted">Complimentary shuttles will run from the venue back to the Westin River North and Courtyard Marriott River North throughout the evening and after the last dance.</p>
         </div>
       </div>
     </div>
