@@ -1,7 +1,7 @@
-// Service Worker for Reed Wedding Website
+// Service Worker for Hankins-Reed Wedding Website
 // Provides offline support by caching critical assets
 
-const CACHE_NAME = 'reed-wedding-v2';
+const CACHE_NAME = 'hankins-reed-wedding-v2';
 const OFFLINE_URL = '/offline.html';
 
 // Assets to cache immediately on install

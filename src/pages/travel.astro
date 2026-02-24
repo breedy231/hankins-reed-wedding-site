@@ -17,7 +17,7 @@ import hotelsData from '../data/hotels.json';
     <div class="mx-auto max-w-4xl">
       <h2 id="hotels-heading" class="mb-4 text-center font-display text-[2.2rem] font-normal text-navy">Hotel Block</h2>
       <p class="mb-12 text-center text-text-muted">
-        We've reserved room blocks at these hotels. Booking links and group rates coming soon!
+        We've reserved room blocks at these hotels for our wedding weekend.
       </p>
 
       <div class="grid gap-6 md:grid-cols-2">
@@ -31,6 +31,7 @@ import hotelsData from '../data/hotels.json';
               bookingUrl={hotel.bookingUrl ?? undefined}
               blockCode={hotel.blockCode ?? undefined}
               blockDeadline={hotel.blockDeadline ?? undefined}
+              phone={(hotel as any).phone ?? undefined}
             />
           ))
         }

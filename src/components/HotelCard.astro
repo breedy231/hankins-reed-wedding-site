@@ -7,9 +7,10 @@ interface Props {
   bookingUrl?: string;
   blockCode?: string;
   blockDeadline?: string;
+  phone?: string;
 }
 
-const { name, address, priceRange, distance, bookingUrl, blockCode, blockDeadline } = Astro.props;
+const { name, address, priceRange, distance, bookingUrl, blockCode, blockDeadline, phone } = Astro.props;
 ---
 
 <article class="flex flex-col rounded-2xl border-2 border-transparent bg-white p-8 transition-all hover:-translate-y-1 hover:border-coral hover:shadow-[0_12px_35px_rgba(107,143,194,0.12)]">
@@ -35,7 +36,7 @@ const { name, address, priceRange, distance, bookingUrl, blockCode, blockDeadlin
     )
   }
 
-  <div class="mt-auto pt-6">
+  <div class="mt-auto pt-6 flex flex-wrap items-center gap-4">
     {
       bookingUrl ? (
         <a
@@ -49,6 +50,13 @@ const { name, address, priceRange, distance, bookingUrl, blockCode, blockDeadlin
         </a>
       ) : (
         <span class="text-[0.9rem] text-text-muted">Booking link coming soon</span>
+      )
+    }
+    {
+      phone && (
+        <a href={`tel:${phone.replace(/[^\d+]/g, '')}`} class="text-[0.85rem] text-coral hover:text-coral-dark transition-colors">
+          or call {phone}
+        </a>
       )
     }
   </div>

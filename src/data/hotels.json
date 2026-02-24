@@ -15,9 +15,10 @@
       "address": "30 E Hubbard St, Chicago, IL 60611",
       "priceRange": "$$",
       "distance": "3.5 miles",
-      "bookingUrl": null,
+      "bookingUrl": "https://www.marriott.com/event-reservations/reservation-link.mi?id=1771880022821&key=GRP&app=resvlink",
       "blockCode": null,
       "blockDeadline": null,
+      "phone": "+1 (800) 321-2211",
       "shuttleDestination": true
     }
   ]
