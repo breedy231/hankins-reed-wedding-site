@@ -40,13 +40,13 @@ const formattedDate = weddingDate.toLocaleDateString('en-US', {
 
         <!-- Tagline -->
         <p class="mt-4 font-ui text-[1rem] font-medium uppercase tracking-[4px] text-text-muted">
-          Request your presence
+          Invite you to celebrate
         </p>
 
         <!-- Date & Location -->
         <div class="mt-8">
           <p class="font-display text-[1.5rem] font-semibold text-navy">{formattedDate}</p>
-          <p class="mt-2 text-[0.9rem] uppercase tracking-[2px] text-text-muted">Fulton Market, Chicago</p>
+          <p class="mt-2 text-[0.9rem] uppercase tracking-[2px] text-text-muted">Chicago</p>
         </div>
 
         <!-- CTA -->
@@ -74,7 +74,7 @@ const formattedDate = weddingDate.toLocaleDateString('en-US', {
 ) : (
   <section class="px-6 pb-8 pt-12 text-center" aria-label="Page header">
     <h1 class="font-display text-[2.5rem] font-normal text-navy">{title}</h1>
-    {subtitle && <p class="mt-3 text-text-muted">{subtitle}</p>}
+    {subtitle && <p class="mt-3 text-[1.15rem] text-text-muted">{subtitle}</p>}
   </section>
 )}
 

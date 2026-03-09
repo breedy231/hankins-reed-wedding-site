@@ -2,7 +2,6 @@
 interface Props {
   name: string;
   address: string;
-  priceRange: string;
   distance: string;
   bookingUrl?: string;
   blockCode?: string;
@@ -10,7 +9,7 @@ interface Props {
   phone?: string;
 }
 
-const { name, address, priceRange, distance, bookingUrl, blockCode, blockDeadline, phone } = Astro.props;
+const { name, address, distance, bookingUrl, blockCode, blockDeadline, phone } = Astro.props;
 ---
 
 <article class="flex flex-col rounded-2xl border-2 border-transparent bg-white p-8 transition-all hover:-translate-y-1 hover:border-coral hover:shadow-[0_12px_35px_rgba(107,143,194,0.12)]">
@@ -19,9 +18,6 @@ const { name, address, priceRange, distance, bookingUrl, blockCode, blockDeadlin
   <address class="mt-2 not-italic text-text-muted">{address}</address>
 
   <div class="mt-4 flex flex-wrap gap-3">
-    <span class="inline-flex items-center rounded-full bg-light-cream px-3 py-1 font-ui text-[0.8rem] font-semibold text-coral-dark">
-      {priceRange}
-    </span>
     <span class="inline-flex items-center rounded-full bg-light-cream px-3 py-1 font-ui text-[0.8rem] text-navy">
       {distance} from venue
     </span>

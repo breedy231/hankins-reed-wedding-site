@@ -3,42 +3,13 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Navigation from '../components/Navigation.astro';
 import Footer from '../components/Footer.astro';
 import Hero from '../components/Hero.astro';
-import Timeline from '../components/Timeline.astro';
 import venuesData from '../data/venues.json';
-
-function formatTime(time24: string): string {
-  const [hours, minutes] = time24.split(':').map(Number);
-  const period = hours >= 12 ? 'PM' : 'AM';
-  const hours12 = hours % 12 || 12;
-  return `${hours12}:${minutes.toString().padStart(2, '0')} ${period}`;
-}
-
-const timelineEvents = [
-  {
-    time: formatTime(venuesData.venue.startTime),
-    title: 'Celebration Begins',
-    description: 'Dinner, drinks, and dancing all night',
-  },
-  {
-    time: 'Midnight',
-    title: 'Last Dance',
-    description: 'End of the evening',
-  },
-];
 ---
 
 <BaseLayout title="Details" description="Wedding day schedule, venue information, and what to expect">
   <Navigation slot="header" />
 
   <Hero title="The Details" subtitle="Everything you need to know about our day" />
-
-  <!-- Timeline -->
-  <section class="px-6 py-24" aria-labelledby="schedule-heading">
-    <div class="mx-auto max-w-4xl">
-      <h2 id="schedule-heading" class="mb-12 text-center font-display text-[2.2rem] font-normal text-navy">Schedule</h2>
-      <Timeline events={timelineEvents} />
-    </div>
-  </section>
 
   <!-- Venue -->
   <section class="bg-light-cream px-6 py-24" aria-labelledby="venue-heading">
@@ -68,37 +39,27 @@ const timelineEvents = [
       <h2 id="dresscode-heading" class="font-display text-[2.2rem] font-normal text-navy">Dress Code</h2>
       <p class="mt-4 font-display text-[1.5rem] text-coral">Formal Attire</p>
       <p class="mt-4 text-text-muted">
-        Suits, tuxedos, evening gowns, and formal dresses are all welcome. This is a night to celebrate &mdash; dress to impress!
+        Dress to impress &mdash; this is a night to celebrate!
       </p>
     </div>
   </section>
 
-  <!-- Getting There -->
-  <section class="bg-light-cream px-6 py-24" aria-labelledby="getting-there-heading">
+  <!-- Transport -->
+  <section class="bg-light-cream px-6 py-24" aria-labelledby="transport-heading">
     <div class="mx-auto max-w-2xl text-center">
-      <h2 id="getting-there-heading" class="font-display text-[2.2rem] font-normal text-navy">Getting There</h2>
-      <p class="mt-4 text-navy">
-        Street parking in Fulton Market is limited. Here's what we recommend:
+      <h2 id="transport-heading" class="font-display text-[2.2rem] font-normal text-navy">Transport</h2>
+      <p class="mx-auto mt-4 max-w-lg text-pretty text-navy">
+        We recommend rideshare (Uber/Lyft) or CTA to the venue. Shuttles will run from the venue back to the hotel blocks throughout the evening.
       </p>
-      <div class="mt-8 space-y-4 text-left">
-        <div class="rounded-2xl bg-white p-6">
-          <h3 class="font-display text-[1.3rem] font-semibold text-navy">Getting There</h3>
-          <p class="mt-2 text-text-muted">Rideshare (Uber/Lyft) or CTA are your best options for getting to the venue. Drop-off is right at the front entrance.</p>
-        </div>
-        <div class="rounded-2xl bg-white p-6">
-          <h3 class="font-display text-[1.3rem] font-semibold text-navy">Shuttle Service</h3>
-          <p class="mt-2 text-text-muted">Complimentary shuttles will run from the venue back to the Westin River North and Courtyard Marriott River North throughout the evening and after the last dance.</p>
-        </div>
-      </div>
     </div>
   </section>
 
   <!-- Weather -->
   <section class="px-6 py-24" aria-labelledby="weather-heading">
     <div class="mx-auto max-w-2xl text-center">
-      <h2 id="weather-heading" class="font-display text-[2.2rem] font-normal text-navy">Chicago in September</h2>
+      <h2 id="weather-heading" class="font-display text-[2.2rem] font-normal text-navy">Chicago in August</h2>
       <p class="mt-4 text-navy">
-        September in Chicago typically offers pleasant weather with temperatures between 55&deg;F and 75&deg;F.
+        August in Chicago is warm with temperatures typically between 70&deg;F and 85&deg;F.
         We recommend bringing a light layer for the evening.
       </p>
     </div>

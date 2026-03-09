@@ -1,60 +1,88 @@
 {
   "restaurants": [
     {
-      "name": "Girl & The Goat",
-      "cuisine": "New American",
-      "neighborhood": "West Loop",
-      "description": "James Beard Award winner Stephanie Izard's flagship restaurant with creative, bold flavors.",
-      "priceRange": "$$$",
-      "reservations": true
+      "name": "Pingpong",
+      "cuisine": "Asian Fusion",
+      "neighborhood": "Lakeview",
+      "description": "Neighborhood favorite serving Chinese, Thai, and other Asian-inspired dishes with creative cocktails in a casual, lively setting."
     },
     {
-      "name": "Au Cheval",
-      "cuisine": "American Diner",
-      "neighborhood": "West Loop",
-      "description": "Famous for their double cheeseburger - widely considered one of the best in America.",
-      "priceRange": "$$",
-      "reservations": false
+      "name": "Wangs",
+      "cuisine": "Asian",
+      "neighborhood": "Lakeview",
+      "description": "Intimate cocktail lounge and restaurant with Chinese-inspired dishes and sushi, famous for its matcha martini."
     },
     {
-      "name": "Portillo's",
-      "cuisine": "Chicago Fast Food",
+      "name": "Le Petit Marcel",
+      "cuisine": "French",
+      "neighborhood": "Lakeview",
+      "description": "Parisian-inspired bistro serving escargot, steak tartare, and other French classics with a cozy piano bar."
+    },
+    {
+      "name": "RPM Seafood",
+      "cuisine": "Seafood",
       "neighborhood": "River North",
-      "description": "Iconic Chicago chain for Italian beef, Chicago-style hot dogs, and chocolate cake.",
-      "priceRange": "$",
-      "reservations": false
+      "description": "Riverfront seafood restaurant with crudo, seafood towers, and signature pastas with floor-to-ceiling Chicago River views."
     },
     {
-      "name": "Lou Malnati's",
-      "cuisine": "Pizza",
-      "neighborhood": "Multiple Locations",
-      "description": "Deep dish pizza institution since 1971. The butter crust is legendary.",
-      "priceRange": "$$",
-      "reservations": true
-    },
-    {
-      "name": "Frontera Grill",
-      "cuisine": "Mexican",
+      "name": "RPM Steak",
+      "cuisine": "Steakhouse",
       "neighborhood": "River North",
-      "description": "Rick Bayless's celebrated Mexican restaurant featuring regional dishes and incredible moles.",
-      "priceRange": "$$$",
-      "reservations": true
+      "description": "Upscale modern steakhouse with globally sourced cuts in an elegant space centered around a wraparound marble bar."
     },
     {
-      "name": "Alinea",
-      "cuisine": "Molecular Gastronomy",
-      "neighborhood": "Lincoln Park",
-      "description": "Three-Michelin-star dining experience. Book months in advance for this culinary journey.",
-      "priceRange": "$$$$",
-      "reservations": true
+      "name": "Aba",
+      "cuisine": "Mediterranean",
+      "neighborhood": "Fulton Market",
+      "description": "Rooftop Mediterranean restaurant with creative hummus variations, wood-fired lamb chops, and a gorgeous patio."
     },
     {
-      "name": "Pequod's Pizza",
-      "cuisine": "Pizza",
+      "name": "Ema",
+      "cuisine": "Mediterranean",
+      "neighborhood": "River North",
+      "description": "Aba's sister restaurant serving lighter Mediterranean mezze and small plates with standout hummus, falafel, and kebabs."
+    },
+    {
+      "name": "Bar Mar",
+      "cuisine": "Spanish Seafood",
+      "neighborhood": "Loop",
+      "description": "José Andrés' seafood-focused spot blending Spanish and Latin flavors through ceviches, crudos, and elevated coastal classics."
+    },
+    {
+      "name": "Obelix",
+      "cuisine": "French",
+      "neighborhood": "River North",
+      "description": "Modern French bistro from James Beard-nominated chefs, known for beef Wellington, foie gras, and rotating soufflés."
+    },
+    {
+      "name": "Kit Kat Club",
+      "cuisine": "Supper Club",
+      "neighborhood": "Lakeview",
+      "description": "Glamorous Art Deco supper club with American cuisine, drag brunches, live performances, and over 200 cocktails."
+    },
+    {
+      "name": "Summer House Santa Monica",
+      "cuisine": "Californian",
       "neighborhood": "Lincoln Park",
-      "description": "Caramelized cheese crust deep dish that rivals any in the city. Local favorite.",
-      "priceRange": "$$",
-      "reservations": false
+      "description": "California-inspired restaurant with a retractable glass ceiling, wood-fired dishes, market pastas, and a signature cookie bar."
+    },
+    {
+      "name": "RL Restaurant",
+      "cuisine": "American",
+      "neighborhood": "Gold Coast",
+      "description": "Ralph Lauren's clubby restaurant on Michigan Ave with classic American fare and tableside service."
+    },
+    {
+      "name": "Gibsons",
+      "cuisine": "Steakhouse",
+      "neighborhood": "Gold Coast",
+      "description": "Legendary Chicago steakhouse on Rush Street since 1989, serving USDA Prime Angus aged 45+ days in an electric atmosphere."
+    },
+    {
+      "name": "Avec",
+      "cuisine": "Mediterranean",
+      "neighborhood": "West Loop",
+      "description": "Beloved communal-table spot from Chef Paul Kahan, famous for chorizo-stuffed dates and seasonally-driven Mediterranean dishes."
     }
   ],
   "activities": [
@@ -78,13 +106,6 @@
       "description": "See 'The Bean,' stroll through Lurie Garden, and enjoy free summer concerts at the Pritzker Pavilion.",
       "duration": "1-2 hours",
       "bestFor": "Everyone, photo opportunities"
-    },
-    {
-      "name": "Navy Pier",
-      "type": "Entertainment",
-      "description": "Iconic pier with a Ferris wheel, restaurants, shops, and lake views. Great for families.",
-      "duration": "2-3 hours",
-      "bestFor": "Families, casual visitors"
     },
     {
       "name": "Skydeck Chicago (Willis Tower)",
@@ -128,10 +149,16 @@
       "description": "Family-friendly neighborhood with the free Lincoln Park Zoo and gorgeous tree-lined streets."
     },
     {
-      "name": "Wicker Park/Bucktown",
-      "vibe": "Hip & Artsy",
-      "highlights": ["Vintage shopping", "Live music", "Coffee shops"],
-      "description": "Trendy neighborhood with independent boutiques, great bars, and artistic vibe."
+      "name": "Lakeview",
+      "vibe": "Our Neighborhood",
+      "highlights": ["Great restaurants", "Wrigley Field", "Lakefront Trail"],
+      "description": "Where we live! A vibrant, walkable neighborhood with excellent dining, easy lake access, and the best people-watching in the city."
+    },
+    {
+      "name": "Boystown",
+      "vibe": "Fun & Welcoming",
+      "highlights": ["Nightlife", "Brunch spots", "Community events"],
+      "description": "Chicago's iconic LGBTQ+ neighborhood packed with lively bars, amazing brunch spots, and a welcoming energy you can feel on every block."
     },
     {
       "name": "The Loop",

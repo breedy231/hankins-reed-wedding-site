@@ -3,6 +3,15 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Navigation from '../components/Navigation.astro';
 import Footer from '../components/Footer.astro';
 import Hero from '../components/Hero.astro';
+import Timeline from '../components/Timeline.astro';
+import guestsData from '../data/guests.json';
+import mealsData from '../data/meals.json';
+
+const schedule = [
+  { time: '6:00 PM', title: 'Cocktail Hour', description: 'Drinks, bites, and mingling' },
+  { time: '7:30 PM', title: 'Dinner', description: 'Seated dinner' },
+  { time: '9:00 PM', title: 'Dancing', description: 'Dance the night away until midnight' },
+];
 ---
 
 <BaseLayout title="RSVP" description="RSVP for Brendan & Scott's wedding">
@@ -10,55 +19,547 @@ import Hero from '../components/Hero.astro';
 
   <Hero title="RSVP" subtitle="We can't wait to celebrate with you" />
 
-  <!-- RSVP content -->
-  <section class="px-6 py-24" aria-labelledby="rsvp-heading">
-    <div class="mx-auto max-w-xl text-center">
-      <h2 id="rsvp-heading" class="sr-only">RSVP Information</h2>
+  <!-- Schedule -->
+  <section class="bg-light-cream px-6 py-24" aria-labelledby="schedule-heading">
+    <div class="mx-auto max-w-4xl text-center">
+      <p class="font-ui text-[0.8rem] font-semibold uppercase tracking-[3px] text-coral">August 22, 2026</p>
+      <h2 id="schedule-heading" class="mt-4 font-display text-[2.2rem] font-normal text-navy">Schedule</h2>
+      <p class="mx-auto mt-4 max-w-lg text-pretty text-navy">We want you there at 6 to get the party started.</p>
+    </div>
+    <div class="mx-auto mt-12 max-w-4xl">
+      <Timeline events={schedule} />
+    </div>
+  </section>
 
-      <!-- Status message -->
-      <p class="font-display text-[1.5rem] font-semibold text-navy">
-        RSVP will open in Spring 2026
+  <!-- Transport -->
+  <section class="px-6 py-24" aria-labelledby="rsvp-transport-heading">
+    <div class="mx-auto max-w-2xl text-center">
+      <h2 id="rsvp-transport-heading" class="font-display text-[2.2rem] font-normal text-navy">Getting There & Home</h2>
+      <p class="mx-auto mt-4 max-w-lg text-pretty text-navy">
+        Get yourself there &mdash; we recommend rideshare (Uber/Lyft) or CTA. We'll have shuttles running back to the hotel blocks all evening to get you home.
       </p>
-      <p class="mt-4 leading-[1.7] text-text-muted">
-        When RSVPs open, you'll be able to respond right here. We'll send details in your invitation.
-      </p>
+    </div>
+  </section>
 
-      <!-- Placeholder for future RSVP embed -->
-      <!-- RSVP_EMBED_HERE -->
-      <div class="mt-10 rounded-2xl border-2 border-dashed border-coral-bright/30 p-12">
-        <svg
-          class="mx-auto h-12 w-12 text-coral-bright/40"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-          stroke-width="1.5"
-          aria-hidden="true"
-        >
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75"
-          />
-        </svg>
-        <p class="mt-4 font-ui text-[0.9rem] font-medium text-text-muted">
-          RSVP form coming soon
-        </p>
-      </div>
+  <section class="bg-light-cream px-6 py-16" aria-labelledby="rsvp-heading">
+    <div class="mx-auto max-w-xl">
+      <h2 id="rsvp-heading" class="sr-only">RSVP Form</h2>
 
-      <!-- Deadline reminder -->
-      <p class="mt-10 font-ui text-[0.9rem] font-semibold uppercase tracking-[2px] text-coral">
-        Please respond by July 1, 2026
-      </p>
+      {mealsData.rsvpEnabled ? (
+        <>
+          <p class="mb-10 text-center font-ui text-[0.9rem] font-semibold uppercase tracking-[2px] text-coral">
+            Please respond by July 1, 2026
+          </p>
 
-      <!-- Contact fallback -->
-      <p class="mt-6 text-text-muted">
-        Having trouble? Email us at
-        <a href="mailto:hankinsreed@protonmail.com" class="text-coral transition-colors hover:text-coral-dark hover:underline">
-          hankinsreed@protonmail.com
-        </a>
-      </p>
+          <div id="password-gate">
+            <label for="rsvp-password" class="mb-2 block font-display text-[1.25rem] font-semibold text-navy">
+              Enter the password to RSVP
+            </label>
+            <p class="mb-4 text-text-muted">Check your invitation for the password.</p>
+            <div class="flex gap-3">
+              <input
+                id="rsvp-password"
+                type="password"
+                placeholder="Password"
+                class="flex-1 rounded-xl border-2 border-light-gray bg-white px-5 py-4 font-body text-[1rem] text-navy placeholder:text-text-muted/60 focus:border-coral focus:outline-none"
+              />
+              <button
+                id="password-submit"
+                type="button"
+                class="rounded-xl bg-coral px-6 py-4 font-ui text-[0.95rem] font-semibold text-white transition-all hover:bg-coral-dark"
+              >
+                Enter
+              </button>
+            </div>
+            <p id="password-error" class="mt-2 hidden text-[0.9rem] text-red-600">Incorrect password. Please try again.</p>
+          </div>
+
+          <div
+            id="rsvp-app"
+            class="hidden"
+            data-guests={JSON.stringify(guestsData.guests)}
+            data-meals={JSON.stringify(mealsData.meals)}
+            data-deadline={mealsData.deadline}
+          >
+            <div id="step-lookup">
+              <label id="search-label" for="guest-search" class="mb-2 block font-display text-[1.25rem] font-semibold text-navy">
+                Find your name
+              </label>
+              <div class="relative">
+                <input
+                  id="guest-search"
+                  type="text"
+                  role="combobox"
+                  aria-autocomplete="list"
+                  aria-expanded="false"
+                  aria-controls="guest-listbox"
+                  aria-labelledby="search-label"
+                  autocomplete="off"
+                  placeholder="Start typing your name..."
+                  class="w-full rounded-xl border-2 border-light-gray bg-white px-5 py-4 font-body text-[1rem] text-navy placeholder:text-text-muted/60 focus:border-coral focus:outline-none"
+                />
+                <ul
+                  id="guest-listbox"
+                  role="listbox"
+                  aria-labelledby="search-label"
+                  class="absolute left-0 right-0 z-10 mt-1 hidden max-h-60 overflow-y-auto rounded-xl border border-light-gray bg-white shadow-lg"
+                ></ul>
+              </div>
+            </div>
+
+            <div id="step-respond" class="hidden">
+              <p class="mb-2 font-display text-[1.25rem] font-semibold text-navy">
+                Hi, <span id="guest-display-name" class="text-coral"></span>!
+              </p>
+              <p class="mb-6 text-text-muted">Will you be joining us?</p>
+              <fieldset>
+                <legend class="sr-only">Will you attend?</legend>
+                <div class="grid grid-cols-2 gap-4">
+                  <button
+                    type="button"
+                    role="radio"
+                    aria-checked="false"
+                    data-value="yes"
+                    class="attend-btn flex min-h-14 items-center justify-center rounded-xl border-2 border-light-gray bg-white font-ui text-[0.95rem] font-semibold text-navy transition-all hover:border-coral hover:bg-coral/5"
+                  >
+                    Joyfully Accept
+                  </button>
+                  <button
+                    type="button"
+                    role="radio"
+                    aria-checked="false"
+                    data-value="no"
+                    class="attend-btn flex min-h-14 items-center justify-center rounded-xl border-2 border-light-gray bg-white font-ui text-[0.95rem] font-semibold text-navy transition-all hover:border-coral hover:bg-coral/5"
+                  >
+                    Regretfully Decline
+                  </button>
+                </div>
+              </fieldset>
+            </div>
+
+            <div id="step-details-yes" class="hidden">
+              <p class="mb-6 font-display text-[1.25rem] font-semibold text-navy">Party Details</p>
+              <div class="mb-6">
+                <label for="party-size" class="mb-2 block font-ui text-[0.9rem] font-semibold text-navy">Number attending</label>
+                <select id="party-size" class="w-full rounded-xl border-2 border-light-gray bg-white px-5 py-4 font-body text-[1rem] text-navy focus:border-coral focus:outline-none"></select>
+              </div>
+              <div id="guest-rows" class="space-y-6"></div>
+              <div class="mt-6">
+                <label for="dietary-needs" class="mb-2 block font-ui text-[0.9rem] font-semibold text-navy">Dietary restrictions or allergies</label>
+                <textarea id="dietary-needs" rows="2" placeholder="e.g., nut allergy, gluten-free" class="w-full rounded-xl border-2 border-light-gray bg-white px-5 py-4 font-body text-[1rem] text-navy placeholder:text-text-muted/60 focus:border-coral focus:outline-none"></textarea>
+              </div>
+              <div class="mt-6">
+                <label for="note-yes" class="mb-2 block font-ui text-[0.9rem] font-semibold text-navy">A note for the couple <span class="font-normal text-text-muted">(optional)</span></label>
+                <textarea id="note-yes" rows="2" placeholder="Well wishes, etc." class="w-full rounded-xl border-2 border-light-gray bg-white px-5 py-4 font-body text-[1rem] text-navy placeholder:text-text-muted/60 focus:border-coral focus:outline-none"></textarea>
+              </div>
+              <button id="submit-yes" type="button" class="mt-8 flex w-full min-h-14 items-center justify-center rounded-full bg-coral px-8 py-4 font-ui text-[0.95rem] font-semibold uppercase tracking-[1px] text-white shadow-[0_4px_20px_rgba(74,111,165,0.25)] transition-all hover:-translate-y-0.5 hover:bg-coral-dark hover:shadow-[0_6px_25px_rgba(74,111,165,0.3)] disabled:opacity-50 disabled:hover:translate-y-0">Send RSVP</button>
+            </div>
+
+            <div id="step-details-no" class="hidden">
+              <p class="mb-4 font-display text-[1.25rem] font-semibold text-navy">We'll miss you!</p>
+              <div class="mb-6">
+                <label for="note-no" class="mb-2 block font-ui text-[0.9rem] font-semibold text-navy">A note for the couple <span class="font-normal text-text-muted">(optional)</span></label>
+                <textarea id="note-no" rows="3" placeholder="Send your well wishes..." class="w-full rounded-xl border-2 border-light-gray bg-white px-5 py-4 font-body text-[1rem] text-navy placeholder:text-text-muted/60 focus:border-coral focus:outline-none"></textarea>
+              </div>
+              <button id="submit-no" type="button" class="flex w-full min-h-14 items-center justify-center rounded-full border-2 border-coral bg-white px-8 py-4 font-ui text-[0.95rem] font-semibold uppercase tracking-[1px] text-coral transition-all hover:bg-coral/5 disabled:opacity-50">Send Regrets</button>
+            </div>
+
+            <div id="step-success" class="hidden text-center">
+              <div class="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-coral/10">
+                <svg class="h-8 w-8 text-coral" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                </svg>
+              </div>
+              <p class="font-display text-[1.5rem] font-semibold text-navy" id="success-heading">Thank you!</p>
+              <p class="mt-2 text-text-muted" id="success-message"></p>
+            </div>
+
+            <div id="step-error" class="hidden">
+              <div class="rounded-xl border-2 border-red-300 bg-red-50 p-6 text-center">
+                <p class="font-ui text-[0.95rem] font-semibold text-red-700">Something went wrong</p>
+                <p class="mt-1 text-[0.9rem] text-red-600" id="error-message"></p>
+                <button id="retry-btn" type="button" class="mt-4 inline-flex min-h-12 items-center justify-center rounded-full bg-red-600 px-6 py-3 font-ui text-[0.9rem] font-semibold text-white transition-colors hover:bg-red-700">Try Again</button>
+              </div>
+            </div>
+
+            <div id="step-closed" class="hidden text-center">
+              <p class="font-display text-[1.5rem] font-semibold text-navy">RSVPs are closed</p>
+              <p class="mt-4 text-text-muted">
+                The deadline has passed. Please contact us directly at
+                <a href="mailto:hankinsreedwedding@protonmail.com" class="text-coral hover:text-coral-dark hover:underline">hankinsreedwedding@protonmail.com</a>
+              </p>
+            </div>
+          </div>
+
+          <p class="mt-10 text-center text-text-muted">
+            Having trouble? Email us at
+            <a href="mailto:hankinsreedwedding@protonmail.com" class="text-coral transition-colors hover:text-coral-dark hover:underline">hankinsreedwedding@protonmail.com</a>
+          </p>
+        </>
+      ) : (
+        <div class="py-12 text-center">
+          <p class="font-display text-[1.5rem] font-semibold text-navy">RSVP Coming Soon</p>
+          <p class="mx-auto mt-4 max-w-md text-text-muted">
+            RSVP will open soon &mdash; check back after you receive your invitation!
+          </p>
+        </div>
+      )}
     </div>
   </section>
 
   <Footer slot="footer" />
 </BaseLayout>
+
+<script>
+  // Password gate
+  const passwordGate = document.getElementById('password-gate');
+  const passwordInput = document.getElementById('rsvp-password') as HTMLInputElement | null;
+  const passwordSubmit = document.getElementById('password-submit');
+  const passwordError = document.getElementById('password-error');
+  const app = document.getElementById('rsvp-app');
+
+  if (passwordGate && passwordInput && passwordSubmit && app) {
+    const SITE_PASSWORD = 'turtletime';
+
+    function checkPassword() {
+      if (passwordInput!.value.toLowerCase().trim() === SITE_PASSWORD) {
+        passwordGate!.classList.add('hidden');
+        app!.classList.remove('hidden');
+      } else {
+        passwordError?.classList.remove('hidden');
+        passwordInput!.classList.add('border-red-400');
+      }
+    }
+
+    passwordSubmit.addEventListener('click', checkPassword);
+    passwordInput.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') checkPassword();
+    });
+  }
+
+  if (!app) throw new Error('RSVP app not found');
+  const GUESTS: { id: string; name: string; partySize: number }[] = JSON.parse(app.dataset.guests!);
+  const MEALS: { id: string; label: string }[] = JSON.parse(app.dataset.meals!);
+  const DEADLINE = app.dataset.deadline!;
+
+  // Elements
+  const stepLookup = document.getElementById('step-lookup')!;
+  const stepRespond = document.getElementById('step-respond')!;
+  const stepDetailsYes = document.getElementById('step-details-yes')!;
+  const stepDetailsNo = document.getElementById('step-details-no')!;
+  const stepSuccess = document.getElementById('step-success')!;
+  const stepError = document.getElementById('step-error')!;
+  const stepClosed = document.getElementById('step-closed')!;
+
+  const searchInput = document.getElementById('guest-search') as HTMLInputElement;
+  const listbox = document.getElementById('guest-listbox')!;
+  const displayName = document.getElementById('guest-display-name')!;
+  const partySelect = document.getElementById('party-size') as HTMLSelectElement;
+  const guestRowsContainer = document.getElementById('guest-rows')!;
+  const submitYesBtn = document.getElementById('submit-yes')!;
+  const submitNoBtn = document.getElementById('submit-no')!;
+  const successMessage = document.getElementById('success-message')!;
+  const errorMessage = document.getElementById('error-message')!;
+  const retryBtn = document.getElementById('retry-btn')!;
+
+  let selectedGuest: typeof GUESTS[0] | null = null;
+  let attending: boolean | null = null;
+  let activeIndex = -1;
+  let lastSubmitData: Record<string, unknown> | null = null;
+
+  // Check deadline
+  if (new Date() > new Date(DEADLINE + 'T23:59:59')) {
+    stepLookup.classList.add('hidden');
+    stepClosed.classList.remove('hidden');
+  }
+
+  function showStep(step: HTMLElement) {
+    [stepLookup, stepRespond, stepDetailsYes, stepDetailsNo, stepSuccess, stepError, stepClosed].forEach(
+      (s) => s.classList.add('hidden'),
+    );
+    step.classList.remove('hidden');
+  }
+
+  // === Autocomplete ===
+  function filterGuests(query: string) {
+    const q = query.toLowerCase().trim();
+    if (q.length < 2) return [];
+    return GUESTS.filter((g) => g.name.toLowerCase().includes(q));
+  }
+
+  function renderListbox(matches: typeof GUESTS) {
+    listbox.innerHTML = '';
+    if (matches.length === 0) {
+      listbox.classList.add('hidden');
+      searchInput.setAttribute('aria-expanded', 'false');
+      return;
+    }
+    matches.forEach((g, i) => {
+      const li = document.createElement('li');
+      li.id = `guest-option-${i}`;
+      li.role = 'option';
+      li.setAttribute('aria-selected', 'false');
+      li.className =
+        'cursor-pointer px-5 py-3 font-body text-[1rem] text-navy hover:bg-coral/10 transition-colors';
+      li.textContent = g.name;
+      if (g.partySize > 1) {
+        const badge = document.createElement('span');
+        badge.className = 'ml-2 text-[0.8rem] text-text-muted';
+        badge.textContent = `(party of ${g.partySize})`;
+        li.appendChild(badge);
+      }
+      li.addEventListener('click', () => selectGuest(g));
+      listbox.appendChild(li);
+    });
+    listbox.classList.remove('hidden');
+    searchInput.setAttribute('aria-expanded', 'true');
+    activeIndex = -1;
+  }
+
+  function setActiveDescendant(index: number) {
+    const items = listbox.querySelectorAll('[role="option"]');
+    items.forEach((item, i) => {
+      if (i === index) {
+        item.setAttribute('aria-selected', 'true');
+        item.classList.add('bg-coral/10');
+        searchInput.setAttribute('aria-activedescendant', item.id);
+        item.scrollIntoView({ block: 'nearest' });
+      } else {
+        item.setAttribute('aria-selected', 'false');
+        item.classList.remove('bg-coral/10');
+      }
+    });
+  }
+
+  searchInput.addEventListener('input', () => {
+    const matches = filterGuests(searchInput.value);
+    renderListbox(matches);
+  });
+
+  searchInput.addEventListener('keydown', (e) => {
+    const items = listbox.querySelectorAll('[role="option"]');
+    if (e.key === 'ArrowDown') {
+      e.preventDefault();
+      activeIndex = Math.min(activeIndex + 1, items.length - 1);
+      setActiveDescendant(activeIndex);
+    } else if (e.key === 'ArrowUp') {
+      e.preventDefault();
+      activeIndex = Math.max(activeIndex - 1, 0);
+      setActiveDescendant(activeIndex);
+    } else if (e.key === 'Enter' && activeIndex >= 0) {
+      e.preventDefault();
+      const matches = filterGuests(searchInput.value);
+      if (matches[activeIndex]) selectGuest(matches[activeIndex]);
+    } else if (e.key === 'Escape') {
+      listbox.classList.add('hidden');
+      searchInput.setAttribute('aria-expanded', 'false');
+    }
+  });
+
+  // Close listbox on outside click
+  document.addEventListener('click', (e) => {
+    if (!stepLookup.contains(e.target as Node)) {
+      listbox.classList.add('hidden');
+      searchInput.setAttribute('aria-expanded', 'false');
+    }
+  });
+
+  function selectGuest(guest: typeof GUESTS[0]) {
+    selectedGuest = guest;
+    searchInput.value = guest.name;
+    listbox.classList.add('hidden');
+    searchInput.setAttribute('aria-expanded', 'false');
+
+    displayName.textContent = guest.name;
+    showStep(stepRespond);
+
+    // Reset attendance selection
+    attending = null;
+    document.querySelectorAll('.attend-btn').forEach((btn) => {
+      btn.setAttribute('aria-checked', 'false');
+      btn.classList.remove('border-coral', 'bg-coral/10', 'text-coral');
+      btn.classList.add('border-light-gray');
+    });
+  }
+
+  // === Attendance Toggle ===
+  document.querySelectorAll('.attend-btn').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const value = (btn as HTMLElement).dataset.value;
+      attending = value === 'yes';
+
+      document.querySelectorAll('.attend-btn').forEach((b) => {
+        const isSelected = (b as HTMLElement).dataset.value === value;
+        b.setAttribute('aria-checked', String(isSelected));
+        b.classList.toggle('border-coral', isSelected);
+        b.classList.toggle('bg-coral/10', isSelected);
+        b.classList.toggle('text-coral', isSelected);
+        b.classList.toggle('border-light-gray', !isSelected);
+      });
+
+      if (attending) {
+        buildDetailsForm();
+        showStep(stepDetailsYes);
+      } else {
+        showStep(stepDetailsNo);
+      }
+    });
+  });
+
+  // === Details Form (Yes path) ===
+  function buildDetailsForm() {
+    if (!selectedGuest) return;
+    const max = selectedGuest.partySize;
+
+    // Party size dropdown
+    partySelect.innerHTML = '';
+    for (let i = 1; i <= max; i++) {
+      const opt = document.createElement('option');
+      opt.value = String(i);
+      opt.textContent = String(i);
+      if (i === max) opt.selected = true;
+      partySelect.appendChild(opt);
+    }
+
+    renderGuestRows(max);
+    partySelect.addEventListener('change', () => {
+      renderGuestRows(parseInt(partySelect.value, 10));
+    });
+  }
+
+  function renderGuestRows(count: number) {
+    guestRowsContainer.innerHTML = '';
+    const mealOptions = MEALS.map((m) => `<option value="${m.id}">${m.label}</option>`).join('');
+
+    for (let i = 0; i < count; i++) {
+      const row = document.createElement('div');
+      row.className = 'rounded-xl border border-light-gray bg-white p-5';
+      row.innerHTML = `
+        <p class="mb-3 font-ui text-[0.85rem] font-semibold uppercase tracking-[1px] text-text-muted">Guest ${i + 1}</p>
+        <div class="mb-4">
+          <label for="guest-name-${i}" class="mb-1 block font-ui text-[0.9rem] font-semibold text-navy">Name</label>
+          <input
+            id="guest-name-${i}"
+            type="text"
+            required
+            placeholder="Full name"
+            class="guest-name-input w-full rounded-lg border-2 border-light-gray bg-white px-4 py-3 font-body text-[1rem] text-navy placeholder:text-text-muted/60 focus:border-coral focus:outline-none"
+            value="${i === 0 && selectedGuest ? escapeHtml(selectedGuest.name.split('&')[0].trim()) : ''}"
+          />
+        </div>
+        <fieldset>
+          <legend class="mb-2 font-ui text-[0.9rem] font-semibold text-navy">Meal choice</legend>
+          <select
+            id="guest-meal-${i}"
+            class="guest-meal-select w-full rounded-lg border-2 border-light-gray bg-white px-4 py-3 font-body text-[1rem] text-navy focus:border-coral focus:outline-none"
+            required
+          >
+            <option value="">Select a meal…</option>
+            ${mealOptions}
+          </select>
+        </fieldset>
+      `;
+      guestRowsContainer.appendChild(row);
+    }
+  }
+
+  function escapeHtml(str: string): string {
+    const div = document.createElement('div');
+    div.textContent = str;
+    return div.innerHTML;
+  }
+
+  // === Submission ===
+  async function submitRsvp(data: Record<string, unknown>) {
+    lastSubmitData = data;
+    const activeBtn = attending ? submitYesBtn : submitNoBtn;
+    activeBtn.setAttribute('disabled', '');
+    const originalText = activeBtn.textContent;
+    activeBtn.innerHTML = `
+      <svg class="mr-2 h-5 w-5 animate-spin" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+        <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"></path>
+      </svg>
+      Sending…
+    `;
+
+    try {
+      const resp = await fetch('/api/rsvp', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data),
+      });
+      const result = await resp.json() as { success: boolean; message: string };
+
+      if (result.success) {
+        successMessage.textContent = result.message;
+        showStep(stepSuccess);
+      } else {
+        errorMessage.textContent = result.message;
+        showStep(stepError);
+      }
+    } catch {
+      errorMessage.textContent = 'Network error. Please check your connection and try again.';
+      showStep(stepError);
+    } finally {
+      activeBtn.removeAttribute('disabled');
+      activeBtn.textContent = originalText;
+    }
+  }
+
+  submitYesBtn.addEventListener('click', () => {
+    if (!selectedGuest) return;
+    const names = document.querySelectorAll<HTMLInputElement>('.guest-name-input');
+    const meals = document.querySelectorAll<HTMLSelectElement>('.guest-meal-select');
+    const guests: { name: string; meal: string }[] = [];
+
+    let valid = true;
+    names.forEach((input, i) => {
+      const name = input.value.trim();
+      const meal = meals[i]?.value;
+      if (!name || !meal) {
+        valid = false;
+        if (!name) input.classList.add('border-red-400');
+        if (!meal) meals[i]?.classList.add('border-red-400');
+      } else {
+        input.classList.remove('border-red-400');
+        meals[i]?.classList.remove('border-red-400');
+        guests.push({ name, meal });
+      }
+    });
+
+    if (!valid) return;
+
+    const dietary = (document.getElementById('dietary-needs') as HTMLTextAreaElement).value;
+    const note = (document.getElementById('note-yes') as HTMLTextAreaElement).value;
+
+    submitRsvp({
+      guestId: selectedGuest.id,
+      guestName: selectedGuest.name,
+      attending: true,
+      guests,
+      dietaryNeeds: dietary,
+      note,
+    });
+  });
+
+  submitNoBtn.addEventListener('click', () => {
+    if (!selectedGuest) return;
+    const note = (document.getElementById('note-no') as HTMLTextAreaElement).value;
+    submitRsvp({
+      guestId: selectedGuest.id,
+      guestName: selectedGuest.name,
+      attending: false,
+      note,
+    });
+  });
+
+  retryBtn.addEventListener('click', () => {
+    if (lastSubmitData) {
+      if (attending) showStep(stepDetailsYes);
+      else showStep(stepDetailsNo);
+    } else {
+      showStep(stepLookup);
+    }
+  });
+</script>

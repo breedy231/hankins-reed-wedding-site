@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
-    "preview": "astro preview",
+    "preview": "astro build && wrangler pages dev ./dist --port 8788",
     "typecheck": "astro check",
     "lint": "eslint src --ext .ts,.astro",
     "validate": "npm run typecheck && npm run lint && npm run build"
@@ -19,6 +19,7 @@
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.0",
+    "@cloudflare/workers-types": "^4.20260303.0",
     "@typescript-eslint/parser": "^8.53.0",
     "eslint": "^9.39.2",
     "eslint-plugin-astro": "^1.5.0",

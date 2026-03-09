@@ -1,0 +1,11 @@
+{
+  "meals": [
+    { "id": "beef", "label": "Beef Tenderloin" },
+    { "id": "chicken", "label": "Herb-Roasted Chicken" },
+    { "id": "fish", "label": "Pan-Seared Salmon" },
+    { "id": "vegetarian", "label": "Wild Mushroom Risotto (Vegetarian)" },
+    { "id": "vegan", "label": "Roasted Cauliflower Steak (Vegan)" }
+  ],
+  "deadline": "2026-07-01",
+  "rsvpEnabled": true
+}

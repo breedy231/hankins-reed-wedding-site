@@ -2,7 +2,7 @@
   "faqs": [
     {
       "question": "What's the dress code?",
-      "answer": "We're requesting formal attire for our celebration. Suits, tuxedos, evening gowns, and formal dresses are all welcome. Think elegant and dressed up &mdash; this is a night to celebrate!"
+      "answer": "Formal attire &mdash; dress to impress and help us celebrate!"
     },
     {
       "question": "Can I bring a plus one?",
@@ -10,35 +10,43 @@
     },
     {
       "question": "Are kids welcome?",
-      "answer": "While we love your little ones, we've decided to make our wedding an adults-only celebration. We hope this gives you a chance to enjoy a night out!"
+      "answer": "No."
     },
     {
       "question": "What time should I arrive?",
-      "answer": "The celebration begins at 6:00 PM. We recommend arriving about 15 minutes early to get settled and grab a drink."
+      "answer": "The most polite thing you can do is plan to arrive at 6, no need to be early."
     },
     {
       "question": "Is there parking at the venue?",
-      "answer": "Street parking in Fulton Market is limited. We recommend taking a rideshare (Uber/Lyft) or CTA to get to the venue. Complimentary shuttles will run from the venue back to the hotel block throughout the evening and after the last dance."
+      "answer": "Street parking is limited. We recommend taking a rideshare (Uber/Lyft) or CTA to get to the venue. Complimentary shuttles will run from the venue back to the hotel blocks starting at 9:00 PM."
+    },
+    {
+      "question": "How do I get to the venue?",
+      "answer": "We recommend rideshare (Uber/Lyft) or CTA. We will have shuttles running from the venue back to the hotel blocks starting at 9:00 PM."
     },
     {
       "question": "Where should I stay?",
-      "answer": "Check out our <a href=\"/travel\" class=\"text-coral underline hover:text-coral-dark\">Travel page</a> for hotel block details at the Westin River North and Courtyard Marriott River North. Booking links and group rates coming soon!"
+      "answer": "We've reserved room blocks at the Westin River North and Courtyard Marriott River North with group rates for guests. There are also a bunch of other hotels and Airbnb options in the area. Booking links for our room blocks are live now &mdash; head to our <a href=\"/travel\" class=\"text-coral underline hover:text-coral-dark\">Travel page</a> to reserve your room!"
     },
     {
       "question": "Will there be food options for dietary restrictions?",
-      "answer": "Yes! We'll be offering vegetarian, vegan, and gluten-free options. If you have specific allergies or dietary needs, please let us know when you RSVP and we'll make sure you're taken care of."
+      "answer": "In addition to offering a vegetarian option, we can accommodate any allergen or restriction. Please let us know when you RSVP and we'll make sure you're taken care of."
+    },
+    {
+      "question": "What's the music situation?",
+      "answer": "We will have a lot of live musicians celebrating with us. Because of that, there will not be requests. But you're in good hands."
     },
     {
       "question": "Can I take photos during the celebration?",
-      "answer": "We'd love for you to capture the fun! Just be mindful during any toasts or special moments. Our photographer will be there to get the big shots, so relax and enjoy the night."
+      "answer": "We'd love for you to capture the fun! Just be mindful during special moments. Our photographer will be there to get the big shots, so relax and enjoy the night."
     },
     {
-      "question": "What's the weather like in September?",
-      "answer": "September in Chicago is typically pleasant with temperatures between 55&deg;F and 75&deg;F. However, Chicago weather can be unpredictable! We recommend bringing a light layer for the evening."
+      "question": "What's the weather like in August?",
+      "answer": "August in Chicago is warm with temperatures typically between 70&deg;F and 85&deg;F. However, Chicago weather can be unpredictable! We recommend bringing a light layer for the evening."
     },
     {
       "question": "Who do I contact with questions?",
-      "answer": "For any questions, please reach out to us directly. You can email us at <a href=\"mailto:hankinsreed@protonmail.com\" class=\"text-coral underline hover:text-coral-dark\">hankinsreed@protonmail.com</a> and we'll get back to you as soon as possible!"
+      "answer": "For any questions, please reach out to us directly. You can email us at <a href=\"mailto:hankinsreedwedding@protonmail.com\" class=\"text-coral underline hover:text-coral-dark\">hankinsreedwedding@protonmail.com</a> and we'll get back to you as soon as possible!"
     }
   ]
 }
