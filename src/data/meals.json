@@ -1,10 +1,8 @@
 {
   "meals": [
-    { "id": "beef", "label": "Beef Tenderloin" },
-    { "id": "chicken", "label": "Herb-Roasted Chicken" },
-    { "id": "fish", "label": "Pan-Seared Salmon" },
-    { "id": "vegetarian", "label": "Wild Mushroom Risotto (Vegetarian)" },
-    { "id": "vegan", "label": "Roasted Cauliflower Steak (Vegan)" }
+    { "id": "filet", "label": "Grilled Filet [GF]", "description": "18-month aged Parmigiano Reggiano risotto, braised Thumbelina carrot, agrodolce grapes, amethyst sorrel, carrot emulsion" },
+    { "id": "salmon", "label": "Brown Sugar Roasted Salmon [GF, DF]", "description": "Soy and brown sugar marinated salmon, steamed black lotus rice, julienne vegetables, citrus ponzu" },
+    { "id": "ratatouille", "label": "Ratatouille on Polenta Cake [VG, CN]", "description": "Polenta cake with braised vegetables, whipped goat cheese, closed loop microgreens dressed with toasted garlic, pine nut vinaigrette, garnished with lavosh shard and edible flowers" }
   ],
   "deadline": "2026-07-01",
   "rsvpEnabled": true
