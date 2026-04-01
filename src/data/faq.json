@@ -2,7 +2,7 @@
   "faqs": [
     {
       "question": "What's the dress code?",
-      "answer": "Formal attire &mdash; dress to impress and help us celebrate!"
+      "answer": "Formal attire. Dress to impress and help us celebrate!"
     },
     {
       "question": "Can I bring a plus one?",
@@ -26,7 +26,7 @@
     },
     {
       "question": "Where should I stay?",
-      "answer": "We've reserved room blocks at the Westin River North and Courtyard Marriott River North with group rates for guests. There are also a bunch of other hotels and Airbnb options in the area. Booking links for our room blocks are live now &mdash; head to our <a href=\"/travel\" class=\"text-coral underline hover:text-coral-dark\">Travel page</a> to reserve your room!"
+      "answer": "We've reserved room blocks at the Westin River North and Courtyard Marriott River North with group rates for guests. There are also a bunch of other hotels and Airbnb options in the area. Booking links for our room blocks are live now. Head to our <a href=\"/travel\" class=\"text-coral underline hover:text-coral-dark\">Travel page</a> to reserve your room!"
     },
     {
       "question": "Will there be food options for dietary restrictions?",
