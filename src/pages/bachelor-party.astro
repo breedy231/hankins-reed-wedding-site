@@ -1,0 +1,608 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Navigation from '../components/Navigation.astro';
+import Footer from '../components/Footer.astro';
+
+const nightOptions = [
+  { id: 'night-fri', label: 'Friday, July 17' },
+  { id: 'night-sat', label: 'Saturday, July 18' },
+];
+---
+
+<BaseLayout title="Bachelor Party" description="Lost Lake Woods bachelor party weekend, July 2026">
+  <Navigation slot="header" />
+
+  <!-- Camp Hero -->
+  <section class="relative overflow-hidden bg-[#2D5A27] px-6 py-24 text-center">
+    <div class="pointer-events-none absolute inset-0 opacity-[0.06]" aria-hidden="true">
+      <svg class="h-full w-full" viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice">
+        <polygon points="50,280 70,200 90,280" fill="white"/>
+        <polygon points="60,280 70,220 80,280" fill="white"/>
+        <polygon points="140,280 165,180 190,280" fill="white"/>
+        <polygon points="155,280 165,210 175,280" fill="white"/>
+        <polygon points="300,280 320,190 340,280" fill="white"/>
+        <polygon points="310,280 320,215 330,280" fill="white"/>
+        <polygon points="370,280 385,220 400,280" fill="white"/>
+        <polygon points="0,280 15,210 30,280" fill="white"/>
+        <polygon points="220,280 235,200 250,280" fill="white"/>
+      </svg>
+    </div>
+    <div class="relative z-10">
+      <p class="camp-font text-[0.9rem] uppercase tracking-[5px] text-[#C8E6C0]">Welcome to</p>
+      <h1 class="camp-font mt-3 text-[clamp(3rem,12vw,5rem)] leading-[1.1] text-white">
+        THE BACH BASH
+      </h1>
+      <div class="mx-auto mt-6 h-px w-24 bg-[#E8740C]" aria-hidden="true"></div>
+      <p class="mt-6 text-[1.15rem] text-[#C8E6C0]">
+        Lost Lake Woods Club &bull; Lincoln, MI
+      </p>
+      <p class="camp-font mt-2 text-[1.5rem] text-white">
+        July 17-19, 2026
+      </p>
+    </div>
+  </section>
+
+  <!-- When & Where -->
+  <section class="bg-[#FFF8E7] px-6 py-20" aria-labelledby="bp-when-heading">
+    <div class="mx-auto max-w-2xl text-center">
+      <h2 id="bp-when-heading" class="camp-font text-[2rem] text-[#2D5A27]">When & Where</h2>
+      <p class="mt-6 text-[1.05rem] leading-relaxed text-[#3E2723]">
+        Pack your bags and head north. This is a shared, co-ed bachelor party and we're taking
+        over Lost Lake Woods Club in Lincoln, MI for a long weekend of lake life, campfires,
+        and good times.
+      </p>
+      <div class="mx-auto mt-8 max-w-sm rounded-xl border-2 border-dashed border-[#D4C5A9] bg-[#F0E4C8] p-6 text-left">
+        <dl class="space-y-3 text-[#3E2723]">
+          <div>
+            <dt class="font-ui text-[0.8rem] font-semibold uppercase tracking-[2px] text-[#6B5A4E]">Arrive</dt>
+            <dd class="mt-1">Friday, July 17 (come all day)</dd>
+          </div>
+          <div>
+            <dt class="font-ui text-[0.8rem] font-semibold uppercase tracking-[2px] text-[#6B5A4E]">Depart</dt>
+            <dd class="mt-1">Sunday, July 19</dd>
+            <dd class="mt-1 text-[0.85rem] text-[#6B5A4E]">Flying out of DTW? Book a late-night flight. It's 4 hours back to Detroit and traffic can be unpredictable.</dd>
+          </div>
+          <div>
+            <dt class="font-ui text-[0.8rem] font-semibold uppercase tracking-[2px] text-[#6B5A4E]">Home base</dt>
+            <dd class="mt-1">2256 E Fox Rd, Lincoln, MI</dd>
+          </div>
+        </dl>
+      </div>
+      <a
+        href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent('2256 E Fox Rd, Lincoln, MI')}`}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="mt-6 inline-block rounded-full bg-[#2D5A27] px-6 py-3 font-ui text-[0.95rem] font-semibold uppercase tracking-[1px] text-white transition-all hover:-translate-y-0.5 hover:bg-[#1E3D1A]"
+      >
+        View on Map
+        <span class="sr-only">(opens in new tab)</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- Getting There -->
+  <section class="bg-[#F0E4C8] px-6 py-20" aria-labelledby="bp-travel-heading">
+    <div class="mx-auto max-w-2xl text-center">
+      <h2 id="bp-travel-heading" class="camp-font text-[2rem] text-[#2D5A27]">Getting There</h2>
+      <p class="mt-6 text-[1.05rem] leading-relaxed text-[#3E2723]">
+        The only way in is by car. Fly into Detroit (DTW) and drive about 4 hours north,
+        or drive straight from Chicago (~8 hours). We'll coordinate carpools from DTW
+        once we know everyone's plans.
+      </p>
+      <div class="mx-auto mt-8 grid max-w-md gap-4 sm:grid-cols-2">
+        <div class="rounded-xl border-2 border-[#D4C5A9] bg-[#FFF8E7] p-5 text-center">
+          <p class="camp-font text-[1.5rem] text-[#E8740C]">~4 hrs</p>
+          <p class="mt-1 font-ui text-[0.85rem] font-semibold uppercase tracking-[1px] text-[#6B5A4E]">From Detroit (DTW)</p>
+        </div>
+        <div class="rounded-xl border-2 border-[#D4C5A9] bg-[#FFF8E7] p-5 text-center">
+          <p class="camp-font text-[1.5rem] text-[#E8740C]">~8 hrs</p>
+          <p class="mt-1 font-ui text-[0.85rem] font-semibold uppercase tracking-[1px] text-[#6B5A4E]">From Chicago</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Lodging -->
+  <section class="bg-[#FFF8E7] px-6 py-20" aria-labelledby="bp-lodging-heading">
+    <div class="mx-auto max-w-2xl text-center">
+      <h2 id="bp-lodging-heading" class="camp-font text-[2rem] text-[#2D5A27]">Lodging</h2>
+      <p class="mt-6 text-[1.05rem] leading-relaxed text-[#3E2723]">
+        We've got two cabins at the club. There's a mix of beds, air mattresses, and pull-out
+        couches, so everyone's got a spot. We'll sort room assignments once we have the final
+        headcount.
+      </p>
+      <p class="mt-4 camp-font text-[1.25rem] text-[#2D5A27]">No cost for the cabins.</p>
+    </div>
+  </section>
+
+  <!-- What to Bring -->
+  <section class="bg-[#F0E4C8] px-6 py-20" aria-labelledby="bp-packing-heading">
+    <div class="mx-auto max-w-2xl text-center">
+      <h2 id="bp-packing-heading" class="camp-font text-[2rem] text-[#2D5A27]">What to Bring</h2>
+      <p class="mx-auto mt-4 max-w-md text-[#6B5A4E]">
+        Keep it casual. We're not leaving the property.
+      </p>
+      <ul class="mx-auto mt-8 max-w-sm space-y-3 text-left text-[#3E2723]">
+        <li class="flex items-start gap-3 rounded-lg bg-[#FFF8E7] px-4 py-3">
+          <span class="mt-0.5 text-[#E8740C]" aria-hidden="true">&#9650;</span>
+          <span>Bathing suit</span>
+        </li>
+        <li class="flex items-start gap-3 rounded-lg bg-[#FFF8E7] px-4 py-3">
+          <span class="mt-0.5 text-[#E8740C]" aria-hidden="true">&#9650;</span>
+          <span>Summer clothes & stuff to move around in</span>
+        </li>
+        <li class="flex items-start gap-3 rounded-lg bg-[#FFF8E7] px-4 py-3">
+          <span class="mt-0.5 text-[#E8740C]" aria-hidden="true">&#9650;</span>
+          <span>Sunscreen & bug spray</span>
+        </li>
+        <li class="flex items-start gap-3 rounded-lg bg-[#FFF8E7] px-4 py-3">
+          <span class="mt-0.5 text-[#E8740C]" aria-hidden="true">&#9650;</span>
+          <span>A hoodie or jacket for nights by the fire</span>
+        </li>
+        <li class="flex items-start gap-3 rounded-lg bg-[#FFF8E7] px-4 py-3">
+          <span class="mt-0.5 text-[#E8740C]" aria-hidden="true">&#9650;</span>
+          <span>Your best Brendan & Scott stories</span>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Costs -->
+  <section class="bg-[#FFF8E7] px-6 py-20" aria-labelledby="bp-costs-heading">
+    <div class="mx-auto max-w-2xl text-center">
+      <h2 id="bp-costs-heading" class="camp-font text-[2rem] text-[#2D5A27]">Costs</h2>
+      <div class="mx-auto mt-8 max-w-sm space-y-4">
+        <div class="flex items-center justify-between rounded-xl border-2 border-[#D4C5A9] bg-[#F0E4C8] px-5 py-4">
+          <span class="font-ui text-[0.9rem] font-semibold text-[#3E2723]">Cabins</span>
+          <span class="camp-font text-[1.1rem] text-[#2D5A27]">Free</span>
+        </div>
+        <div class="flex items-center justify-between rounded-xl border-2 border-[#D4C5A9] bg-[#F0E4C8] px-5 py-4">
+          <span class="font-ui text-[0.9rem] font-semibold text-[#3E2723]">Food</span>
+          <span class="text-[0.9rem] text-[#6B5A4E]">Shared fund (Splitwise)</span>
+        </div>
+        <div class="flex items-center justify-between rounded-xl border-2 border-[#D4C5A9] bg-[#F0E4C8] px-5 py-4">
+          <span class="font-ui text-[0.9rem] font-semibold text-[#3E2723]">Travel</span>
+          <span class="text-[0.9rem] text-[#6B5A4E]">On you</span>
+        </div>
+      </div>
+      <p class="mx-auto mt-8 max-w-md text-[0.95rem] leading-relaxed text-[#3E2723]">
+        We're going to take care of groceries before people arrive. The only option is grilling.
+        We're asking for people to share some of the costs for food. Feel free to bring whatever
+        food and booze you want!
+      </p>
+    </div>
+  </section>
+
+  <!-- Activities -->
+  <section class="bg-[#F0E4C8] px-6 py-20" aria-labelledby="bp-activities-heading">
+    <div class="mx-auto max-w-3xl">
+      <div class="text-center">
+        <h2 id="bp-activities-heading" class="camp-font text-[2rem] text-[#2D5A27]">Activities</h2>
+        <p class="mx-auto mt-4 max-w-md text-[#6B5A4E]">
+          A loose menu of what's on the table. Bring whatever else sounds fun.
+        </p>
+      </div>
+      <div class="mt-10 grid gap-4 sm:grid-cols-3">
+        <div class="rounded-xl border-2 border-[#D4C5A9] bg-[#FFF8E7] p-5">
+          <p class="camp-font text-[1.1rem] text-[#E8740C]">At the house</p>
+          <p class="mt-2 text-[0.9rem] text-[#3E2723]">Mamma Mia, grilling out, cornhole, firepit, sparklers, games, etc.</p>
+        </div>
+        <div class="rounded-xl border-2 border-[#D4C5A9] bg-[#FFF8E7] p-5">
+          <p class="camp-font text-[1.1rem] text-[#E8740C]">At the beach</p>
+          <p class="mt-2 text-[0.9rem] text-[#3E2723]">Volleyball, tetherball, kayaking, canoeing, paddleboarding, etc.</p>
+        </div>
+        <div class="rounded-xl border-2 border-[#D4C5A9] bg-[#FFF8E7] p-5">
+          <p class="camp-font text-[1.1rem] text-[#E8740C]">At the club</p>
+          <p class="mt-2 text-[0.9rem] text-[#3E2723]">Golf w/ driving range and course, nature trails, tennis, pickleball, fishing, etc.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RSVP -->
+  <section class="bg-[#2D5A27] px-6 py-20" aria-labelledby="bp-rsvp-heading">
+    <div class="mx-auto max-w-xl">
+      <div class="text-center">
+        <h2 id="bp-rsvp-heading" class="camp-font text-[2rem] text-white">You In?</h2>
+        <p class="mx-auto mt-4 max-w-lg text-[#C8E6C0]">
+          Let us know so we can sort out cabins, food, and rides.
+        </p>
+      </div>
+
+      <div id="bp-password-gate" class="mt-10">
+        <label for="bp-password" class="mb-2 block camp-font text-[1.25rem] text-white">
+          Password
+        </label>
+        <p class="mb-4 text-[#C8E6C0]">Ask Brendan if you don't know it.</p>
+        <div class="flex gap-3">
+          <input
+            id="bp-password"
+            type="password"
+            placeholder="Password"
+            class="flex-1 rounded-xl border-2 border-[#4A7C42] bg-[#1E3D1A] px-5 py-4 font-body text-[1rem] text-white placeholder:text-white/40 focus:border-[#E8740C] focus:outline-none"
+          />
+          <button
+            id="bp-password-submit"
+            type="button"
+            class="rounded-xl bg-[#E8740C] px-6 py-4 font-ui text-[0.95rem] font-semibold text-white transition-all hover:bg-[#C45F08]"
+          >
+            Enter
+          </button>
+        </div>
+        <p id="bp-password-error" class="mt-2 hidden text-[0.9rem] text-red-300">Nope. Try again.</p>
+      </div>
+
+      <form id="bp-form" class="mt-10 hidden space-y-6">
+        <div>
+          <label for="bp-name" class="mb-2 block font-ui text-[0.9rem] font-semibold text-white">Your name</label>
+          <input
+            id="bp-name"
+            name="name"
+            type="text"
+            required
+            class="w-full rounded-xl border-2 border-[#4A7C42] bg-[#1E3D1A] px-5 py-4 font-body text-[1rem] text-white placeholder:text-white/40 focus:border-[#E8740C] focus:outline-none"
+          />
+        </div>
+
+        <div>
+          <label for="bp-email" class="mb-2 block font-ui text-[0.9rem] font-semibold text-white">Email</label>
+          <input
+            id="bp-email"
+            name="email"
+            type="email"
+            required
+            class="w-full rounded-xl border-2 border-[#4A7C42] bg-[#1E3D1A] px-5 py-4 font-body text-[1rem] text-white placeholder:text-white/40 focus:border-[#E8740C] focus:outline-none"
+          />
+        </div>
+
+        <fieldset>
+          <legend class="mb-3 font-ui text-[0.9rem] font-semibold text-white">Can you make it?</legend>
+          <div class="grid grid-cols-2 gap-4">
+            <button
+              type="button"
+              role="radio"
+              aria-checked="false"
+              data-value="yes"
+              class="bp-attend-btn flex min-h-14 items-center justify-center rounded-xl border-2 border-[#4A7C42] bg-[#1E3D1A] font-ui text-[0.95rem] font-semibold text-white transition-all hover:border-[#E8740C] hover:bg-[#E8740C]/10"
+            >
+              I'm In
+            </button>
+            <button
+              type="button"
+              role="radio"
+              aria-checked="false"
+              data-value="no"
+              class="bp-attend-btn flex min-h-14 items-center justify-center rounded-xl border-2 border-[#4A7C42] bg-[#1E3D1A] font-ui text-[0.95rem] font-semibold text-white transition-all hover:border-[#E8740C] hover:bg-[#E8740C]/10"
+            >
+              Can't Make It
+            </button>
+          </div>
+          <input id="bp-attending" name="attending" type="hidden" value="" />
+        </fieldset>
+
+        <div id="bp-yes-fields" class="hidden space-y-6">
+          <fieldset>
+            <legend class="mb-2 font-ui text-[0.9rem] font-semibold text-white">Which nights are you staying?</legend>
+            <div class="space-y-2">
+              {nightOptions.map((n) => (
+                <label class="flex min-h-12 items-center gap-3 rounded-xl border-2 border-[#4A7C42] bg-[#1E3D1A] px-4 py-3 font-body text-[1rem] text-white transition-colors hover:border-[#E8740C]/50">
+                  <input
+                    type="checkbox"
+                    name="nights"
+                    value={n.label}
+                    class="bp-night h-5 w-5 rounded border-2 border-[#4A7C42] accent-[#E8740C]"
+                  />
+                  <span>{n.label}</span>
+                </label>
+              ))}
+            </div>
+          </fieldset>
+
+          <div>
+            <label for="bp-arrival" class="mb-2 block font-ui text-[0.9rem] font-semibold text-white">
+              Arrival plans <span class="font-normal text-[#C8E6C0]">(optional)</span>
+            </label>
+            <input
+              id="bp-arrival"
+              name="arrival"
+              type="text"
+              placeholder="e.g., driving up Friday afternoon from DTW"
+              class="w-full rounded-xl border-2 border-[#4A7C42] bg-[#1E3D1A] px-5 py-4 font-body text-[1rem] text-white placeholder:text-white/40 focus:border-[#E8740C] focus:outline-none"
+            />
+          </div>
+
+          <div>
+            <label for="bp-departure" class="mb-2 block font-ui text-[0.9rem] font-semibold text-white">
+              Departure plans <span class="font-normal text-[#C8E6C0]">(optional)</span>
+            </label>
+            <input
+              id="bp-departure"
+              name="departure"
+              type="text"
+              placeholder="e.g., Sunday morning"
+              class="w-full rounded-xl border-2 border-[#4A7C42] bg-[#1E3D1A] px-5 py-4 font-body text-[1rem] text-white placeholder:text-white/40 focus:border-[#E8740C] focus:outline-none"
+            />
+          </div>
+
+          <fieldset>
+            <legend class="mb-2 font-ui text-[0.9rem] font-semibold text-white">How are you getting there?</legend>
+            <div class="space-y-2">
+              <label class="flex min-h-12 items-center gap-3 rounded-xl border-2 border-[#4A7C42] bg-[#1E3D1A] px-4 py-3 font-body text-[1rem] text-white transition-colors hover:border-[#E8740C]/50">
+                <input type="radio" name="transportation" value="driving-carpool" class="bp-transport h-5 w-5 border-2 border-[#4A7C42] accent-[#E8740C]" />
+                <span>I'm driving myself and open to carpool</span>
+              </label>
+              <label class="flex min-h-12 items-center gap-3 rounded-xl border-2 border-[#4A7C42] bg-[#1E3D1A] px-4 py-3 font-body text-[1rem] text-white transition-colors hover:border-[#E8740C]/50">
+                <input type="radio" name="transportation" value="fly-carpool" class="bp-transport h-5 w-5 border-2 border-[#4A7C42] accent-[#E8740C]" />
+                <span>I'm flying into DTW and looking to carpool</span>
+              </label>
+              <label class="flex min-h-12 items-center gap-3 rounded-xl border-2 border-[#4A7C42] bg-[#1E3D1A] px-4 py-3 font-body text-[1rem] text-white transition-colors hover:border-[#E8740C]/50">
+                <input type="radio" name="transportation" value="driving-solo" class="bp-transport h-5 w-5 border-2 border-[#4A7C42] accent-[#E8740C]" />
+                <span>I'm driving solo</span>
+              </label>
+              <label class="flex min-h-12 items-center gap-3 rounded-xl border-2 border-[#4A7C42] bg-[#1E3D1A] px-4 py-3 font-body text-[1rem] text-white transition-colors hover:border-[#E8740C]/50">
+                <input type="radio" name="transportation" value="other" class="bp-transport h-5 w-5 border-2 border-[#4A7C42] accent-[#E8740C]" />
+                <span>Other (write something)</span>
+              </label>
+            </div>
+            <div id="bp-transport-other-wrap" class="mt-3 hidden">
+              <label for="bp-transport-other" class="sr-only">Tell us how you're getting there</label>
+              <input
+                id="bp-transport-other"
+                name="transportationOther"
+                type="text"
+                placeholder="Tell us how you're getting there"
+                class="w-full rounded-xl border-2 border-[#E8740C] bg-[#1E3D1A] px-5 py-4 font-body text-[1rem] text-white placeholder:text-white/40 focus:border-[#E8740C] focus:outline-none"
+              />
+            </div>
+          </fieldset>
+
+          <div>
+            <label for="bp-transport-notes" class="mb-2 block font-ui text-[0.9rem] font-semibold text-white">
+              Travel notes <span class="font-normal text-[#C8E6C0]">(optional)</span>
+            </label>
+            <textarea
+              id="bp-transport-notes"
+              name="transportNotes"
+              rows="2"
+              placeholder="e.g., I can fit 3 more people in my car, or I land at DTW at 2pm Friday"
+              class="w-full rounded-xl border-2 border-[#4A7C42] bg-[#1E3D1A] px-5 py-4 font-body text-[1rem] text-white placeholder:text-white/40 focus:border-[#E8740C] focus:outline-none"
+            ></textarea>
+          </div>
+
+          <div>
+            <label for="bp-dietary" class="mb-2 block font-ui text-[0.9rem] font-semibold text-white">
+              Food requests <span class="font-normal text-[#C8E6C0]">(especially breakfasts)</span>
+            </label>
+            <textarea
+              id="bp-dietary"
+              name="dietaryNeeds"
+              rows="2"
+              placeholder="e.g., allergies, things you want us to grill, breakfast requests"
+              class="w-full rounded-xl border-2 border-[#4A7C42] bg-[#1E3D1A] px-5 py-4 font-body text-[1rem] text-white placeholder:text-white/40 focus:border-[#E8740C] focus:outline-none"
+            ></textarea>
+          </div>
+        </div>
+
+        <div>
+          <label for="bp-note" class="mb-2 block font-ui text-[0.9rem] font-semibold text-white">
+            Anything else? <span class="font-normal text-[#C8E6C0]">(optional)</span>
+          </label>
+          <textarea
+            id="bp-note"
+            name="note"
+            rows="3"
+            placeholder="Questions, ideas, activity requests..."
+            class="w-full rounded-xl border-2 border-[#4A7C42] bg-[#1E3D1A] px-5 py-4 font-body text-[1rem] text-white placeholder:text-white/40 focus:border-[#E8740C] focus:outline-none"
+          ></textarea>
+        </div>
+
+        <button
+          id="bp-submit"
+          type="submit"
+          disabled
+          class="flex w-full min-h-14 items-center justify-center rounded-full bg-[#E8740C] px-8 py-4 font-ui text-[0.95rem] font-semibold uppercase tracking-[1px] text-white shadow-[0_4px_20px_rgba(0,0,0,0.3)] transition-all hover:-translate-y-0.5 hover:bg-[#C45F08] hover:shadow-[0_6px_25px_rgba(0,0,0,0.4)] disabled:opacity-50 disabled:hover:translate-y-0"
+        >
+          Send RSVP
+        </button>
+      </form>
+
+      <div id="bp-success" class="mt-10 hidden text-center">
+        <div class="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-[#E8740C]/20">
+          <svg class="h-8 w-8 text-[#E8740C]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+          </svg>
+        </div>
+        <p class="camp-font text-[1.5rem] text-white">Nice.</p>
+        <p id="bp-success-message" class="mt-2 text-[#C8E6C0]"></p>
+      </div>
+
+      <div id="bp-error" class="mt-10 hidden">
+        <div class="rounded-xl border-2 border-red-400/50 bg-red-900/30 p-6 text-center">
+          <p class="font-ui text-[0.95rem] font-semibold text-red-300">Something went wrong</p>
+          <p id="bp-error-message" class="mt-1 text-[0.9rem] text-red-200"></p>
+          <button
+            id="bp-retry"
+            type="button"
+            class="mt-4 inline-flex min-h-12 items-center justify-center rounded-full bg-red-600 px-6 py-3 font-ui text-[0.9rem] font-semibold text-white transition-colors hover:bg-red-700"
+          >
+            Try Again
+          </button>
+        </div>
+      </div>
+
+      <p class="mt-10 text-center text-[#C8E6C0]">
+        Questions? Text Brendan.
+      </p>
+    </div>
+  </section>
+
+  <Footer slot="footer" />
+</BaseLayout>
+
+<style is:global>
+  @import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
+
+  .camp-font {
+    font-family: 'Permanent Marker', cursive;
+  }
+
+  .camp-selected {
+    border-color: #E8740C !important;
+    background-color: rgba(232, 116, 12, 0.15) !important;
+    color: #E8740C !important;
+  }
+</style>
+
+<script>
+  // Password gate
+  const gate = document.getElementById('bp-password-gate');
+  const passwordInput = document.getElementById('bp-password') as HTMLInputElement | null;
+  const passwordSubmit = document.getElementById('bp-password-submit');
+  const passwordError = document.getElementById('bp-password-error');
+  const form = document.getElementById('bp-form') as HTMLFormElement | null;
+
+  if (gate && passwordInput && passwordSubmit && form) {
+    const PASSWORD = 'bro';
+
+    function checkPassword() {
+      if (passwordInput!.value.toLowerCase().trim() === PASSWORD) {
+        gate!.classList.add('hidden');
+        form!.classList.remove('hidden');
+      } else {
+        passwordError?.classList.remove('hidden');
+        passwordInput!.classList.add('border-red-400');
+      }
+    }
+
+    passwordSubmit.addEventListener('click', checkPassword);
+    passwordInput.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') checkPassword();
+    });
+  }
+
+  // Attendance toggle
+  const attendBtns = document.querySelectorAll<HTMLButtonElement>('.bp-attend-btn');
+  const attendingInput = document.getElementById('bp-attending') as HTMLInputElement | null;
+  const yesFields = document.getElementById('bp-yes-fields');
+  const submitBtn = document.getElementById('bp-submit') as HTMLButtonElement | null;
+
+  attendBtns.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const value = btn.dataset.value!;
+      if (attendingInput) attendingInput.value = value;
+
+      attendBtns.forEach((b) => {
+        const isSelected = b.dataset.value === value;
+        b.setAttribute('aria-checked', String(isSelected));
+        if (isSelected) {
+          b.classList.add('camp-selected');
+        } else {
+          b.classList.remove('camp-selected');
+        }
+      });
+
+      if (value === 'yes') {
+        yesFields?.classList.remove('hidden');
+      } else {
+        yesFields?.classList.add('hidden');
+      }
+
+      if (submitBtn) submitBtn.disabled = false;
+    });
+  });
+
+  // Transportation "Other" toggle
+  const transportRadios = document.querySelectorAll<HTMLInputElement>('.bp-transport');
+  const transportOtherWrap = document.getElementById('bp-transport-other-wrap');
+  const transportOtherInput = document.getElementById('bp-transport-other') as HTMLInputElement | null;
+
+  transportRadios.forEach((radio) => {
+    radio.addEventListener('change', () => {
+      if (radio.value === 'other' && radio.checked) {
+        transportOtherWrap?.classList.remove('hidden');
+        transportOtherInput?.focus();
+      } else if (radio.checked) {
+        transportOtherWrap?.classList.add('hidden');
+      }
+    });
+  });
+
+  // Submission
+  const successBlock = document.getElementById('bp-success');
+  const successMessage = document.getElementById('bp-success-message');
+  const errorBlock = document.getElementById('bp-error');
+  const errorMessage = document.getElementById('bp-error-message');
+  const retryBtn = document.getElementById('bp-retry');
+
+  form?.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    if (!submitBtn || !attendingInput) return;
+
+    const attendingValue = attendingInput.value;
+    if (attendingValue !== 'yes' && attendingValue !== 'no') return;
+
+    const nameInput = document.getElementById('bp-name') as HTMLInputElement;
+    const emailInput = document.getElementById('bp-email') as HTMLInputElement;
+    if (!nameInput.value.trim() || !emailInput.value.trim()) {
+      nameInput.reportValidity();
+      emailInput.reportValidity();
+      return;
+    }
+
+    const nights = Array.from(
+      document.querySelectorAll<HTMLInputElement>('.bp-night:checked'),
+    ).map((n) => n.value);
+
+    const payload = {
+      name: nameInput.value,
+      email: emailInput.value,
+      attending: attendingValue === 'yes',
+      nights,
+      arrival: (document.getElementById('bp-arrival') as HTMLInputElement).value,
+      departure: (document.getElementById('bp-departure') as HTMLInputElement).value,
+      transportation: (document.querySelector<HTMLInputElement>('input[name="transportation"]:checked'))?.value ?? '',
+      transportationOther: (document.getElementById('bp-transport-other') as HTMLInputElement | null)?.value ?? '',
+      transportNotes: (document.getElementById('bp-transport-notes') as HTMLTextAreaElement).value,
+      dietaryNeeds: (document.getElementById('bp-dietary') as HTMLTextAreaElement).value,
+      note: (document.getElementById('bp-note') as HTMLTextAreaElement).value,
+    };
+
+    submitBtn.disabled = true;
+    const originalText = submitBtn.textContent;
+    submitBtn.innerHTML = `
+      <svg class="mr-2 h-5 w-5 animate-spin" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+        <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"></path>
+      </svg>
+      Sending...
+    `;
+
+    try {
+      const resp = await fetch('/api/bachelor-party-rsvp', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
+      });
+      const result = await resp.json() as { success: boolean; message: string };
+
+      if (result.success) {
+        form.classList.add('hidden');
+        if (successMessage) successMessage.textContent = result.message;
+        successBlock?.classList.remove('hidden');
+      } else {
+        if (errorMessage) errorMessage.textContent = result.message;
+        errorBlock?.classList.remove('hidden');
+      }
+    } catch {
+      if (errorMessage) errorMessage.textContent = 'Network error. Check your connection and try again.';
+      errorBlock?.classList.remove('hidden');
+    } finally {
+      submitBtn.disabled = false;
+      submitBtn.textContent = originalText;
+    }
+  });
+
+  retryBtn?.addEventListener('click', () => {
+    errorBlock?.classList.add('hidden');
+  });
+</script>

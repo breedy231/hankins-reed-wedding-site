@@ -84,16 +84,6 @@ export async function appendToSheet(
   rows: SheetRow[],
   env: { GOOGLE_SERVICE_ACCOUNT_EMAIL?: string; GOOGLE_PRIVATE_KEY?: string; GOOGLE_SHEET_ID?: string },
 ): Promise<void> {
-  const { GOOGLE_SERVICE_ACCOUNT_EMAIL, GOOGLE_PRIVATE_KEY, GOOGLE_SHEET_ID } = env;
-
-  // Mock mode: log and return when credentials are missing
-  if (!GOOGLE_SERVICE_ACCOUNT_EMAIL || !GOOGLE_PRIVATE_KEY || !GOOGLE_SHEET_ID) {
-    console.log('[RSVP Mock] Would append rows:', JSON.stringify(rows, null, 2));
-    return;
-  }
-
-  const accessToken = await getAccessToken(GOOGLE_SERVICE_ACCOUNT_EMAIL, GOOGLE_PRIVATE_KEY);
-
   const values = rows.map((r) => [
     r.guestId,
     r.guestName,
@@ -104,8 +94,26 @@ export async function appendToSheet(
     r.note ?? '',
     r.submittedAt,
   ]);
+  await appendValuesToSheet(values, 'Sheet1', env);
+}
 
-  const url = `https://sheets.googleapis.com/v4/spreadsheets/${GOOGLE_SHEET_ID}/values/Sheet1!A2:append?valueInputOption=USER_ENTERED`;
+export async function appendValuesToSheet(
+  values: (string | number | boolean)[][],
+  sheetName: string,
+  env: { GOOGLE_SERVICE_ACCOUNT_EMAIL?: string; GOOGLE_PRIVATE_KEY?: string; GOOGLE_SHEET_ID?: string },
+): Promise<void> {
+  const { GOOGLE_SERVICE_ACCOUNT_EMAIL, GOOGLE_PRIVATE_KEY, GOOGLE_SHEET_ID } = env;
+
+  // Mock mode: log and return when credentials are missing
+  if (!GOOGLE_SERVICE_ACCOUNT_EMAIL || !GOOGLE_PRIVATE_KEY || !GOOGLE_SHEET_ID) {
+    console.log(`[Sheets Mock] Would append to ${sheetName}:`, JSON.stringify(values, null, 2));
+    return;
+  }
+
+  const accessToken = await getAccessToken(GOOGLE_SERVICE_ACCOUNT_EMAIL, GOOGLE_PRIVATE_KEY);
+
+  const range = `${encodeURIComponent(sheetName)}!A2:append`;
+  const url = `https://sheets.googleapis.com/v4/spreadsheets/${GOOGLE_SHEET_ID}/values/${range}?valueInputOption=USER_ENTERED`;
   const resp = await fetch(url, {
     method: 'POST',
     headers: {
