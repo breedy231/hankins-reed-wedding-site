@@ -42,6 +42,34 @@ const nightOptions = [
     </div>
   </section>
 
+  <!-- Password Gate -->
+  <section class="bg-[#2D5A27] px-6 py-16" id="bp-password-section">
+    <div id="bp-password-gate" class="mx-auto max-w-md text-center">
+      <label for="bp-password" class="mb-2 block camp-font text-[1.5rem] text-white">
+        Enter the password to continue
+      </label>
+      <p class="mb-6 text-[#C8E6C0]">Ask Brendan if you don't know it.</p>
+      <div class="flex gap-3">
+        <input
+          id="bp-password"
+          type="password"
+          placeholder="Password"
+          class="flex-1 rounded-xl border-2 border-[#4A7C42] bg-[#1E3D1A] px-5 py-4 font-body text-[1rem] text-white placeholder:text-white/40 focus:border-[#E8740C] focus:outline-none"
+        />
+        <button
+          id="bp-password-submit"
+          type="button"
+          class="rounded-xl bg-[#E8740C] px-6 py-4 font-ui text-[0.95rem] font-semibold text-white transition-all hover:bg-[#C45F08]"
+        >
+          Enter
+        </button>
+      </div>
+      <p id="bp-password-error" class="mt-2 hidden text-[0.9rem] text-red-300">Nope. Try again.</p>
+    </div>
+  </section>
+
+  <div id="bp-content" class="hidden">
+
   <!-- When & Where -->
   <section class="bg-[#FFF8E7] px-6 py-20" aria-labelledby="bp-when-heading">
     <div class="mx-auto max-w-2xl text-center">
@@ -209,30 +237,7 @@ const nightOptions = [
         </p>
       </div>
 
-      <div id="bp-password-gate" class="mt-10">
-        <label for="bp-password" class="mb-2 block camp-font text-[1.25rem] text-white">
-          Password
-        </label>
-        <p class="mb-4 text-[#C8E6C0]">Ask Brendan if you don't know it.</p>
-        <div class="flex gap-3">
-          <input
-            id="bp-password"
-            type="password"
-            placeholder="Password"
-            class="flex-1 rounded-xl border-2 border-[#4A7C42] bg-[#1E3D1A] px-5 py-4 font-body text-[1rem] text-white placeholder:text-white/40 focus:border-[#E8740C] focus:outline-none"
-          />
-          <button
-            id="bp-password-submit"
-            type="button"
-            class="rounded-xl bg-[#E8740C] px-6 py-4 font-ui text-[0.95rem] font-semibold text-white transition-all hover:bg-[#C45F08]"
-          >
-            Enter
-          </button>
-        </div>
-        <p id="bp-password-error" class="mt-2 hidden text-[0.9rem] text-red-300">Nope. Try again.</p>
-      </div>
-
-      <form id="bp-form" class="mt-10 hidden space-y-6">
+      <form id="bp-form" class="mt-10 space-y-6">
         <div>
           <label for="bp-name" class="mb-2 block font-ui text-[0.9rem] font-semibold text-white">Your name</label>
           <input
@@ -436,6 +441,8 @@ const nightOptions = [
     </div>
   </section>
 
+  </div><!-- /bp-content -->
+
   <Footer slot="footer" />
 </BaseLayout>
 
@@ -454,20 +461,21 @@ const nightOptions = [
 </style>
 
 <script>
-  // Password gate
+  // Password gate (protects entire page content)
   const gate = document.getElementById('bp-password-gate');
+  const passwordSection = document.getElementById('bp-password-section');
   const passwordInput = document.getElementById('bp-password') as HTMLInputElement | null;
   const passwordSubmit = document.getElementById('bp-password-submit');
   const passwordError = document.getElementById('bp-password-error');
-  const form = document.getElementById('bp-form') as HTMLFormElement | null;
+  const content = document.getElementById('bp-content');
 
-  if (gate && passwordInput && passwordSubmit && form) {
+  if (gate && passwordSection && passwordInput && passwordSubmit && content) {
     const PASSWORD = 'bro';
 
     function checkPassword() {
       if (passwordInput!.value.toLowerCase().trim() === PASSWORD) {
-        gate!.classList.add('hidden');
-        form!.classList.remove('hidden');
+        passwordSection!.classList.add('hidden');
+        content!.classList.remove('hidden');
       } else {
         passwordError?.classList.remove('hidden');
         passwordInput!.classList.add('border-red-400');
@@ -479,6 +487,8 @@ const nightOptions = [
       if (e.key === 'Enter') checkPassword();
     });
   }
+
+  const form = document.getElementById('bp-form') as HTMLFormElement | null;
 
   // Attendance toggle
   const attendBtns = document.querySelectorAll<HTMLButtonElement>('.bp-attend-btn');
