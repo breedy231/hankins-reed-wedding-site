@@ -6,6 +6,8 @@ interface Props {
 
 const { title, description = 'Join us for our wedding celebration' } = Astro.props;
 const siteTitle = `${title} | Hankins-Reed Wedding`;
+const ogImage = new URL('/images/hero.jpg', Astro.site).toString();
+const canonicalUrl = new URL(Astro.url.pathname, Astro.site).toString();
 ---
 
 <!doctype html>
@@ -22,12 +24,34 @@ const siteTitle = `${title} | Hankins-Reed Wedding`;
     <link rel="preload" href="/fonts/space-grotesk-latin-600-normal.woff2" as="font" type="font/woff2" crossorigin />
 
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="canonical" href={canonicalUrl} />
     <meta name="generator" content={Astro.generator} />
 
     <!-- Theme color for mobile browsers -->
     <meta name="theme-color" content="#4A6FA5" />
 
     <title>{siteTitle}</title>
+
+    <!-- Open Graph / iMessage link preview -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Hankins-Reed Wedding" />
+    <meta property="og:title" content={siteTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:image:secure_url" content={ogImage} />
+    <meta property="og:image:type" content="image/jpeg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="1800" />
+    <meta property="og:image:alt" content="Brendan and Scott's wedding" />
+    <meta property="og:locale" content="en_US" />
+
+    <!-- Twitter Card (also used by some link preview bots) -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={siteTitle} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+    <meta name="twitter:image:alt" content="Brendan and Scott's wedding" />
 
     <!-- PWA Manifest -->
     <link rel="manifest" href="/manifest.json" />
