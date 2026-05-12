@@ -69,4 +69,4 @@ npm run build && npm run typecheck && npm run lint
 
 ## Password
 
-Site password: "turtletime" (stored in environment variable SITE_PASSWORD for CI)
+Site password: "disco" (stored in environment variable SITE_PASSWORD for CI)

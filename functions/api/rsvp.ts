@@ -1,18 +1,5 @@
 import { appendToSheet } from '../lib/google-sheets';
-
-interface RsvpGuest {
-  name: string;
-  meal: string;
-}
-
-interface RsvpBody {
-  guestId: string;
-  guestName: string;
-  attending: boolean;
-  guests?: RsvpGuest[];
-  dietaryNeeds?: string;
-  note?: string;
-}
+import { payloadToRows, type SubmitPayload } from '../../src/lib/rsvp';
 
 interface Env {
   GOOGLE_SERVICE_ACCOUNT_EMAIL?: string;
@@ -34,47 +21,60 @@ function jsonResponse(data: Record<string, unknown>, status = 200): Response {
   });
 }
 
+function isSubmitPayload(body: unknown): body is SubmitPayload {
+  if (!body || typeof body !== 'object') return false;
+  const b = body as Record<string, unknown>;
+  if (typeof b.householdId !== 'string' || !b.householdId) return false;
+  if (typeof b.householdName !== 'string') return false;
+  if (!Array.isArray(b.members) || b.members.length === 0) return false;
+  return b.members.every((m) => {
+    if (!m || typeof m !== 'object') return false;
+    const mm = m as Record<string, unknown>;
+    return (
+      typeof mm.memberId === 'string' &&
+      typeof mm.name === 'string' &&
+      (mm.attending === 'yes' || mm.attending === 'no') &&
+      (mm.attending === 'no' || typeof mm.meal === 'string')
+    );
+  });
+}
+
 export const onRequestPost: PagesFunction<Env> = async (context) => {
   try {
-    const body = await context.request.json() as RsvpBody;
+    const body = (await context.request.json()) as unknown;
 
-    // Validate required fields
-    if (!body.guestId || typeof body.attending !== 'boolean') {
-      return jsonResponse({ success: false, message: 'Missing required fields.' }, 400);
+    if (!isSubmitPayload(body)) {
+      return jsonResponse({ success: false, message: 'Missing or invalid RSVP fields.' }, 400);
     }
 
-    if (body.attending && (!Array.isArray(body.guests) || body.guests.length === 0)) {
-      return jsonResponse({ success: false, message: 'Guest details required when attending.' }, 400);
-    }
+    const sanitized: SubmitPayload = {
+      householdId: sanitize(body.householdId),
+      householdName: sanitize(body.householdName),
+      members: body.members.map((m) => ({
+        memberId: sanitize(m.memberId),
+        name: sanitize(m.name),
+        attending: m.attending,
+        ...(m.attending === 'yes' && m.meal ? { meal: sanitize(m.meal) } : {}),
+      })),
+      dietaryNeeds: body.dietaryNeeds ? sanitize(body.dietaryNeeds) : undefined,
+      note: body.note ? sanitize(body.note) : undefined,
+    };
 
-    const now = new Date().toISOString();
-    const guestName = sanitize(body.guestName || body.guestId);
-    const note = body.note ? sanitize(body.note) : '';
-    const dietaryNeeds = body.dietaryNeeds ? sanitize(body.dietaryNeeds) : '';
+    const rows = payloadToRows(sanitized, new Date().toISOString());
+    await appendToSheet(rows, context.env);
 
-    if (body.attending && body.guests) {
-      const rows = body.guests.map((g) => ({
-        guestId: body.guestId,
-        guestName,
-        attending: true,
-        memberName: sanitize(g.name),
-        mealChoice: sanitize(g.meal),
-        dietaryNeeds,
-        note,
-        submittedAt: now,
-      }));
-      await appendToSheet(rows, context.env);
+    const yes = sanitized.members.filter((m) => m.attending === 'yes').length;
+    const no = sanitized.members.filter((m) => m.attending === 'no').length;
+    let message: string;
+    if (yes > 0 && no === 0) {
+      message = "RSVP received! We can't wait to celebrate with you.";
+    } else if (yes > 0 && no > 0) {
+      message = `Got it — ${yes} attending, ${no} can't make it. Thanks for letting us know.`;
     } else {
-      await appendToSheet([{
-        guestId: body.guestId,
-        guestName,
-        attending: false,
-        note,
-        submittedAt: now,
-      }], context.env);
+      message = "We'll miss you! Thanks for letting us know.";
     }
 
-    return jsonResponse({ success: true, message: body.attending ? 'RSVP received! We can\'t wait to celebrate with you.' : 'We\'ll miss you! Thanks for letting us know.' });
+    return jsonResponse({ success: true, message });
   } catch (err) {
     console.error('RSVP error:', err);
     return jsonResponse({ success: false, message: 'Something went wrong. Please try again or email us.' }, 500);

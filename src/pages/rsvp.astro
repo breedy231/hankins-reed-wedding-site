@@ -53,14 +53,14 @@ const schedule = [
 
           <div id="password-gate">
             <label for="rsvp-password" class="mb-2 block font-display text-[1.25rem] font-semibold text-navy">
-              Enter the password to RSVP
+              Enter the code to RSVP
             </label>
-            <p class="mb-4 text-text-muted">Check your invitation for the password.</p>
+            <p class="mb-4 text-text-muted">Check your invitation for the code.</p>
             <div class="flex gap-3">
               <input
                 id="rsvp-password"
                 type="password"
-                placeholder="Password"
+                placeholder="Code"
                 class="flex-1 rounded-xl border-2 border-light-gray bg-white px-5 py-4 font-body text-[1rem] text-navy placeholder:text-text-muted/60 focus:border-coral focus:outline-none"
               />
               <button
@@ -71,13 +71,13 @@ const schedule = [
                 Enter
               </button>
             </div>
-            <p id="password-error" class="mt-2 hidden text-[0.9rem] text-red-600">Incorrect password. Please try again.</p>
+            <p id="password-error" class="mt-2 hidden text-[0.9rem] text-red-600">Incorrect code. Please try again.</p>
           </div>
 
           <div
             id="rsvp-app"
             class="hidden"
-            data-guests={JSON.stringify(guestsData.guests)}
+            data-households={JSON.stringify(guestsData.households)}
             data-meals={JSON.stringify(mealsData.meals)}
             data-deadline={mealsData.deadline}
           >
@@ -85,6 +85,7 @@ const schedule = [
               <label id="search-label" for="guest-search" class="mb-2 block font-display text-[1.25rem] font-semibold text-navy">
                 Find your name
               </label>
+              <p class="mb-2 text-text-muted">Type any name from your invitation.</p>
               <div class="relative">
                 <input
                   id="guest-search"
@@ -109,59 +110,25 @@ const schedule = [
 
             <div id="step-respond" class="hidden">
               <p class="mb-2 font-display text-[1.25rem] font-semibold text-navy">
-                Hi, <span id="guest-display-name" class="text-coral"></span>!
+                Hi, <span id="household-display-name" class="text-coral"></span>!
               </p>
-              <p class="mb-6 text-text-muted">Will you be joining us?</p>
-              <fieldset>
-                <legend class="sr-only">Will you attend?</legend>
-                <div class="grid grid-cols-2 gap-4">
-                  <button
-                    type="button"
-                    role="radio"
-                    aria-checked="false"
-                    data-value="yes"
-                    class="attend-btn flex min-h-14 items-center justify-center rounded-xl border-2 border-light-gray bg-white font-ui text-[0.95rem] font-semibold text-navy transition-all hover:border-coral hover:bg-coral/5"
-                  >
-                    Joyfully Accept
-                  </button>
-                  <button
-                    type="button"
-                    role="radio"
-                    aria-checked="false"
-                    data-value="no"
-                    class="attend-btn flex min-h-14 items-center justify-center rounded-xl border-2 border-light-gray bg-white font-ui text-[0.95rem] font-semibold text-navy transition-all hover:border-coral hover:bg-coral/5"
-                  >
-                    Regretfully Decline
-                  </button>
-                </div>
-              </fieldset>
-            </div>
+              <p class="mb-6 text-text-muted">Let us know who can make it. Mark each person as attending or not — meal choices appear once you mark someone as attending.</p>
 
-            <div id="step-details-yes" class="hidden">
-              <p class="mb-6 font-display text-[1.25rem] font-semibold text-navy">Party Details</p>
-              <div class="mb-6">
-                <label for="party-size" class="mb-2 block font-ui text-[0.9rem] font-semibold text-navy">Number attending</label>
-                <select id="party-size" class="w-full rounded-xl border-2 border-light-gray bg-white px-5 py-4 font-body text-[1rem] text-navy focus:border-coral focus:outline-none"></select>
-              </div>
-              <div id="guest-rows" class="space-y-6"></div>
+              <div id="member-rows" class="space-y-4"></div>
+
               <div class="mt-6">
-                <label for="dietary-needs" class="mb-2 block font-ui text-[0.9rem] font-semibold text-navy">Dietary restrictions or allergies</label>
+                <label for="dietary-needs" class="mb-2 block font-ui text-[0.9rem] font-semibold text-navy">Dietary restrictions or allergies <span class="font-normal text-text-muted">(optional)</span></label>
                 <textarea id="dietary-needs" rows="2" placeholder="e.g., nut allergy, gluten-free" class="w-full rounded-xl border-2 border-light-gray bg-white px-5 py-4 font-body text-[1rem] text-navy placeholder:text-text-muted/60 focus:border-coral focus:outline-none"></textarea>
               </div>
-              <div class="mt-6">
-                <label for="note-yes" class="mb-2 block font-ui text-[0.9rem] font-semibold text-navy">A note for the couple <span class="font-normal text-text-muted">(optional)</span></label>
-                <textarea id="note-yes" rows="2" placeholder="Well wishes, etc." class="w-full rounded-xl border-2 border-light-gray bg-white px-5 py-4 font-body text-[1rem] text-navy placeholder:text-text-muted/60 focus:border-coral focus:outline-none"></textarea>
-              </div>
-              <button id="submit-yes" type="button" class="mt-8 flex w-full min-h-14 items-center justify-center rounded-full bg-coral px-8 py-4 font-ui text-[0.95rem] font-semibold uppercase tracking-[1px] text-white shadow-[0_4px_20px_rgba(74,111,165,0.25)] transition-all hover:-translate-y-0.5 hover:bg-coral-dark hover:shadow-[0_6px_25px_rgba(74,111,165,0.3)] disabled:opacity-50 disabled:hover:translate-y-0">Send RSVP</button>
-            </div>
 
-            <div id="step-details-no" class="hidden">
-              <p class="mb-4 font-display text-[1.25rem] font-semibold text-navy">We'll miss you!</p>
-              <div class="mb-6">
-                <label for="note-no" class="mb-2 block font-ui text-[0.9rem] font-semibold text-navy">A note for the couple <span class="font-normal text-text-muted">(optional)</span></label>
-                <textarea id="note-no" rows="3" placeholder="Send your well wishes..." class="w-full rounded-xl border-2 border-light-gray bg-white px-5 py-4 font-body text-[1rem] text-navy placeholder:text-text-muted/60 focus:border-coral focus:outline-none"></textarea>
+              <div class="mt-6">
+                <label for="note" class="mb-2 block font-ui text-[0.9rem] font-semibold text-navy">A note for the couple <span class="font-normal text-text-muted">(optional)</span></label>
+                <textarea id="note" rows="2" placeholder="Well wishes, etc." class="w-full rounded-xl border-2 border-light-gray bg-white px-5 py-4 font-body text-[1rem] text-navy placeholder:text-text-muted/60 focus:border-coral focus:outline-none"></textarea>
               </div>
-              <button id="submit-no" type="button" class="flex w-full min-h-14 items-center justify-center rounded-full border-2 border-coral bg-white px-8 py-4 font-ui text-[0.95rem] font-semibold uppercase tracking-[1px] text-coral transition-all hover:bg-coral/5 disabled:opacity-50">Send Regrets</button>
+
+              <p id="validation-summary" class="mt-4 hidden rounded-lg border border-red-300 bg-red-50 p-3 text-[0.9rem] text-red-700" role="alert"></p>
+
+              <button id="submit-rsvp" type="button" class="mt-8 flex w-full min-h-14 items-center justify-center rounded-full bg-coral px-8 py-4 font-ui text-[0.95rem] font-semibold uppercase tracking-[1px] text-white shadow-[0_4px_20px_rgba(74,111,165,0.25)] transition-all hover:-translate-y-0.5 hover:bg-coral-dark hover:shadow-[0_6px_25px_rgba(74,111,165,0.3)] disabled:opacity-50 disabled:hover:translate-y-0">Send RSVP</button>
             </div>
 
             <div id="step-success" class="hidden text-center">
@@ -211,6 +178,19 @@ const schedule = [
 </BaseLayout>
 
 <script>
+  import {
+    attendingCount,
+    decliningCount,
+    findHouseholds,
+    initFormState,
+    setAttendance,
+    setMeal,
+    toSubmitPayload,
+    validate,
+    type Household,
+    type MemberFormState,
+  } from '../lib/rsvp';
+
   // Password gate
   const passwordGate = document.getElementById('password-gate');
   const passwordInput = document.getElementById('rsvp-password') as HTMLInputElement | null;
@@ -219,7 +199,7 @@ const schedule = [
   const app = document.getElementById('rsvp-app');
 
   if (passwordGate && passwordInput && passwordSubmit && app) {
-    const SITE_PASSWORD = 'turtletime';
+    const SITE_PASSWORD = 'disco';
 
     function checkPassword() {
       if (passwordInput!.value.toLowerCase().trim() === SITE_PASSWORD) {
@@ -238,34 +218,31 @@ const schedule = [
   }
 
   if (!app) throw new Error('RSVP app not found');
-  const GUESTS: { id: string; name: string; partySize: number }[] = JSON.parse(app.dataset.guests!);
+  const HOUSEHOLDS: Household[] = JSON.parse(app.dataset.households!);
   const MEALS: { id: string; label: string }[] = JSON.parse(app.dataset.meals!);
   const DEADLINE = app.dataset.deadline!;
 
   // Elements
   const stepLookup = document.getElementById('step-lookup')!;
   const stepRespond = document.getElementById('step-respond')!;
-  const stepDetailsYes = document.getElementById('step-details-yes')!;
-  const stepDetailsNo = document.getElementById('step-details-no')!;
   const stepSuccess = document.getElementById('step-success')!;
   const stepError = document.getElementById('step-error')!;
   const stepClosed = document.getElementById('step-closed')!;
 
   const searchInput = document.getElementById('guest-search') as HTMLInputElement;
   const listbox = document.getElementById('guest-listbox')!;
-  const displayName = document.getElementById('guest-display-name')!;
-  const partySelect = document.getElementById('party-size') as HTMLSelectElement;
-  const guestRowsContainer = document.getElementById('guest-rows')!;
-  const submitYesBtn = document.getElementById('submit-yes')!;
-  const submitNoBtn = document.getElementById('submit-no')!;
+  const householdDisplayName = document.getElementById('household-display-name')!;
+  const memberRows = document.getElementById('member-rows')!;
+  const submitBtn = document.getElementById('submit-rsvp') as HTMLButtonElement;
+  const validationSummary = document.getElementById('validation-summary')!;
+  const successHeading = document.getElementById('success-heading')!;
   const successMessage = document.getElementById('success-message')!;
   const errorMessage = document.getElementById('error-message')!;
   const retryBtn = document.getElementById('retry-btn')!;
 
-  let selectedGuest: typeof GUESTS[0] | null = null;
-  let attending: boolean | null = null;
+  let selectedHousehold: Household | null = null;
+  let formState: MemberFormState[] = [];
   let activeIndex = -1;
-  let lastSubmitData: Record<string, unknown> | null = null;
 
   // Check deadline
   if (new Date() > new Date(DEADLINE + 'T23:59:59')) {
@@ -274,41 +251,39 @@ const schedule = [
   }
 
   function showStep(step: HTMLElement) {
-    [stepLookup, stepRespond, stepDetailsYes, stepDetailsNo, stepSuccess, stepError, stepClosed].forEach(
-      (s) => s.classList.add('hidden'),
-    );
+    [stepLookup, stepRespond, stepSuccess, stepError, stepClosed].forEach((s) => s.classList.add('hidden'));
     step.classList.remove('hidden');
   }
 
   // === Autocomplete ===
-  function filterGuests(query: string) {
-    const q = query.toLowerCase().trim();
-    if (q.length < 2) return [];
-    return GUESTS.filter((g) => g.name.toLowerCase().includes(q));
-  }
-
-  function renderListbox(matches: typeof GUESTS) {
+  function renderListbox(query: string) {
+    const matches = findHouseholds(HOUSEHOLDS, query);
     listbox.innerHTML = '';
     if (matches.length === 0) {
       listbox.classList.add('hidden');
       searchInput.setAttribute('aria-expanded', 'false');
       return;
     }
-    matches.forEach((g, i) => {
+    matches.forEach((m, i) => {
       const li = document.createElement('li');
       li.id = `guest-option-${i}`;
       li.role = 'option';
       li.setAttribute('aria-selected', 'false');
-      li.className =
-        'cursor-pointer px-5 py-3 font-body text-[1rem] text-navy hover:bg-coral/10 transition-colors';
-      li.textContent = g.name;
-      if (g.partySize > 1) {
+      li.className = 'cursor-pointer px-5 py-3 font-body text-[1rem] text-navy hover:bg-coral/10 transition-colors';
+      li.textContent = m.household.displayName;
+      if (m.matchedOn !== m.household.displayName) {
         const badge = document.createElement('span');
         badge.className = 'ml-2 text-[0.8rem] text-text-muted';
-        badge.textContent = `(party of ${g.partySize})`;
+        badge.textContent = `(${m.matchedOn})`;
         li.appendChild(badge);
       }
-      li.addEventListener('click', () => selectGuest(g));
+      if (m.household.members.length > 1) {
+        const count = document.createElement('span');
+        count.className = 'ml-2 text-[0.8rem] text-text-muted';
+        count.textContent = `· party of ${m.household.members.length}`;
+        li.appendChild(count);
+      }
+      li.addEventListener('click', () => selectHousehold(m.household));
       listbox.appendChild(li);
     });
     listbox.classList.remove('hidden');
@@ -331,10 +306,7 @@ const schedule = [
     });
   }
 
-  searchInput.addEventListener('input', () => {
-    const matches = filterGuests(searchInput.value);
-    renderListbox(matches);
-  });
+  searchInput.addEventListener('input', () => renderListbox(searchInput.value));
 
   searchInput.addEventListener('keydown', (e) => {
     const items = listbox.querySelectorAll('[role="option"]');
@@ -348,15 +320,14 @@ const schedule = [
       setActiveDescendant(activeIndex);
     } else if (e.key === 'Enter' && activeIndex >= 0) {
       e.preventDefault();
-      const matches = filterGuests(searchInput.value);
-      if (matches[activeIndex]) selectGuest(matches[activeIndex]);
+      const matches = findHouseholds(HOUSEHOLDS, searchInput.value);
+      if (matches[activeIndex]) selectHousehold(matches[activeIndex].household);
     } else if (e.key === 'Escape') {
       listbox.classList.add('hidden');
       searchInput.setAttribute('aria-expanded', 'false');
     }
   });
 
-  // Close listbox on outside click
   document.addEventListener('click', (e) => {
     if (!stepLookup.contains(e.target as Node)) {
       listbox.classList.add('hidden');
@@ -364,103 +335,92 @@ const schedule = [
     }
   });
 
-  function selectGuest(guest: typeof GUESTS[0]) {
-    selectedGuest = guest;
-    searchInput.value = guest.name;
+  function selectHousehold(household: Household) {
+    selectedHousehold = household;
+    formState = initFormState(household);
+    searchInput.value = household.displayName;
     listbox.classList.add('hidden');
     searchInput.setAttribute('aria-expanded', 'false');
 
-    displayName.textContent = guest.name;
+    householdDisplayName.textContent = household.displayName;
+    renderMemberRows();
+    validationSummary.classList.add('hidden');
     showStep(stepRespond);
-
-    // Reset attendance selection
-    attending = null;
-    document.querySelectorAll('.attend-btn').forEach((btn) => {
-      btn.setAttribute('aria-checked', 'false');
-      btn.classList.remove('border-coral', 'bg-coral/10', 'text-coral');
-      btn.classList.add('border-light-gray');
-    });
   }
 
-  // === Attendance Toggle ===
-  document.querySelectorAll('.attend-btn').forEach((btn) => {
-    btn.addEventListener('click', () => {
-      const value = (btn as HTMLElement).dataset.value;
-      attending = value === 'yes';
+  // === Per-member rows ===
+  function renderMemberRows() {
+    memberRows.innerHTML = '';
+    const mealOptions = MEALS.map((m) => `<option value="${escapeHtml(m.id)}">${escapeHtml(m.label)}</option>`).join('');
 
-      document.querySelectorAll('.attend-btn').forEach((b) => {
-        const isSelected = (b as HTMLElement).dataset.value === value;
-        b.setAttribute('aria-checked', String(isSelected));
-        b.classList.toggle('border-coral', isSelected);
-        b.classList.toggle('bg-coral/10', isSelected);
-        b.classList.toggle('text-coral', isSelected);
-        b.classList.toggle('border-light-gray', !isSelected);
-      });
-
-      if (attending) {
-        buildDetailsForm();
-        showStep(stepDetailsYes);
-      } else {
-        showStep(stepDetailsNo);
-      }
-    });
-  });
-
-  // === Details Form (Yes path) ===
-  function buildDetailsForm() {
-    if (!selectedGuest) return;
-    const max = selectedGuest.partySize;
-
-    // Party size dropdown
-    partySelect.innerHTML = '';
-    for (let i = 1; i <= max; i++) {
-      const opt = document.createElement('option');
-      opt.value = String(i);
-      opt.textContent = String(i);
-      if (i === max) opt.selected = true;
-      partySelect.appendChild(opt);
-    }
-
-    renderGuestRows(max);
-    partySelect.addEventListener('change', () => {
-      renderGuestRows(parseInt(partySelect.value, 10));
-    });
-  }
-
-  function renderGuestRows(count: number) {
-    guestRowsContainer.innerHTML = '';
-    const mealOptions = MEALS.map((m) => `<option value="${m.id}">${m.label}</option>`).join('');
-
-    for (let i = 0; i < count; i++) {
+    formState.forEach((member) => {
       const row = document.createElement('div');
       row.className = 'rounded-xl border border-light-gray bg-white p-5';
+      row.dataset.memberId = member.memberId;
+
+      const yesId = `attend-yes-${member.memberId}`;
+      const noId = `attend-no-${member.memberId}`;
+      const mealId = `meal-${member.memberId}`;
+
       row.innerHTML = `
-        <p class="mb-3 font-ui text-[0.85rem] font-semibold uppercase tracking-[1px] text-text-muted">Guest ${i + 1}</p>
-        <div class="mb-4">
-          <label for="guest-name-${i}" class="mb-1 block font-ui text-[0.9rem] font-semibold text-navy">Name</label>
-          <input
-            id="guest-name-${i}"
-            type="text"
-            required
-            placeholder="Full name"
-            class="guest-name-input w-full rounded-lg border-2 border-light-gray bg-white px-4 py-3 font-body text-[1rem] text-navy placeholder:text-text-muted/60 focus:border-coral focus:outline-none"
-            value="${i === 0 && selectedGuest ? escapeHtml(selectedGuest.name.split('&')[0].trim()) : ''}"
-          />
-        </div>
+        <p class="mb-3 font-ui text-[0.95rem] font-semibold text-navy">${escapeHtml(member.name)}</p>
         <fieldset>
-          <legend class="mb-2 font-ui text-[0.9rem] font-semibold text-navy">Meal choice</legend>
+          <legend class="sr-only">Will ${escapeHtml(member.name)} attend?</legend>
+          <div class="grid grid-cols-2 gap-3">
+            <button
+              type="button"
+              role="radio"
+              id="${yesId}"
+              aria-checked="${member.attending === 'yes'}"
+              data-member="${escapeHtml(member.memberId)}"
+              data-value="yes"
+              class="member-attend-btn flex min-h-12 items-center justify-center rounded-lg border-2 ${member.attending === 'yes' ? 'border-coral bg-coral/10 text-coral' : 'border-light-gray bg-white text-navy'} font-ui text-[0.9rem] font-semibold transition-all hover:border-coral hover:bg-coral/5"
+            >Attending</button>
+            <button
+              type="button"
+              role="radio"
+              id="${noId}"
+              aria-checked="${member.attending === 'no'}"
+              data-member="${escapeHtml(member.memberId)}"
+              data-value="no"
+              class="member-attend-btn flex min-h-12 items-center justify-center rounded-lg border-2 ${member.attending === 'no' ? 'border-coral bg-coral/10 text-coral' : 'border-light-gray bg-white text-navy'} font-ui text-[0.9rem] font-semibold transition-all hover:border-coral hover:bg-coral/5"
+            >Not attending</button>
+          </div>
+        </fieldset>
+        <div class="meal-wrapper mt-4 ${member.attending === 'yes' ? '' : 'hidden'}">
+          <label for="${mealId}" class="mb-1 block font-ui text-[0.85rem] font-semibold text-navy">Meal choice</label>
           <select
-            id="guest-meal-${i}"
-            class="guest-meal-select w-full rounded-lg border-2 border-light-gray bg-white px-4 py-3 font-body text-[1rem] text-navy focus:border-coral focus:outline-none"
-            required
+            id="${mealId}"
+            data-member="${escapeHtml(member.memberId)}"
+            class="member-meal-select w-full rounded-lg border-2 border-light-gray bg-white px-4 py-3 font-body text-[1rem] text-navy focus:border-coral focus:outline-none"
           >
             <option value="">Select a meal…</option>
             ${mealOptions}
           </select>
-        </fieldset>
+        </div>
       `;
-      guestRowsContainer.appendChild(row);
-    }
+
+      const select = row.querySelector('.member-meal-select') as HTMLSelectElement;
+      if (member.meal) select.value = member.meal;
+
+      memberRows.appendChild(row);
+    });
+
+    memberRows.querySelectorAll('.member-attend-btn').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const memberId = (btn as HTMLElement).dataset.member!;
+        const value = (btn as HTMLElement).dataset.value as 'yes' | 'no';
+        formState = setAttendance(formState, memberId, value);
+        renderMemberRows();
+      });
+    });
+
+    memberRows.querySelectorAll('.member-meal-select').forEach((sel) => {
+      sel.addEventListener('change', () => {
+        const memberId = (sel as HTMLElement).dataset.member!;
+        formState = setMeal(formState, memberId, (sel as HTMLSelectElement).value);
+      });
+    });
   }
 
   function escapeHtml(str: string): string {
@@ -470,12 +430,30 @@ const schedule = [
   }
 
   // === Submission ===
-  async function submitRsvp(data: Record<string, unknown>) {
-    lastSubmitData = data;
-    const activeBtn = attending ? submitYesBtn : submitNoBtn;
-    activeBtn.setAttribute('disabled', '');
-    const originalText = activeBtn.textContent;
-    activeBtn.innerHTML = `
+  let lastPayload: ReturnType<typeof toSubmitPayload> | null = null;
+
+  async function submitRsvp() {
+    if (!selectedHousehold) return;
+
+    const v = validate(formState);
+    if (!v.ok) {
+      validationSummary.textContent = v.reasons[0];
+      validationSummary.classList.remove('hidden');
+      return;
+    }
+    validationSummary.classList.add('hidden');
+
+    const dietary = (document.getElementById('dietary-needs') as HTMLTextAreaElement).value.trim();
+    const note = (document.getElementById('note') as HTMLTextAreaElement).value.trim();
+    const payload = toSubmitPayload(selectedHousehold, formState, {
+      dietaryNeeds: dietary || undefined,
+      note: note || undefined,
+    });
+    lastPayload = payload;
+
+    submitBtn.setAttribute('disabled', '');
+    const originalText = submitBtn.textContent;
+    submitBtn.innerHTML = `
       <svg class="mr-2 h-5 w-5 animate-spin" viewBox="0 0 24 24" fill="none" aria-hidden="true">
         <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
         <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"></path>
@@ -483,16 +461,28 @@ const schedule = [
       Sending…
     `;
 
+    const yesCount = attendingCount(formState);
+    const noCount = decliningCount(formState);
+
     try {
       const resp = await fetch('/api/rsvp', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(data),
+        body: JSON.stringify(payload),
       });
-      const result = await resp.json() as { success: boolean; message: string };
+      const result = (await resp.json()) as { success: boolean; message: string };
 
       if (result.success) {
-        successMessage.textContent = result.message;
+        if (yesCount > 0 && noCount === 0) {
+          successHeading.textContent = 'Thank you!';
+          successMessage.textContent = `We can't wait to celebrate with all ${yesCount} of you.`;
+        } else if (yesCount > 0 && noCount > 0) {
+          successHeading.textContent = 'Got it!';
+          successMessage.textContent = `Got it — ${yesCount} attending, ${noCount} can't make it. We'll miss them and can't wait to see you.`;
+        } else {
+          successHeading.textContent = "We'll miss you!";
+          successMessage.textContent = 'Thanks for letting us know.';
+        }
         showStep(stepSuccess);
       } else {
         errorMessage.textContent = result.message;
@@ -502,64 +492,15 @@ const schedule = [
       errorMessage.textContent = 'Network error. Please check your connection and try again.';
       showStep(stepError);
     } finally {
-      activeBtn.removeAttribute('disabled');
-      activeBtn.textContent = originalText;
+      submitBtn.removeAttribute('disabled');
+      submitBtn.textContent = originalText;
     }
   }
 
-  submitYesBtn.addEventListener('click', () => {
-    if (!selectedGuest) return;
-    const names = document.querySelectorAll<HTMLInputElement>('.guest-name-input');
-    const meals = document.querySelectorAll<HTMLSelectElement>('.guest-meal-select');
-    const guests: { name: string; meal: string }[] = [];
-
-    let valid = true;
-    names.forEach((input, i) => {
-      const name = input.value.trim();
-      const meal = meals[i]?.value;
-      if (!name || !meal) {
-        valid = false;
-        if (!name) input.classList.add('border-red-400');
-        if (!meal) meals[i]?.classList.add('border-red-400');
-      } else {
-        input.classList.remove('border-red-400');
-        meals[i]?.classList.remove('border-red-400');
-        guests.push({ name, meal });
-      }
-    });
-
-    if (!valid) return;
-
-    const dietary = (document.getElementById('dietary-needs') as HTMLTextAreaElement).value;
-    const note = (document.getElementById('note-yes') as HTMLTextAreaElement).value;
-
-    submitRsvp({
-      guestId: selectedGuest.id,
-      guestName: selectedGuest.name,
-      attending: true,
-      guests,
-      dietaryNeeds: dietary,
-      note,
-    });
-  });
-
-  submitNoBtn.addEventListener('click', () => {
-    if (!selectedGuest) return;
-    const note = (document.getElementById('note-no') as HTMLTextAreaElement).value;
-    submitRsvp({
-      guestId: selectedGuest.id,
-      guestName: selectedGuest.name,
-      attending: false,
-      note,
-    });
-  });
+  submitBtn.addEventListener('click', submitRsvp);
 
   retryBtn.addEventListener('click', () => {
-    if (lastSubmitData) {
-      if (attending) showStep(stepDetailsYes);
-      else showStep(stepDetailsNo);
-    } else {
-      showStep(stepLookup);
-    }
+    if (lastPayload) showStep(stepRespond);
+    else showStep(stepLookup);
   });
 </script>
