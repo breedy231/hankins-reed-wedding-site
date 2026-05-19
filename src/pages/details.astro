@@ -11,6 +11,28 @@ import venuesData from '../data/venues.json';
 
   <Hero title="The Details" subtitle="Everything you need to know about our day" />
 
+  <!-- Welcome Drinks (Friday) -->
+  <section class="px-6 py-24" aria-labelledby="welcome-drinks-heading">
+    <div class="mx-auto max-w-2xl text-center">
+      <p class="font-ui text-[0.8rem] font-semibold uppercase tracking-[3px] text-coral">Friday, August 21, 2026</p>
+      <h2 id="welcome-drinks-heading" class="mt-4 font-display text-[2.2rem] font-normal text-navy">Welcome Drinks</h2>
+      <p class="mt-4 font-display text-[1.5rem] text-coral">River Roast</p>
+      <p class="mt-2 text-[1.05rem] text-navy">6:00 PM to 9:00 PM</p>
+      <p class="mx-auto mt-4 max-w-lg text-pretty text-text-muted">
+        Join us the night before for beer, wine, and heavy hors d'oeuvres. Come for an hour or stay the whole evening, however you want to kick off the weekend.
+      </p>
+      <a
+        href="https://www.google.com/maps/search/?api=1&query=River+Roast+Chicago"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="mt-6 inline-block rounded-full bg-coral px-6 py-3 font-ui text-[0.95rem] font-semibold uppercase tracking-[1px] text-white transition-all hover:-translate-y-0.5 hover:bg-coral-dark"
+      >
+        View on Map
+        <span class="sr-only">(opens in new tab)</span>
+      </a>
+    </div>
+  </section>
+
   <!-- Venue -->
   <section class="bg-light-cream px-6 py-24" aria-labelledby="venue-heading">
     <div class="mx-auto max-w-4xl text-center">
@@ -62,6 +84,30 @@ import venuesData from '../data/venues.json';
         August in Chicago is warm with temperatures typically between 70&deg;F and 85&deg;F.
         We recommend bringing a light layer for the evening.
       </p>
+    </div>
+  </section>
+
+  <!-- Learn the Dance -->
+  <section class="bg-light-cream px-6 py-24" aria-labelledby="dance-heading">
+    <div class="mx-auto max-w-md text-center">
+      <p class="font-ui text-[0.8rem] font-semibold uppercase tracking-[3px] text-coral">For the reception</p>
+      <h2 id="dance-heading" class="mt-3 font-display text-[2.2rem] font-normal text-navy">Learn the Dance</h2>
+      <p class="mx-auto mt-4 text-pretty text-text-muted">
+        We're teaching everyone a little something for the reception. Practice along, no pressure, just fun.
+      </p>
+      <div class="mx-auto mt-8 aspect-[9/16] w-full max-w-xs overflow-hidden rounded-2xl bg-navy/5 shadow-[0_8px_30px_rgba(13,18,64,0.15)]">
+        <video
+          class="h-full w-full object-cover"
+          controls
+          playsinline
+          preload="metadata"
+          poster="/videos/dance-poster.jpg"
+        >
+          <source src="/videos/dance.mp4" type="video/mp4" />
+          Your browser doesn't support embedded video.
+          <a href="/videos/dance.mp4" class="text-coral underline">Download the video</a> instead.
+        </video>
+      </div>
     </div>
   </section>
 

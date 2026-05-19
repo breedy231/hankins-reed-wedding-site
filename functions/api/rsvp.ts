@@ -69,7 +69,7 @@ export const onRequestPost: PagesFunction<Env> = async (context) => {
     if (yes > 0 && no === 0) {
       message = "RSVP received! We can't wait to celebrate with you.";
     } else if (yes > 0 && no > 0) {
-      message = `Got it — ${yes} attending, ${no} can't make it. Thanks for letting us know.`;
+      message = `Got it: ${yes} attending, ${no} can't make it. Thanks for letting us know.`;
     } else {
       message = "We'll miss you! Thanks for letting us know.";
     }

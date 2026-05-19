@@ -112,7 +112,7 @@ const schedule = [
               <p class="mb-2 font-display text-[1.25rem] font-semibold text-navy">
                 Hi, <span id="household-display-name" class="text-coral"></span>!
               </p>
-              <p class="mb-6 text-text-muted">Let us know who can make it. Mark each person as attending or not — meal choices appear once you mark someone as attending.</p>
+              <p class="mb-6 text-text-muted">Let us know who can make it. Mark each person as attending or not. Meal choices appear once you mark someone as attending.</p>
 
               <div id="member-rows" class="space-y-4"></div>
 
@@ -145,7 +145,7 @@ const schedule = [
                   <p class="font-ui text-[0.8rem] font-semibold uppercase tracking-[3px] text-coral">One more thing</p>
                   <h3 class="mt-3 font-display text-[1.75rem] font-normal text-navy">Learn the dance</h3>
                   <p class="mx-auto mt-3 text-pretty text-text-muted">
-                    We're teaching everyone a little something for the reception. Practice along — no pressure, just fun.
+                    We're teaching everyone a little something for the reception. Practice along, no pressure, just fun.
                   </p>
                   <div class="mx-auto mt-6 aspect-[9/16] w-full max-w-xs overflow-hidden rounded-2xl bg-navy/5 shadow-[0_8px_30px_rgba(13,18,64,0.15)]">
                     <video
@@ -503,7 +503,7 @@ const schedule = [
           successMessage.textContent = `We can't wait to celebrate with all ${yesCount} of you.`;
         } else if (yesCount > 0 && noCount > 0) {
           successHeading.textContent = 'Got it!';
-          successMessage.textContent = `Got it — ${yesCount} attending, ${noCount} can't make it. We'll miss them and can't wait to see you.`;
+          successMessage.textContent = `Got it: ${yesCount} attending, ${noCount} can't make it. We'll miss them and can't wait to see you.`;
         } else {
           successHeading.textContent = "We'll miss you!";
           successMessage.textContent = 'Thanks for letting us know.';
