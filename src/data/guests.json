@@ -1,0 +1,43 @@
+{
+  "households": [
+    {
+      "id": "the-lovelace-family",
+      "displayName": "The Lovelace Family",
+      "members": [
+        { "id": "ada-lovelace", "name": "Ada Lovelace" },
+        { "id": "william-lovelace", "name": "William Lovelace" }
+      ]
+    },
+    {
+      "id": "grace-hopper",
+      "displayName": "Ms. Grace Hopper",
+      "members": [
+        { "id": "grace-hopper", "name": "Grace Hopper" }
+      ]
+    },
+    {
+      "id": "alan-turing-and-guest",
+      "displayName": "Alan Turing + Guest",
+      "members": [
+        { "id": "alan-turing", "name": "Alan Turing" },
+        { "id": "alan-turing-guest", "name": "Guest of Alan Turing" }
+      ]
+    },
+    {
+      "id": "the-hamilton-family",
+      "displayName": "The Hamilton Family",
+      "members": [
+        { "id": "margaret-hamilton", "name": "Margaret Hamilton" },
+        { "id": "james-hamilton", "name": "James Hamilton" },
+        { "id": "lauren-hamilton", "name": "Lauren Hamilton" }
+      ]
+    },
+    {
+      "id": "katherine-johnson",
+      "displayName": "Dr. Katherine Johnson",
+      "members": [
+        { "id": "katherine-johnson", "name": "Katherine Johnson" }
+      ]
+    }
+  ]
+}
